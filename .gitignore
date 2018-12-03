@@ -1,5 +1,0 @@
-local_settings.py
-*.poc
-*.pyc
-*.log
-__pycache__/
