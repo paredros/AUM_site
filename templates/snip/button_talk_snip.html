@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<div class="TalkAdmission_holder" onclick="window.open('{{ buttonsgeneral.TalkToAdmissionLink |safe }}');">
+    <img class="TalkAdmission_icon" src="{% static 'icons/contact.png' %}" class="img-fluid">
+    <div class="TalkAdmission_text">{{ buttonsgeneral.TalkToAdmission | safe }}</div>
+    <div class="MoreButton">
+        <div class="MoreButton_Over">
+            {{ buttonsgeneral.TalkToAdmissionShort | safe }}
+            <div class="MoreButtonBarra">
+                <div class="BarraAnim_Idle"></div>
+            </div>
+        </div>
+        {% if button_coloricon == 'white' %}
+            <img src="{% static 'icons/FlechaRight2White.png' %}">
+        {% else %}
+            <img src="{% static 'icons/FlechaRight2.png' %}">
+        {% endif %}
+    </div>
+</div>

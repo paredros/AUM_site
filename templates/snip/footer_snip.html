@@ -1,0 +1,202 @@
+{% load staticfiles %}
+<div class="w-100" style="background-color: #121212">
+    <div id="Footer" class="container text-white">
+        <div class="row">
+            {% for group in footernav.groups %}
+                {% if group.type == "column" %}
+                    {% if group.size == 2 %}
+                    <div class="col-lg-2 mt-5 ">
+                    {% endif %}
+                        {% for content_group in group.content %}
+
+                            {% if content_group.type == "group" %}
+                                <div class="footer_GroupTitle">
+                                    {{ content_group.title |safe}}
+                                </div>
+                                <div class="Space-10"></div>
+                                {% for element in content_group.elements %}
+                                    {% if element.type == "link" %}
+                                        <div class="footer_Item">
+                                            {% if element.url.type == "internal" %}
+                                                {% if element.url.param %}
+                                                    {% if element.url.anchor %}
+                                                    <a href="{% url element.url.dir element.url.param %}#{{ element.url.anchor }}">{{ element.text|safe }}</a>
+                                                    {% else %}
+                                                    <a href="{% url element.url.dir element.url.param %}">{{ element.text|safe }}</a>
+                                                        {% endif %}
+                                                {% else %}
+                                                    {% if element.url.anchor %}
+                                                    <a href="{% url element.url.dir %}#{{ element.url.anchor }}">{{ element.text|safe }}</a>
+                                                    {% else %}
+                                                    <a href="{% url element.url.dir %}">{{ element.text|safe }}</a>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% else %}
+                                                {% if element.url.anchor %}
+                                                <a href="{{ element.url.dir }}#{{ element.url.anchor }}" target="_blank">{{ element.text|safe }}</a>
+                                                {% else %}
+                                                <a href="{{ element.url.dir }}" target="_blank">{{ element.text|safe }}</a>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
+                                    {% elif element.type == "social" %}
+                                        {% include 'snip/social_snip.html' with social=element.value %}
+                                    {% elif element.type == "input" %}
+                                        <div class="form-group">
+
+                                            <!--input type="email" class="form-control footer_Input" id="newsletterSubscribe" aria-describedby="emailHelp" placeholder="{{ element.data.hint }}"-->
+                                            {% if "Newsletter" in msgs_alert.keys %}
+                                                <small id="emailHelp" class="form-text text-muted footer_Text">Thanks For Your Subscription</small>
+                                            {% else %}
+                                                <small id="emailHelp" class="form-text text-muted footer_Text">{{ element.text }}</small>
+                                                <form method="post" id="usrnewsletter">
+                                                    {% csrf_token %}
+                                                    {{ formnewsletter }}
+                                                </form>
+                                                <div class="Space-10"></div>
+                                                <div class="footer_Button">
+                                                    <div class="MoreButton MoreButton_H30" onclick="$('#usrnewsletter').submit()">
+                                                        <div class="MoreButton_Over MoreButton_H30">
+                                                            Send
+                                                            <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                                                <div class="BarraAnim_Idle"></div>
+                                                            </div>
+                                                        </div>
+                                                        <img src="{% static 'icons/FlechaRight2White.png' %}">
+
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                                <div class="Space-25"></div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <!--div class="col-lg-2 mt-5 ">
+                <div class="footer_GroupTitle">
+                    Academic
+                </div>
+                <div class="Space-10"></div>
+                <div class="footer_Item">
+                    General Education
+                </div>
+                <div class="footer_Item">
+                    English For Academic Purposes
+                </div>
+                <div class="footer_Item">
+                    Bachelor Degree Programs
+                </div>
+                <div class="footer_Item">
+                    Message from Provost
+                </div>
+                <div class="footer_Item">
+                    Faculty
+                </div>
+            </div>
+            <div class="col-lg-2 mt-5 ">
+                <div class="footer_GroupTitle">
+                    Admissions
+                </div>
+                <div class="Space-10"></div>
+                <div class="footer_Item">
+                    Undergraduate
+                </div>
+                <div class="footer_Item">
+                    Graduate
+                </div>
+                <div class="footer_Item">
+                    Tuition & Fees
+                </div>
+                <div class="footer_Item">
+                    Student Visa
+                </div>
+                <div class="footer_Item">
+                    Scholarship
+                </div>
+            </div>
+            <div class="col-lg-2 mt-5 ">
+                <div class="footer_GroupTitle">
+                    AUM Live
+                </div>
+                <div class="Space-10"></div>
+                <div class="footer_Item">
+                    Blog
+                </div>
+                <div class="Space-25"></div>
+                <div class="footer_GroupTitle">
+                    About
+                </div>
+                <div class="Space-10"></div>
+                <div class="footer_Item">
+                    About Us
+                </div>
+                <div class="footer_Item">
+                    Contact Us
+                </div>
+            </div>
+            <div class="col-lg-2 mt-5 ">
+                <div class="footer_GroupTitle">
+                    Follow Us
+                </div>
+                <div class="Space-10"></div>
+                <div class="d-inline-flex">
+                    <div class="footer_Icon">
+                        <img src="{% static 'icons/close-envelope.png' %}">
+                    </div>
+                    <div class="footer_Icon">
+                        <img src="{% static 'icons/facebook-letter-logo-2.png' %}">
+                    </div>
+                    <div class="footer_Icon">
+                        <img src="{% static 'icons/linkedin-logo-2.png' %}">
+                    </div>
+                    <div class="footer_Icon">
+                        <img src="{% static 'icons/twitter-logo-silhouette-2.png' %}">
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2 mt-5 ">
+            </div>
+            <div class="col-lg-2 mt-5 ">
+                <div class="footer_GroupTitle">
+                    Newsletter
+                </div>
+                <div class="form-group">
+                    <small id="emailHelp" class="form-text text-muted footer_Text">Subscribe to our newsletter</small>
+                    <input type="email" class="form-control footer_Input" id="newsletterSubscribe" aria-describedby="emailHelp" placeholder="Enter your email">
+                    <div class="Space-10"></div>
+                    <div class="footer_Button">
+                        <div class="MoreButton MoreButton_H30">
+                            <div class="MoreButton_Over MoreButton_H30">
+                                Send
+                                <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            <img src="{% static 'icons/FlechaRight2White.png' %}">
+
+                        </div>
+                    </div>
+                </div>
+            </div-->
+        </div>
+    </div>
+</div>
+<script>
+    function FooterEnable() {
+        $(".footer_Button").hover(function () {
+            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+        }, function () {
+            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+        })
+
+    }
+</script>

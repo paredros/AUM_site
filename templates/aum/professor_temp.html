@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    {% include 'snip/hero_snip.html' %}
+    {% include 'snip/topbanner_snip.html' %}
+
+    <!--ABOUT-->
+    {% include "snip/white_section_columns_snip.html" with blocks1=sectionMain %}
+
+    <!--CURRENT POSITION-->
+    {% include "snip/white_section_columns_snip.html" with blocks1=sectionCurrentPos %}
+
+    <!--SKILLS-->
+    {% include "snip/white_section_columns_snip.html" with blocks1=skillsanddata %}
+
+    <div class="Space-100"></div>
+
+    <!--BLOG-->
+    {% include 'snip/blog_snip.html' with bb_contextitle=settingstop.texttop %}
+    <div class="Space-200"></div>
+    {% include 'snip/footer_snip.html' %}
+
+    <script>
+    function ScriptContent() {
+
+        $('.AutoSizeTextOneLine').textfill({maxFontPixels: 200});
+
+        var controller = new ScrollMagic.Controller({loglevel: 3});
+
+        if($('#BlogParallax').length){
+            BlogEnabled(controller);
+        }
+        HeroVideoBackEnable();
+        TopBannerActivation();
+        BannerCircActivation();
+    }
+    </script>
+{% endblock content %}

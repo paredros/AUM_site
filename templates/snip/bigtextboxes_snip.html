@@ -1,0 +1,35 @@
+{% load staticfiles %}
+<div class="container mt-lg-5">
+    <div class="d-flex justify-content-between SpaceMin-400 zoomIn wow">
+        {% for value in blocks1.value %}
+            <div class="p-1 MiFlex_Even p-2" >
+                {% if value.hasbutton %}
+                    {% if value.url.type == "internal" %}
+                        {% if value.url.anchor %}
+                            <div class="MaltaTextoHolder IsButton" onclick="window.location='{% url value.url.dir value.url.param %}#{{ value.url.anchor }}';">
+                        {% else %}
+                            <div class="MaltaTextoHolder IsButton" onclick="window.location='{% url value.url.dir value.url.param %}';">
+                        {% endif %}
+                    {% elif value.url.type == "external" %}
+                        {% if value.url.anchor %}
+                            <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{{ value.url.dir }}#{{ value.url.anchor }}';">
+                        {% else %}
+                            <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{{ value.url.dir }}';">
+                        {% endif %}
+                    {% endif %}
+                {% else %}
+                    <div class="MaltaTextoHolder">
+                {% endif %}
+                    <div class="MaltaTextoHolderBarra">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                    <h1>{{ value.title|safe }}</h1>
+                    <p>
+                        {{ value.body|safe }}
+                    </p>
+                    <img src="{% static 'icons/FlechaRight2.png' %}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

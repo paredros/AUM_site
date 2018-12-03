@@ -1,0 +1,84 @@
+{% load staticfiles %}
+<!--
+settingsapply
+'call':applybanner.callToAction,
+        'landing1':applybanner.landing1,
+        'landing2': applybanner.landing2,
+        'tipo':'circulo' | largo, circulo
+
+mb_type= por ahora solo apply
+mb_backred=True
+-->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="temp_BannerCircMini blackAUM" >
+                <div class="CirculoCentralImage mx-auto" style="background-color: #ffffff">
+                    <div class="{{ mb_backred|yesno:'HeroBannerApplyButton_Red,HeroBannerApplyButton' }}" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
+                        <table class="Table-FullSize">
+                          <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <h1>
+                                        {{ settingsapply.call|safe }}
+                                    </h1>
+                                    <h4><img src="{% static 'icons/down-arrow.png' %}"></h4>
+                                    {% if not settingsapply.landing1 or settingsapply.landing1 != "" %}
+                                        <h2>{{ settingsapply.landing1|safe }}</h2>
+                                    {% endif %}
+                                    {% if not settingsapply.landing2 or settingsapply.landing2 != "" %}
+                                        <h3>{{ settingsapply.landing2|safe }}</h3>
+                                    {% endif %}
+                                    <div class="HeroBannerApplyBarra">
+                                        <div class="BarraAnim_Idle"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function BannerCircActivation() {
+            $(".HeroBannerApplyButton").hover(function() {
+                $(this).css('cursor','pointer');
+                {% if mb_backred %}
+                    $(this).parent().addClass('CirculoCentralImageOver_red');
+                {% else %}
+                    $(this).parent().addClass('CirculoCentralImageOver');
+                {% endif %}
+                $(this).addClass('text-white');
+                $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+                {% if mb_backred %}
+                    $(this).parent().removeClass('CirculoCentralImageOver_red');
+                {% else %}
+                    $(this).parent().removeClass('CirculoCentralImageOver');
+                {% endif %}
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+            $(".HeroBannerApplyButton_Red").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).parent().addClass('CirculoCentralImageOver_red');
+                $(this).addClass('text-white');
+                $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).parent().removeClass('CirculoCentralImageOver_red');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+    }
+</script>
+

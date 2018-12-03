@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<div id="MiniButtonLeaf1" class="SidButtonMini_holder" onclick="window.open('{{ data.leafletUrl |safe }}');">
+    <img class="SidButtonMini_icon" src="{% static 'icons/leaflet.png' %}" class="img-fluid">
+    <div class="SidButtonMini_text">{{ buttonsgeneral.GetLeaf | safe }}</div>
+    <div class="MoreButton MoreButton_H30">
+        <div class="MoreButton_Over MoreButton_H30">
+            {{ buttonsgeneral.GetLeafShort | safe }}
+            <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                <div class="BarraAnim_Idle"></div>
+            </div>
+        </div>
+        {% if button_coloricon == 'white' %}
+            <img src="{% static 'icons/FlechaRight2White.png' %}">
+        {% else %}
+            <img src="{% static 'icons/FlechaRight2.png' %}">
+        {% endif %}
+    </div>
+</div>

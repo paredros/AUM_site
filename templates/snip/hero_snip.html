@@ -1,0 +1,364 @@
+{% load staticfiles %}
+
+<!--CHEQUEAR EL TIPO DE HEADER EN la data que pasa-->
+
+<!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
+<!--
+usevideo=False useimg=True imgurl=data.bigImage.url tintoverlay=0.9
+usebackcolor=False colorback=#121212
+typemodel=home, program
+minilogotxt="MBP"
+invertnavcolor=true
+usefontrich=si usa tipo que reacciona al bold
+-->
+
+{% if settingstop.useimg %}
+<div id="VideoBack" class="backgroundImgResponsive ForceMinHeight" style="background-image: url({{ settingstop.imgurl }})">
+    <!--div id="VideoBack" class="backgroundImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})"-->
+
+{% elif settingstop.usebackcolor%}
+<div id="VideoBack" class="ForceMinHeight" style="background-color: {{ settingstop.colorback }}">
+{% else %}
+<div id="VideoBack" class="ForceMinHeight">
+{% endif %}
+    {% if settingstop.usevideo %}
+    <video autoplay muted loop class="bv-video">
+    </video>
+    {% endif %}
+</div>
+
+<div class="container-fluid text-white ForceMinHeight">
+{% if settingstop.tintoverlay == 0 %}
+    <div class="row fullViewportHeight backgroundImgResponsive ForceMinHeight">
+{% else %}
+    <div class="row fullViewportHeight backgroundImgResponsive ForceMinHeight" style="background-image: linear-gradient(
+                                                                    rgba(0, 74, 135, {{ settingstop.tintoverlay }}),
+                                                                    rgba(0, 74, 135, {{ settingstop.tintoverlay }})
+                                                                )">
+{% endif %}
+        <div id="HeroLogo" class="col-lg-1 {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
+            {% if topdata.useClassicLogo %}
+                <div class="mt-lg-2">
+                    <a href="{% url 'home' %}">
+                        <img src="{{ topdata.classicLogo.url }}" class="HeroLogoClassic">
+                    </a>
+                </div>
+            {% else %}
+                <a href="{% url 'home' %}">
+                    <img src="{{ topdata.logoImage1.url }}" class="img-fluid">
+                </a>
+                <div id="HeroLogoTexto">AUM</div>
+                <p>AMERICAN UNIVERSITY OF MALTA</p-->
+            {% endif %}
+            <!--img src="{{ topdata.logoImage1.url }}" class="img-fluid">
+            <div id="HeroLogoTexto">AUM</div>
+            <p>AMERICAN UNIVERSITY OF MALTA</p-->
+
+
+        </div>
+        <div class="col-lg-11">
+            <div id="HeroMenuTop" class="row TopNav_General {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
+
+                <!--div class="col-lg-1">
+                    <img src="{% static 'icons/magnifying-glass.png' %}" class="float-right">
+                </div-->
+                <!--form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form-->
+                <nav class="navbar navbar-expand-lg ml-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            {% for navinfo in topnav.groups %}
+
+                                {% if navinfo.type == "link" %}
+                                    <li class="nav-item active">
+                                        {% if navinfo.url.type == "internal" %}
+                                            {% if navinfo.url.param %}
+                                                {% if navinfo.url.anchor %}
+                                                    <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{% url navinfo.url.dir navinfo.url.param %}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe}}</a>
+                                                {% else %}
+                                                    <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{% url navinfo.url.dir navinfo.url.param %}">{{ navinfo.text |safe}}</a>
+                                                {% endif %}
+
+                                            {% else %}
+                                                {% if navinfo.url.anchor %}
+                                                    <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{% url navinfo.url.dir %}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe}}</a>
+                                                {% else %}
+                                                    <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{% url navinfo.url.dir %}">{{ navinfo.text |safe}}</a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% if navinfo.url.anchor %}
+                                                <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{{ navinfo.url.dir }}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe}}</a>
+                                            {% else %}
+                                                <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="{{ navinfo.url.dir }}">{{ navinfo.text |safe}}</a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </li>
+                                {% elif navinfo.type == "dropdown" %}
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          {{ navinfo.text |safe }}
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        {% for item in navinfo.content %}
+                                            {% if item.type == "link" %}
+                                                {% if item.url.type == "internal" %}
+                                                    {% if item.url.param %}
+                                                        {% if item.url.anchor %}
+                                                            <a class="dropdown-item" href="{% url item.url.dir item.url.param %}#{{ item.url.anchor }}">{{ item.text |safe }}</a>
+                                                        {% else %}
+                                                            <a class="dropdown-item" href="{% url item.url.dir item.url.param %}">{{ item.text |safe }}</a>
+                                                        {% endif %}
+                                                        <!--a class="dropdown-item" href="{% url item.url.dir item.url.param %}">{{ item.text |safe }}</a-->
+                                                    {% else %}
+                                                        {% if item.url.anchor %}
+                                                            <a class="dropdown-item" href="{% url item.url.dir %}#{{ item.url.anchor }}">{{ item.text |safe }}</a>
+                                                        {% else %}
+                                                            <a class="dropdown-item" href="{% url item.url.dir %}">{{ item.text|safe }}</a>
+                                                        {% endif %}
+
+                                                    {% endif %}
+                                                {% else %}
+                                                    {% if item.url.anchor %}
+                                                        <a class="dropdown-item" href="{{ item.url.dir }}#{{ item.url.anchor }}" target="_blank">{{ item.text|safe }}</a>
+                                                    {% else %}
+                                                        <a class="dropdown-item" href="{{ item.url.dir }}" target="_blank">{{ item.text|safe }}</a>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% elif item.type == "separator" %}
+                                                <div class="dropdown-divider"></div>
+                                            {% endif %}
+                                        {% endfor %}
+                                        </div>
+                                    </li>
+                                {% elif navinfo.type == "separator" %}
+                                    <div class="ml-lg-4 mr-lg-4" style="border-right: 1px solid {{ settingstop.invertnavcolor|yesno:'#121212,#FFFFFF' }}"></div>
+                                {% endif %}
+
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </nav>
+                {% comment %}
+                <nav class="navbar navbar-expand-lg ml-auto">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  PROGRAMS
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Accounting</a>
+                                    <a class="dropdown-item" href="#">Business Administration</a>
+                                    <a class="dropdown-item" href="#">Business and Finance</a>
+                                    <a class="dropdown-item" href="#">Civil Engineering</a>
+                                    <a class="dropdown-item" href="#">Electronics and Communications Engineering</a>
+                                    <a class="dropdown-item" href="#">Game Development</a>
+                                    <a class="dropdown-item" href="#">Graphic Design and Animation</a>
+                                    <a class="dropdown-item" href="#">Industrial Engineering</a>
+                                    <a class="dropdown-item" href="#">Mechanical Engineering</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">MBA</a>
+                                </div>
+                            </li>
+                            <!--li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  ACADEMIC
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">GENERAL EDUCATION</a>
+                                    <a class="dropdown-item" href="#">ENGLISH FOR ACADEMIC PURPOSE</a>
+                                    <a class="dropdown-item" href="#">MESSAGE FROM PROVOST</a>
+                                    <a class="dropdown-item" href="#">FACULTY</a>
+                                    <a class="dropdown-item" href="#">CALENDAR</a>
+                                    <a class="dropdown-item" href="#">CATALOGUE</a>
+                                </div>
+                            </li-->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">About</a>
+                            </li>
+                            <!--li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  ADMISSION
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">UNDERGRADUATE</a>
+                                    <a class="dropdown-item" href="#">GRADUATE</a>
+                                    <a class="dropdown-item" href="#">TUITION</a>
+                                    <a class="dropdown-item" href="#">VISA</a>
+                                    <a class="dropdown-item" href="#">SCHOLARSHIP</a>
+                                </div>
+                            </li-->
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">AUM LIVE</a>
+                            </li>
+                            <div class="ml-lg-4 mr-lg-4" style="border-right: 1px solid #FFFFFF"></div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">CONTACT</a>
+                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link disabled" href="#">Disabled</a>
+                          </li>
+                        </ul>
+
+                      </div>
+                </nav>
+                {% endcomment %}
+            </div>
+            <div class="row">
+                <div class="col-lg-10">
+                    {% if settingstop.typemodel == 'home' %}
+                        <div class="font-weight-light TextoInicio">{{ settingstop.texttop | safe }}</div>
+                    {% elif settingstop.typemodel == 'program' %}
+                        <div class="row HeroProgramSpace1">
+                        </div>
+                        <div class="row" style="height: 250px">
+                            <div class="HeroProgramCircle"><p>{{ settingstop.minilogotxt }}</p></div>
+                            <table class="HeroProgramTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-middle"><div class="font-weight-bold {{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="font-weight-light HeroProgramText">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'admission' %}
+                        <div class="row HeroAdmissionSpace1">
+                        </div>
+                        <div class="row" style="height: 250px">
+                            <div class="HeroAdmissionCircle" style="background-image: url({{ data_medImage1.url }})"><p>{{ settingstop.minilogotxt }}</p></div>
+                            <table class="HeroAdmissionTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-bottom {{ settingsapply.variantbanner|yesno:'darkgreyAUM,' }}"><div class="font-weight-bold {{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="HeroAdmissionText w-75 {{ settingsapply.variantbanner|yesno:'darkgreyAUM,' }}">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'tuition' %}
+                        <div class="row HeroAdmissionSpace1">
+                        </div>
+                        <div class="row" style="height: 250px">
+                            <div class="HeroAdmissionCircle" style="background-image: url({{ data_medImage1.url }})"><p>{{ settingstop.minilogotxt }}</p></div>
+                            <table class="HeroAdmissionTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-bottom"><div class="font-weight-bold {{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="HeroAdmissionText w-75">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'faculty' %}
+                        <div class="row" style="height: 150px">
+                            <table class="HeroFacultyTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-bottom"><div class="font-weight-bold {{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="HeroFacultyText w-75">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'provost' %}
+                        <div class="row HeroAdmissionSpace1">
+                        </div>
+                        <div class="row" style="height: 250px">
+                            <div class="HeroAdmissionCircle" style="background-image: url({{ data_medImage1.url }})"><p>{{ settingstop.minilogotxt }}</p></div>
+                            <table class="HeroMsgProvTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-bottom"><div class="font-weight-bold {{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="HeroFacultyText w-75">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'professor' %}
+                        <div class="row">
+                        </div>
+                        <div class="row" style="height: 360px">
+                            {% if data_medImage1 %}
+                                <div class="HeroProfessorCircle" style="background-image: url({{ data_medImage1.url }})"><p></p></div>
+                            {% else %}
+                                <div class="HeroProfessorCircle"><p>{{ settingstop.minilogotxt }}</p></div>
+                            {% endif %}
+                            <table class="HeroProfessorTitleHolder">
+                              <tbody>
+                                <tr>
+                                    <td class="align-bottom darkgreyAUM"><div class="{{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="row">
+                            <div class="HeroProfessorText darkgreyAUM">{{ settingstop.textbody | safe }}</div>
+                        </div>
+                    {% elif settingstop.typemodel == 'generalpage' %}
+                            <div class="row" style="height: 500px" style="color: {{ settingstop.colortext | safe }}">
+                                <table class="HeroGeneralTitleHolder Table-FullSize">
+                                  <tbody>
+                                    <tr>
+                                        <td class="align-bottom">
+                                            <div class="HeroGeneralTitle_rich">{{ settingstop.texttop | safe }}
+                                            </div>
+                                            <div class="HeroGeneralText w-75">{{ settingstop.textbody | safe }}</div>
+                                        </td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+
+                            </div>
+                            <div class="row">
+
+                            </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function HeroVideoBackEnable() {
+        const backgroundVideo = new BackgroundVideo('.bv-video', {
+                                        src: [
+                                            "{% static 'videos/background.mp4' %}",
+                                            "{% static 'videos/dreamscapes.webm' %}"
+                                          ],
+                                        parallaxEffect:1,
+                                        autoplayFallback: "{% static 'imgtest/programfondo1.jpg' %}",
+                                        onReady: function () {
+                                            $(".bv-video-wrap").addClass('ForceMinHeight');
+                                        }
+                                        });
+
+        $(".bv-video").addClass( 'bv-video-wrap--ready' );
+
+
+    }
+</script>

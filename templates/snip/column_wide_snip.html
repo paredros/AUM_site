@@ -1,0 +1,310 @@
+{% load staticfiles %}
+
+{% for column2item in ccols %}
+    {% if column2item.blocktype == "BigText"%}
+        <div class="container">
+            <div class="pages_TwoColumn1_BigText">
+                {{ column2item.value | safe }}
+            </div>
+        </div>
+    {% elif column2item.blocktype == "MoreBigText"%}
+        <div class="container">
+            <div class="pages_TwoColumn1_MoreBigText">
+                {{ column2item.value | safe }}
+            </div>
+        </div>
+    {% elif column2item.blocktype == "Space"%}
+        <div class="Space-{{ column2item.value | safe }}"></div>
+    {% elif column2item.blocktype == "MediumText"%}
+        <div class="container {{ column2item.hasbutton|yesno:'IsButton,' }}">
+            <div class="pages_TwoColumn1_MediumText {{ column2item.colorgrey|yesno:'greyAUM,' }}">
+                {{ column2item.value | safe }}
+                {% if column2item.hasbutton %}
+            <div class="MoreButton MoreButton_H30">
+                <div class="MoreButton_Over MoreButton_H30">
+                    {{ column2item.textbutton | safe }}
+                    <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                </div>
+                {% if button_coloricon == 'white' %}
+                    <img src="{% static 'icons/FlechaRight2White.png' %}">
+                {% else %}
+                    <img src="{% static 'icons/FlechaRight2.png' %}">
+                {% endif %}
+            </div>
+            {% endif %}
+            </div>
+
+        </div>
+    {% elif column2item.blocktype == "RichText"%}
+        <div class="container {{ column2item.hasbutton|yesno:'IsButton,' }}">
+            <div class="pages_TwoColumn1_RichText {{ column2item.colorgrey|yesno:'greyAUM,' }}">
+                {{ column2item.value | safe }}
+            </div>
+        </div>
+    {% elif column2item.blocktype == "GEP_Table_Page"%}
+        <div class="d-flex justify-content-between align-items-end pages_GEP_Table_Page pages_BorderBottom1 mb-lg-4">
+            <div>
+                <h1>{{ column2item.number }}</h1>
+            </div>
+            <div>
+                <h2 class="text-right">{{ column2item.title }}</h2>
+                <h3 class="text-right">{{ column2item.subtitle }}</h3>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between TableAUM_Title">
+            {% for columnatitulo in  column2item.fieldstitle%}
+                <p>{{ columnatitulo | safe }}</p>
+            {% endfor %}
+        </div>
+        {% for record in column2item.records %}
+            <div class="TableAUM_Item_Detail">{{ record.code | safe }}</div>
+            <div class="d-flex justify-content-between TableAUM_Item TableAUM_Item_LineBelow">
+                <h1>{{ record.title | safe }}</h1>
+                <h2>{{ record.value | safe }}</h2>
+            </div>
+        {% endfor %}
+    {% elif column2item.blocktype == "TableNormal"%}
+
+        {% for record in column2item.records %}
+            <div class="TableAUM_Item_Detail">{{ record.code | safe }}</div>
+            <div class="d-flex justify-content-between TableAUM_Item">
+                <h1>{{ record.title | safe }}</h1>
+                <h2>{{ record.value | safe }}</h2>
+            </div>
+        {% endfor %}
+    {% elif column2item.blocktype == "EAP_bignumbers"%}
+        <div class="pages_EAP_bignumbers">
+
+
+            <div class="d-flex">
+                <p>{{ column2item.value.textover | safe }}</p>
+                {% for numb in column2item.value.numbers %}
+                    <div class="mr-lg-4 mt-lg-1">
+                        <h1>{{ numb.value | safe}}</h1>
+                        <h2>{{ numb.textbelow | safe }}</h2>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% elif column2item.blocktype == "InlineFill"%}
+
+        <div class="d-flex {{ column2item.alignbottom|yesno:'align-items-end,'}} ">
+            {% for inlineblock in column2item.value %}
+                <!--
+                {% if inlineblock.blocktype == "ReallyBig" %}
+                    <div class="pages_Inline_ReallyBig mr-lg-4">
+                        {{ inlineblock.value | safe }}
+                    </div>
+                {% elif inlineblock.blocktype == "NormalMini" %}
+                    <div class="pages_Inline_NormalMini mr-lg-4">
+                        {{ inlineblock.value | safe }}
+                    </div>
+                {% elif inlineblock.blocktype == "NormalBig" %}
+                    <div class="pages_Inline_NormalBig mr-lg-4">
+                        {{ inlineblock.value | safe }}
+                    </div>
+                {% endif %}
+                -->
+                <div class="pages_Inline_{{ inlineblock.blocktype }} mr-lg-4">
+                    {{ inlineblock.value | safe }}
+                </div>
+            {% endfor %}
+        </div>
+    {% elif column2item.blocktype == "InlineColumns"%}
+        <div class="d-flex {{ column2item.alignbottom|yesno:'align-items-end,'}} ">
+            {% for inlineblock in column2item.value %}
+                <!--
+                {% if inlineblock.blocktype == "Big" %}
+                    <div class="pages_Inline_Big mr-lg-4">
+                        {{ inlineblock.value | safe }}
+                    </div>
+                {% endif %}
+                -->
+                <div class="pages_Inline_{{ inlineblock.blocktype }} mr-lg-4">
+                    {{ inlineblock.value | safe }}
+                </div>
+            {% endfor %}
+        </div>
+    {% elif column2item.blocktype == "InlineBanner"%}
+        <div class="d-flex pages_InlineBanner">
+            <div class="pages_InlineBanner_BigText {{ column2item.value.hasbutton|yesno:'IsButton,' }}">
+                <div class="AutoSizeTextOneLine">
+                    <span>{{ column2item.value.maxtext }}</span>
+                    <h2>{{ column2item.value.mintext }}</h2>
+                    {% if column2item.value.hasbutton %}
+                        <div class="MoreButton MoreButton_H30">
+                            <div class="MoreButton_Over MoreButton_H30">
+                                {{ column2item.value.textbutton | safe }}
+                                <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            {% if button_coloricon == 'white' %}
+                                <img src="{% static 'icons/FlechaRight2White.png' %}">
+                            {% else %}
+                                <img src="{% static 'icons/FlechaRight2.png' %}">
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            </div>
+            <div>
+                <h3 class="{{ column2item.value.useshortdescription|yesno:'pages_InlineBanner_ShortDescription,' }}">{{ column2item.value.description }}</h3>
+            </div>
+        </div>
+    {% elif column2item.blocktype == "InlineBanner2"%}
+        <div class="d-flex{{ column2item.alignbottom|yesno:'align-items-end,'}} ">
+            <div class="pages_Inline_ReallyBig mr-lg-4">
+                {{ column2item.value.maxtext | safe }}
+            </div>
+            <div>
+                <div class="pages_Inline_NormalBig">{{ column2item.value.description | safe }}</div>
+                <div class="pages_Inline_NormalMini greyAUM">{{ column2item.value.detail | safe }}</div>
+            </div>
+        </div>
+    {% elif column2item.blocktype == "Accordion"%}
+
+        <div class="container">
+            <div class="row ">
+
+                <div class="panel-group w-100" id="{{ column2item.id }}accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        {% for panels in column2item.value %}
+                        <div class="panel-heading" role="tab" id="{{ column2item.id }}_head_{{ forloop.counter }}">
+                             <h4 class="panel-title">
+                                 <!--a class="collapsed blackAUM_force" data-toggle="collapse" data-parent="#{{ column2item.id }}accordion" href="#{{ column2item.id }}_block_{{ forloop.counter }}" aria-expanded="{{ forloop.first|yesno:'true,false' }}" aria-controls="{{ column2item.id }}_block_{{ forloop.counter }}"-->
+                                 <a class="collapsed blackAUM_force" data-toggle="collapse" data-parent="#{{ column2item.id }}accordion" href="#{{ column2item.id }}_block_{{ forloop.counter }}" aria-expanded="false" aria-controls="{{ column2item.id }}_block_{{ forloop.counter }}">
+                                    &nbsp; {{ panels.title | safe }}
+                                </a>
+                            </h4>
+
+                        </div>
+                        <!--div id="{{ column2item.id }}_block_{{ forloop.counter }}" class="panel-collapse collapse {{ forloop.first|yesno:'show,' }}" role="tabpanel" aria-labelledby="{{ column2item.id }}_head_{{ forloop.counter }}" style="background-color: #00ad9c"-->
+                        <div id="{{ column2item.id }}_block_{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ column2item.id }}_head_{{ forloop.counter }}" style="background-color: #00ad9c">
+                            <div class="panel-body">
+                                {{ panels.content | safe }}
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    {% elif column2item.blocktype == "MiniText"%}
+        <div class="container">
+            <div class="pages_TwoColumn1_MiniText {{ column2item.colorgrey|yesno:'greyAUM,' }}">
+                {{ column2item.value | safe }}
+            </div>
+        </div>
+    {% elif column2item.blocktype == "ListSimple"%}
+        {% for line in column2item.value %}
+        <div class="d-flex">
+                <div class="pages_ListaSimple_Circle"></div>
+
+                <div class="pages_ListaSimple">{{ line | safe }}</div>
+        </div>
+        {% endfor %}
+    {% elif column2item.blocktype == "ListColumns"%}
+
+        <div class="d-flex">
+            {% for content in column2item.value %}
+                <div class="p-1 MiFlex_Even">
+                    {% for line in content.content %}
+                    <div class="d-flex">
+                        <div class="pages_ListaSimple_Circle"></div>
+
+                        <div class="pages_ListColumns">{{ line | safe }}</div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            {% endfor %}
+        </div>
+    {% elif column2item.blocktype == "Separator"%}
+        <div class="{{ forcewhite|yesno:"pages_SeparatorWhite,pages_Separator" }}"></div>
+    {% elif column2item.blocktype == "FixedColumns"%}
+        <div class="container">
+            <div class="row">
+            {% for content in column2item.columns %}
+                <div class="col-{{ content.width }} mb-1">
+                    <div class="pages_FixedColumns_{{ content.blocktype }} {{ content.colorgrey|yesno:'greyAUM,' }}">
+                        {{ content.value |safe }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        </div>
+    {% elif column2item.blocktype == "ContactForm"%}
+        <div class="container pages_ContactForm">
+            <!--form action="/contactform/" method="post" id="usrform"-->
+            <form method="post" id="usrform">
+                {% csrf_token %}
+                <!--div class="d-flex">
+                    <div class="p-1 flex-fill">
+                        <label for="your_name">Your Name: </label><br>
+                        <input id="your_name" type="text" name="your_name" placeholder="Enter Your Name" value="{{ current_name }}">
+                    </div>
+                    <div class="p-1 flex-fill">
+                        <label for="your_email">Email: </label><br>
+                        <input id="your_email" type="email" name="your_email" placeholder="Enter Your Email Address" value="{{ current_mail }}">
+                    </div>
+                </div>
+                <div class="p-1 mt-lg-4">
+                    <label for="your_subject">Subject: </label><br>
+                    <input id="your_subject" type="text" name="your_subject" placeholder="Enter a Subject for your Message" value="{{ current_subject }}">
+                </div>
+                <div class="Space-25"></div>
+                <label for="your_msg">Message:</label><br>
+                <textarea name="msg" form="usrform" placeholder="Write your Message"></textarea>
+                <div class="d-flex align-items-center">
+                    <input type="checkbox" id="send_me_a_copy"/>
+                    <label class="pages_ContactForm_MiniText">Send Me a Copy</label>
+                </div-->
+                {{ form.as_p }}
+                <!--input type="submit" name="contact-f" value="OK"-->
+
+
+            </form>
+            <div class="pages_TwoColumn1_BigText IsButton" onclick="$('#usrform').submit()">
+                <strong>Send</strong><br>
+                Message
+                <div class="MoreButton MoreButton_H30">
+                    <div class="MoreButton_Over MoreButton_H30">
+                        Send
+                        <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                            <div class="BarraAnim_Idle"></div>
+                        </div>
+                    </div>
+                    <img src="{% static 'icons/FlechaRight2.png' %}">
+                </div>
+            </div>
+        {% elif column2item.blocktype == "map"%}
+            <div id="map_google"></div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var aum = {lat: 35.881718, lng: 14.519760};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+          document.getElementById('map_google'), {
+                zoom: 15,
+                center: aum,
+                mapTypeControl: false
+          });
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: aum, map: map});
+    }
+</script>
+<!--AIzaSyBjZDVil-qQ3WZ0oovJCsE7vdDa3c4nYCQ
+mio = AIzaSyBwQBaf6kp_fGS7Ug1ttvpCbLehp1s0iU0-->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjZDVil-qQ3WZ0oovJCsE7vdDa3c4nYCQ&callback=initMap"></script>

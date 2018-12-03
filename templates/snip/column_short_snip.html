@@ -1,0 +1,161 @@
+{% load staticfiles %}
+
+{% for column1item in ccols %}
+    {% if column1item.blocktype ==  "title"%}
+        <div class="tempProgram_TitleProgram {{ column1item.hasbutton|yesno:'IsButton,' }} {{ column1item.rightalign|yesno:'text-right,' }}">
+            {{ column1item.value | safe }}
+            {% if column1item.hasbutton %}
+            <div class="MoreButton MoreButton_H30">
+                <div class="MoreButton_Over MoreButton_H30">
+                    {{ column1item.textbutton | safe }}
+                    <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                </div>
+                {% if button_coloricon == 'white' %}
+                    <img src="{% static 'icons/FlechaRight2White.png' %}">
+                {% else %}
+                    <img src="{% static 'icons/FlechaRight2.png' %}">
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    {% elif column1item.blocktype ==  "Space"%}
+        <div class="Space-{{ column1item.value | safe }}"></div>
+    {% elif column1item.blocktype ==  "btn_talk"%}
+        {% include "snip/button_talk_snip.html" %}
+    {% elif column1item.blocktype ==  "btn_getleaf"%}
+        {% if data.leafletHas %}
+        <div class="row">
+            <div class="col-lg-6">
+                {% include "snip/button_getleaf_snip.html" %}
+            </div>
+        </div>
+        {% endif %}
+    {% elif column1item.blocktype ==  "btn_scholar"%}
+        <div class="row">
+            <div class="col-lg-6">
+                {% include "snip/button_scholar_snip.html" %}
+            </div>
+        </div>
+    {% elif column1item.blocktype ==  "btn_getleaf_scholar"%}
+        <div class="row">
+            {% if data.leafletHas %}
+            <div class="col-lg-6">
+                {% include "snip/button_getleaf_snip.html" %}
+            </div>
+            {% endif %}
+            <div class="col-lg-6">
+                {% include "snip/button_scholar_snip.html" %}
+            </div>
+        </div>
+    {% elif column1item.blocktype == "btn_apply"%}
+        <div class="row">
+            <div class="col-lg-12 SideApply">
+                {% include 'snip/button_apply_snip.html' %}
+            </div>
+        </div>
+    {% elif column1item.blocktype == "NormalMiniText"%}
+        <div class="pages_TwoColumn1_MiniText">
+            {{ column1item.value | safe }}
+        </div>
+    {% elif column1item.blocktype == "NormalText"%}
+        {% if column1item.hasbutton %}
+            <div class="pages_TwoColumn1_MediumTextText IsButton" onclick="location.href='{{ column1item.url }}'">
+        {% else %}
+            <div class="pages_TwoColumn1_MediumTextText">
+        {% endif %}
+            {{ column1item.value | safe }}
+            {% if column1item.hasbutton %}
+            <div class="MoreButton MoreButton_H30">
+                <div class="MoreButton_Over MoreButton_H30">
+                    {{ column1item.textbutton | safe }}
+                    <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                </div>
+                {% if button_coloricon == 'white' %}
+                    <img src="{% static 'icons/FlechaRight2White.png' %}">
+                {% else %}
+                    <img src="{% static 'icons/FlechaRight2.png' %}">
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    {% elif column1item.blocktype == "btn_mail"%}
+        <div class="footer_Icon" onclick="location.href='mailto:{{ column1item.value | safe }}'">
+            <div class="d-flex">
+                <div>
+                    <img src="{% static 'icons/close-envelope.png' %}">
+                </div>
+                <div class="ml-lg-3 pt-lg-1">
+                    {{ column1item.value | safe }}
+                </div>
+            </div>
+        </div>
+    {% elif column1item.blocktype == "btn_web"%}
+        <div class="footer_Icon"  onclick="window.open('{{ column1item.value |safe }}');">
+            <div class="d-flex">
+                <div>
+                    <img src="{% static 'icons/grid-world-2.png' %}">
+                </div>
+                <div class="ml-lg-3 pt-lg-1">
+                    {{ column1item.value | safe }}
+                </div>
+            </div>
+        </div>
+    {% elif column1item.blocktype == "btn_fb"%}
+        <div class="footer_Icon" onclick="window.open('{{ column1item.value |safe }}');">
+            <div class="d-flex">
+                <div>
+                    <img src="{% static 'icons/facebook-letter-logo-2.png' %}">
+                </div>
+                <div class="ml-lg-3 pt-lg-1">
+                    {# {{ column1item.value | safe }} #}
+                </div>
+            </div>
+        </div>
+    {% elif column1item.blocktype == "btn_tw"%}
+        <div class="footer_Icon" onclick="window.open('{{ column1item.value |safe }}');">
+            <div class="d-flex">
+                <div>
+                    <img src="{% static 'icons/twitter-logo-silhouette-2.png' %}">
+                </div>
+                <div class="ml-lg-3 pt-lg-1">
+                    {# {{ column1item.value | safe }} #}
+                </div>
+            </div>
+        </div>
+    {% elif column1item.blocktype == "socialbar"%}
+        {% include 'snip/social_snip.html' with social=column1item.value %}
+        {%  comment %}
+        <div class="d-inline-flex">
+            {% if column1item.value.mail %}
+                <div class="footer_Icon">
+                    <img src="{% static 'icons/close-envelope.png' %}">
+                </div>
+            {% endif %}
+            {% if column1item.value.fb %}
+                <div class="footer_Icon">
+                    <img src="{% static 'icons/facebook-letter-logo-2.png' %}">
+                </div>
+            {% endif %}
+            {% if column1item.value.ln %}
+                <div class="footer_Icon">
+                    <img src="{% static 'icons/linkedin-logo-2.png' %}">
+                </div>
+            {% endif %}
+            {% if column1item.value.tw %}
+                <div class="footer_Icon">
+                    <img src="{% static 'icons/twitter-logo-silhouette-2.png' %}">
+                </div>
+            {% endif %}
+            {% if column1item.value.web %}
+                <div class="footer_Icon">
+                    <img src="{% static 'icons/grid-world-2.png' %}">
+                </div>
+            {% endif %}
+        </div>
+        {% endcomment %}
+    {% endif %}
+{% endfor %}

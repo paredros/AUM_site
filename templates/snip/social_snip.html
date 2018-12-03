@@ -1,0 +1,39 @@
+{% load staticfiles %}
+
+<div class="d-inline-flex">
+    {% if social.mail %}
+        <div class="footer_Icon">
+            <a href="mailto:{{ social.tw }}">
+                <img src="{% static 'icons/close-envelope.png' %}">
+            </a>
+        </div>
+    {% endif %}
+    {% if social.fb %}
+        <div class="footer_Icon">
+            <a href="{{ social.fb }}" target="_blank">
+                <img src="{% static 'icons/facebook-letter-logo-2.png' %}">
+            </a>
+        </div>
+    {% endif %}
+    {% if social.ln %}
+        <div class="footer_Icon">
+            <a href="{{ social.ln }}" target="_blank">
+                <img src="{% static 'icons/linkedin-logo-2.png' %}">
+            </a>
+        </div>
+    {% endif %}
+    {% if social.tw %}
+        <div class="footer_Icon">
+            <a href="{{ social.tw }}" target="_blank">
+                <img src="{% static 'icons/twitter-logo-silhouette-2.png' %}">
+            </a>
+        </div>
+    {% endif %}
+    {% if social.web %}
+        <div class="footer_Icon">
+            <a href="{{ social.web }}" target="_blank">
+                <img src="{% static 'icons/grid-world-2.png' %}">
+            </a>
+        </div>
+    {% endif %}
+</div>

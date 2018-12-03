@@ -1,0 +1,280 @@
+{% load staticfiles %}
+<!--
+settingsapply
+'call':applybanner.callToAction,
+        'landing1':applybanner.landing1,
+        'landing2': applybanner.landing2,
+        'tipo':'circulo' | largo, circulo
+-->
+{% if settingsapply.tipo == "largo" %}
+<div class="container-fluid blackAUM">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-9">
+            <div id="HeroBannerApply" class="row BackgroundWhite">
+                <div class="col-lg-4 HeroBannerApplyButton" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
+                    <h1>
+                        {{ settingsapply.call|safe }}
+                    </h1>
+                    <h4><img class="_replace" src="{% static 'icons/down-arrow.png' %}"></h4>
+                    <h2>{{ settingsapply.landing1|safe }}</h2>
+                    <h3>{{ settingsapply.landing2|safe }}</h3>
+                    <div class="HeroBannerApplyBarra">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="lineaVertical"></div>
+                </div>
+                <div class="col-lg-7">
+                    <h5>{{ settingsapply.explainTitle|safe }}</h5>
+                    <p>
+                        {{ settingsapply.explainText|safe }}
+                    </p>
+                    <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<script>
+    function TopBannerActivation() {
+            $(".HeroBannerApplyButton").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).addClass('backgroundOver1_force');
+                $(this).addClass('text-white');
+                $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).removeClass('backgroundOver1_force');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+
+    }
+</script>
+{% elif settingsapply.tipo == "circulo" %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="HeroBannerApply" class="HeroBannerApplyCirculo blackAUM" >
+                <div class="CirculoCentralImage mx-auto" style="background-color: #ffffff">
+                    <div class="HeroBannerApplyButton" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
+                        <table class="Table-FullSize">
+                          <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <h1>
+                                        {{ settingsapply.call|safe }}
+                                    </h1>
+                                    <h4><img class="_replace" src="{% static 'icons/down-arrow.png' %}"></h4>
+                                    {% if not settingsapply.landing1 or settingsapply.landing1 != "" %}
+                                        <h2>{{ settingsapply.landing1|safe }}</h2>
+                                    {% endif %}
+                                    {% if not settingsapply.landing2 or settingsapply.landing2 != "" %}
+                                        <h3>{{ settingsapply.landing2|safe }}</h3>
+                                    {% endif %}
+                                    <div class="HeroBannerApplyBarra">
+                                        <div class="BarraAnim_Idle"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function TopBannerActivation() {
+            $(".HeroBannerApplyButton").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).parent().addClass('CirculoCentralImageOver');
+                $(this).addClass('text-white');
+                $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).parent().removeClass('CirculoCentralImageOver');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+
+    }
+</script>
+
+{% elif settingsapply.tipo == "talk" %}
+
+<div class="container-fluid blackAUM">
+    <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-9">
+            {% if settingsapply.variantbanner == "grey"%}
+                <div id="HeroBannerApply" class="row BackgroundGrey">
+            {% else %}
+                <div id="HeroBannerApply" class="row BackgroundWhite">
+            {% endif %}
+                <div class="col-lg-4 HeroBannerApplyButton_Top" onclick="window.open('{{ buttonsgeneral.TalkToAdmissionLink |safe }}');">
+                    <div class="Space-50"></div>
+                    <img class="TalkAdmission_big" src="{% static 'icons/contact.png' %}" class="img-fluid">
+                    <div class="Space-25"></div>
+                    <h4><img class="_replace" src="{% static 'icons/down-arrow.png' %}"></h4>
+                    <!--h2>{{ settingsapply.landing1|safe }}</h2-->
+                    <div class="HeroAdmission_TalkText">{{ buttonsgeneral.TalkToAdmission | safe }}</div>
+                    <div class="HeroBannerApplyBarra">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="lineaVertical"></div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="HeroBannerApply_TalkMsg">
+                        {{ settingstop.textbanner | safe}}
+                    </div>
+                    <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
+                </div>
+            </div>
+            <div class="HeroBanner_MiniApply">
+                    {% include "snip/miniapply_snip.html" %}
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<script>
+    function TopBannerActivation() {
+            $(".HeroBannerApplyButton_Top").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).addClass('backgroundOver1_force');
+                $(this).addClass('text-white');
+                $(this).find('img._replace').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img._replace').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).removeClass('backgroundOver1_force');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+
+            $(".HeroBannerApplyButton").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).parent().addClass('CirculoCentralImageOver');
+                $(this).addClass('text-white');
+                $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).parent().removeClass('CirculoCentralImageOver');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+
+            /*$(".CirculoMiniBanner").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).addClass('CirculoCentralImageOver');
+            }, function () {
+                $(this).removeClass('CirculoCentralImageOver');
+            });*/
+
+    }
+
+</script>
+
+{% elif settingsapply.tipo == "talkcirculo" %}
+<div class="Space-100"></div>
+<div class="container-fluid mt-lg-4">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <div id="HeroBannerApply" class="HeroBannerApplyCirculo blackAUM" >
+                <div class="CirculoCentralImage mx-auto" style="background-color: #E9EAE4">
+                    <div class="HeroBannerApplyButton" onclick="window.open('{{ buttonsgeneral.TalkToAdmissionLink |safe }}');">
+                        <div class="Space-25"></div>
+                        <img class="TalkAdmission_big" src="{% static 'icons/contact.png' %}" class="img-fluid">
+                        <div class="Space-25"></div>
+                        <h4><img class="_replace" src="{% static 'icons/down-arrow.png' %}"></h4>
+                        <!--h2>{{ settingsapply.landing1|safe }}</h2-->
+                        <div class="HeroAdmission_TalkText">{{ buttonsgeneral.TalkToAdmission | safe }}</div>
+                        <div class="HeroBannerApplyBarra">
+                            <div class="BarraAnim_Idle"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="HeroBanner_MiniApply">
+                    {% include "snip/miniapply_snip.html" %}
+            </div>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<script>
+function TopBannerActivation() {
+            $(".HeroBannerApplyButton").hover(function() {
+                $(this).css('cursor','pointer');
+                $(this).parent().addClass('CirculoCentralImageOver');
+                $(this).addClass('text-white');
+                $(this).find('img._replace').attr("src","{% static 'icons/down-arrow-2.png' %}");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find('img._replace').attr("src","{% static 'icons/down-arrow.png' %}");
+                $(this).parent().removeClass('CirculoCentralImageOver');
+                $(this).removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+
+    }
+</script>
+
+{% elif settingsapply.tipo == "hide" %}
+    <div class="Space-100"></div>
+    <div class="container-fluid mt-lg-4">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+
+                <div class="HeroBanner_MiniApply">
+                        {% include "snip/miniapply_snip.html" %}
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+    <script>
+    function TopBannerActivation() {
+
+
+        }
+    </script>
+{% elif settingsapply.tipo == "data" %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="HeroBannerApply" class="HeroBannerApplyCirculo blackAUM" >
+                <div class="CirculoCentralImage mx-auto" style="background-color: #ffffff">
+                    <div class="HeroBannerApplyButton">
+                        <table class="Table-FullSize">
+                          <tbody>
+                            <tr>
+                                <td class="align-middle">
+                                    <div class="HeroBannerData">
+                                        Data
+                                    </div>
+                                </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

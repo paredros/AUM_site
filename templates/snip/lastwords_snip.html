@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<div id="carouselApplyEnd" class="carousel slide carousel-fade mx-auto" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselApplyEnd" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselApplyEnd" data-slide-to="1"></li>
+        <li data-target="#carouselApplyEnd" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="CarouselTest" style="background-image: url({% static section.value.img1 %})"></div>
+        </div>
+        <div class="carousel-item">
+            <div class="CarouselTest" style="background-image: url({% static section.value.img2 %})"></div>
+        </div>
+        <div class="carousel-item">
+            <div class="CarouselTest" style="background-image: url({% static section.value.img3 %})"></div>
+        </div>
+          <h1 class="w-100 text-center">{{ section.value.title|safe }}
+          </h1>
+      </div>
+      <a class="carousel-control-prev" href="#carouselApplyEnd" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselApplyEnd" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <!--GOTO_LAST_WORD-->
+    <div class="container-fluid blackAUM">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div id="CarouselBanner" class="row">
+                    <div class="col-lg-4 BannerButton" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
+                        <h1>
+                            APPLY<br>NOW
+                        </h1>
+                        <h4><img src="{% static 'icons/down-arrow.png' %}"></h4>
+                        <h2>Open Inscriptions</h2>
+                        <h3>Summer 2019</h3>
+                        <div class="BannerButtonBarra">
+                            <div class="BarraAnim_Idle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="lineaVertical"></div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="BannerSuperText">{{ section.value.text|safe }}</div>
+                        <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+<script>
+    function LastWordsEnable(controller) {
+        /*var sceneMalta = new ScrollMagic.Scene({triggerElement:"#ApplyPin", triggerHook: "0.45", duration: 500, loglevel: 3})
+										.setPin("#ApplyPin")
+                                        .setTween("body", {backgroundColor: "#ce1731"}) // the tween durtion can be omitted and defaults to 1
+										//.addIndicators() // add indicators (requires plugin)
+										.addTo(controller);*/
+            //carouselApplyEnd
+            var sceneMalta = new ScrollMagic.Scene({triggerElement:"#carouselApplyEnd", triggerHook: "0", duration: 500, loglevel: 3})
+										.setPin("#carouselApplyEnd")
+                                        .setTween("body", {backgroundColor: "#ce1731"}) // the tween durtion can be omitted and defaults to 1
+										//.addIndicators() // add indicators (requires plugin)
+										.addTo(controller);
+
+    }
+</script>

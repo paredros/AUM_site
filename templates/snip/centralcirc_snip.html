@@ -1,0 +1,36 @@
+{% load staticfiles %}
+<div class="container-fluid mt-lg-5">
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="{{ cc_id }}"  class="GenCirculoCentral" style="color: {{ cc_fontcolor }}" >
+                    <div class="zoomIn wow CirculoCentralImage mx-auto" style="background-color: {{ cc_backcolor }}">
+                        <!--div class="HeroBannerApplyButton"-->
+                            <table  class="Table-FullSize">
+                                <tbody>
+                                    <tr>
+                                        <td class="align-middle p-lg-1">
+                                            {% if cc_big1 or cc_big1 != "" %}
+                                                <h1>{{ cc_big1|safe }}</h1>
+                                            {% endif %}
+                                            <!--h4><img src="{% static 'icons/down-arrow.png' %}"></h4-->
+                                            {% if cc_line1 or cc_line1 != "" %}
+                                                <h2>{{ cc_line1|safe }}</h2>
+                                            {% else %}
+                                                <div class="Space-25"></div>
+                                            {% endif %}
+                                            {% if cc_line2 or cc_line2 != "" %}
+                                                <h3>{{ cc_line2|safe }}</h3>
+                                            {% endif %}
+                                            <!--div class="HeroBannerApplyBarra">
+                                                <div class="BarraAnim_Idle"></div>
+                                            </div-->
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        <!--/div-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

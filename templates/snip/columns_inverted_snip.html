@@ -1,0 +1,16 @@
+{% load staticfiles %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1">
+        </div>
+        <div class="col-lg-7 text-right {{ forcewhite|yesno:'BordeRightWhite,BordeRight'}} {{ forcewhite|yesno:'whiteAUM_force,' }}">
+            {% include "snip/column_wide_snip.html" with ccols=blocks1.column1 ccinvert=True%}
+        </div>
+        <div class="col-lg-3 {{ forcewhite|yesno:'whiteAUM_force,' }}">
+            {% include "snip/column_short_snip.html" with ccols=blocks1.column2 %}
+        </div>
+        <div class="col-lg-1">
+        </div>
+    </div>
+</div>

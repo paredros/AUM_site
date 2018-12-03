@@ -1,0 +1,141 @@
+{% load staticfiles %}
+
+<div id="CarouselValuePin_Blog" >
+    <div id="CarouselValue" class="mx-auto">
+    <div id="CarouselBlog" class="carousel slide carousel-fade" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#CarouselBlog" data-slide-to="0" class="active"></li>
+        <li data-target="#CarouselBlog" data-slide-to="1"></li>
+        <li data-target="#CarouselBlog" data-slide-to="2"></li>
+      </ol>
+      <div id="CarouselValueTrigger" class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="CarouselTest" style="background-image: url({% static 'imgtest/car1.jpg' %})"></div>
+        </div>
+        <div class="carousel-item">
+          <!--img class="d-block w-100" src="{% static 'imgtest/car2.jpg' %}" alt="Second slide"-->
+            <div class="CarouselTest" style="background-image: url({% static 'imgtest/car2.jpg' %})"></div>
+        </div>
+        <div class="carousel-item">
+          <!--img class="d-block w-100" src="{% static 'imgtest/car3.jpg' %}" alt="Third slide"-->
+            <div class="CarouselTest" style="background-image: url({% static 'imgtest/car3.jpg' %})"></div>
+        </div>
+          <h1 class="w-100 text-center">{{ generaldata.blogTitleGeneral | safe }}</h1>
+      </div>
+      <a class="carousel-control-prev" href="#CarouselBlog" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#CarouselBlog" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    </div>
+    </div>
+
+
+
+<div class="Space-200"></div>
+<div class="Space-200"></div>
+<div class="Space-100"></div>
+<!--GOTO_BLOG-->
+<!--div style="height: 200px"></div-->
+<div class="Space-200"></div>
+<div id="BlogParallax">
+    <div class="container-fluid blackAUM">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
+                <div id="CarouselBanner" class="row">
+                    <div class="col-lg-4 BannerButton">
+                        <h1>
+                            {{ bloggeneral.bannerTitle | safe }}
+                        </h1>
+                        <h4><img src="{% static 'icons/down-arrow.png' %}"></h4>
+                        <h2>{{ bloggeneral.bannerLine1 | safe }}</h2>
+                        <h3>{{ bloggeneral.bannerLine2 | safe }}</h3>
+                        <div class="BannerButtonBarra">
+                            <div class="BarraAnim_Idle"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                        <div class="lineaVertical"></div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="temp_BlogContextTitle">{{ bb_contextitle | safe }}</div>
+                        <!--p>
+                            <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem <strong>Ipsum</strong> has  ever <strong>since the 1500s</strong>, when an unknown printer
+                        </p-->
+                        <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for i in "xxxxxx" %}
+                <div id="CardBlog" class="zoomIn wow BlogItem">
+                        <div class="BlogImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})">
+                        </div>
+                        <div class="BlogTxtResponsive text-center text-white">
+                            <!--table style="height: 100%; width: 100%"-->
+                            <table class="Table-FullSize">
+                              <tbody>
+                                <tr>
+                                    <td class="align-middle"><h1>Title Of The Blog Larger On The Line</h1></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    <h3>10/10/2020 by Author</h3>
+                    <h2>
+                        <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem <strong>Ipsum</strong> has  ever <strong>since the 1500s</strong>, when an unknown printer
+                        <br>
+                        <div class="MoreButton">
+                            <div class="MoreButton_Over">
+                                View
+                                <div class="MoreButtonBarra">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            <img src="{% static 'icons/FlechaRight2.png' %}">
+                        </div>
+                    </h2>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    function BlogEnabled(controller) {
+        var sceneValue = new ScrollMagic.Scene({triggerElement:"#CarouselValuePin_Blog", triggerHook: "0", duration: 300, loglevel: 3})
+                                        .setTween(".CarouselTest", {borderRadius:"0%",ease:Power0.easeNone})
+										.addTo(controller);
+        var sceneValue = new ScrollMagic.Scene({triggerElement:"#CarouselValuePin_Blog", triggerHook: "0", duration: 300, loglevel: 3})
+                                        .setTween("#CarouselValue",{width:"100%",ease:Power0.easeNone})
+										.addTo(controller);
+        var sceneValue = new ScrollMagic.Scene({triggerElement:"#CarouselValuePin_Blog", triggerHook: "0", duration: 600, loglevel: 3})
+										.setPin("#CarouselValuePin_Blog",{pushFollowers:false})
+                                        .setTween("body", {backgroundColor: "#ffffff"})
+										.addTo(controller);
+        var slideParallaxScene = new ScrollMagic.Scene({
+                                            triggerElement: "#BlogParallax",
+                                            triggerHook: 1,
+                                            duration: 5000
+                                        })
+                                        .setTween("#BlogParallax",{y: '20%',ease:Power0.easeNone})
+                                        .addTo(controller);
+        $(".BlogItem").hover(function () {
+            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active");
+            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+        }, function () {
+            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active");
+            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+        })
+    }
+</script>

@@ -1,0 +1,2445 @@
+* {
+    /* poner la font */
+    font-family: 'Muli', sans-serif;
+}
+body {
+    /*font-family: 'Muli', sans-serif;*/
+}
+#VideoBack {
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.ForceMinHeight{
+    min-height: 717px !important;
+}
+/*#VideoBack video {
+
+  min-width: 100%;
+  min-height: 100%;
+
+  width: auto;
+  height: auto;
+
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}*/
+.fullViewportHeight{
+    height: 100vh;
+}
+.backgroundImgResponsive{
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    /*min-height: 717px;*/
+}
+
+.darkgreyAUM{
+    color: #4a4b45;
+}
+.greyAUM{
+    color: #A9ACA0;
+}
+.blackAUM{
+    color: #121212;
+}
+.blackAUM_force{
+    color: #121212!important;
+}
+.whiteAUM_force{
+    color: #ffffff!important;
+}
+.blueAUM{
+    color: #084b85;
+}
+.cyanAUM{
+    color: #1ba7c1;
+}
+/*====================================
+GRUPO HERO
+======================= */
+.TextoInicio {
+    font-size: 2.5em;
+    /*font-size: 5vh;*/
+}
+.TextoInicio strong {
+    font-weight: bold;
+    border-bottom: 1px solid #fff
+}
+
+#HeroMenuTop{
+    height: 100px;
+    font-weight: lighter;
+    line-height: 100px;
+}
+#HeroMenuTop img{
+    margin-top: 40px;
+    margin-right: -15px;
+    width: 32px;
+    padding-right: 10px;
+    border-right: 1px solid #fff;
+
+}
+#HeroMenuTop p{
+    margin-left: -5px;
+    font-size: 0.7em;
+    vertical-align: middle;
+}
+#HeroLogo{
+    text-align: center;
+}
+#HeroLogo img{
+
+    margin-top: 10px;
+}
+.HeroLogoClassic{
+    width: 200px;
+}
+#HeroLogoTexto{
+    font-size: 2.5vw;
+    font-family: "Times New Roman", Times, serif;
+}
+#HeroLogo p{
+    margin-top: -5px;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 0.7vw;
+}
+.HeroProgramHolder{
+    height: 250px;
+}
+.HeroProgramSpace1{
+    height: 80px;
+}
+.HeroAdmissionSpace1{
+    height: 40px;
+}
+.heronavDark{
+    font-weight: 600!important;
+    color: #4A4B45!important;
+}
+.HeroProgramCircle {
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    background-color: #FFFFFF;
+    width: 250px;
+    height: 250px;
+}
+.HeroProgramCircle p{
+    font-family: Roboto, sans-serif;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    line-height: 250px;
+    color: #0b2e13;
+    font-size: 6.5em;
+    font-weight: 900;
+}
+.HeroAdmissionCircle{
+    position: absolute;
+    right: 0px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+}
+.HeroProfessorCircle {
+    position: absolute;
+    right: 0px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    background-color: #ce1731;
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 300px;
+}
+.HeroProfessorCircle p{
+    font-family: Roboto, sans-serif;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+    line-height: 300px;
+    color: #ffffff;
+    font-size: 6.5em;
+    font-weight: 900;
+}
+.HeroProgramTitleHolder{
+    position: absolute;
+    left: 270px;
+    height: 250px !important;
+}
+.HeroAdmissionTitleHolder{
+    position: absolute;
+    left: 0px;
+    height: 340px !important;
+    font-size: 1em;
+}
+.HeroProfessorTitleHolder{
+    position: absolute;
+    left: 0px;
+    height: 320px !important;
+    font-size: 1em;
+}
+.HeroMsgProvTitleHolder{
+    position: absolute;
+    left: 0px;
+    height: 340px !important;
+    font-size: 1.7em;
+}
+.HeroFacultyTitleHolder{
+    position: absolute;
+    left: 0px;
+    height: 240px !important;
+    font-size: 2em;
+}
+.HeroGeneralTitleHolder{
+    position: absolute;
+    left: 0px;
+    /*height: 240px !important;*/
+    font-size: 1em;
+    line-height: 1em;
+}
+.HeroAdmission_TalkText{
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: 200;
+}
+.HeroAdmission_TalkText strong{
+    font-weight: 800;
+}
+.HeroProgramTitle{
+    /*position: absolute;
+    left: 220px;*/
+    /*width: 60%;*/
+    width: 55vw;
+    font-size: 4em;
+    line-height: 1em;
+}
+.HeroProgramTitle_rich{
+    width: 55vw;
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: 100!important;
+}
+
+.HeroProgramTitle_rich strong{
+    font-weight: 900!important;
+}
+.HeroGeneralTitle_rich{
+    width: 60vw;
+    font-size: 8em;
+    line-height: 1em;
+    font-weight: 100!important;
+}
+.HeroGeneralTitle_rich strong{
+    font-weight: 900!important;
+}
+.HeroProgramText{
+    font-size: 2em;
+    line-height: 1em;
+    margin-top: 20px;
+}
+.HeroProgramText strong {
+
+    font-weight: 900;
+    /*border-bottom: 1px solid #fff*/
+}
+.HeroAdmissionText{
+    font-size: 2em;
+    line-height: 1em;
+    margin-top: 120px;
+    font-weight: 600;
+}
+.HeroFacultyText{
+    font-size: 2em;
+    line-height: 1em;
+    margin-top: 120px;
+    font-weight: 200;
+}
+.HeroFacultyText strong{
+    font-weight: 800;
+}
+.HeroGeneralText{
+    font-size: 2em;
+    line-height: 1em;
+    /*margin-top: 120px;*/
+    font-weight: 200;
+}
+.HeroGeneralTextstrong{
+    font-weight: 800;
+}
+.HeroProfessorText{
+    font-size: 2em;
+    line-height: 1em;
+    /*margin-top: 90px;*/
+    font-weight: 300!important;
+    width: 60%;
+}
+.HeroProfessorText{
+    font-weight: 800;
+}
+/*====================================
+GRUPO HERO APPLY
+======================= */
+#HeroBannerApply {
+    height: 300px;
+
+    margin-top: -150px;
+    text-align: center !important;
+
+}
+
+.HeroBannerApplyButton{
+    transition: all 0.5s ease;
+}
+.HeroBannerApplyButton_Red{
+    transition: all 0.5s ease;
+}
+.HeroBannerApplyButton_Top{
+    transition: all 0.5s ease;
+}
+.HeroBannerApplyBarra{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+/*#HeroBannerApplyButton:hover {
+    background-color: #1ba7c1;
+}*/
+#HeroBannerApply h1{
+    margin-top: 50px;
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8;
+    font-weight: 900 !important;
+    font-size: 5em !important;
+}
+#HeroBannerApply h2{
+    margin-top: -20px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+#HeroBannerApply h3{
+    margin-top: -10px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+#HeroBannerApply h4 img{
+    margin-top: -25px;
+    width: 20px;
+}
+#HeroBannerApply .lineaVertical{
+    margin-top: 35px;
+    height: 230px;
+    width: 50%;
+    border-right: 1px solid #121212;
+}
+#HeroBannerApply h5{
+    margin-top: 40px;
+    text-align: left;
+    font-weight: normal !important;
+    font-size: 2.5em !important;
+}
+#HeroBannerApply p{
+    margin-top: -5px;
+    text-align: left;
+    font-weight: 200 !important;
+    font-size: 1.5em !important;
+    line-height: 1;
+}
+#HeroBannerApply h6 {
+    text-align: left;
+}
+#HeroBannerApply h6 img{
+    position: absolute;
+    bottom: 50px;
+    margin-bottom: 0px;
+    width: 80px;
+}
+.HeroBannerApplyCirculo{
+    /*margin-top: -200px !important;*/
+}
+#HeroBannerApply .CirculoCentralImage{
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+.CirculoMiniBanner{
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 120px;
+    background-color: #ce1731;
+    height: 120px;
+    z-index: -100;
+    transition: all 0.5s ease;
+
+}
+.CirculoMiniBanner h1{
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8em;
+    font-weight: 900 !important;
+    font-size: 2.5em !important;
+    margin: 0px !important;
+}
+.CirculoMiniBanner img{
+    margin: 0px !important;
+    width: 10px;
+}
+.CirculoMiniBanner_Over{
+    background-color: #1ba7c1
+}
+.CirculoCentralImageOver{
+    background-color: #1ba7c1 !important;
+}
+.CirculoCentralImageOver_red{
+    background-color: #ce1731 !important;
+}
+.HeroBanner_MiniApply{
+    position: absolute;
+    top: -280px;
+    right: 0px;
+}
+
+#HeroBannerApply .CirculoCentralImage h1{
+    margin: 0px !important;
+    /*padding-top: 50px;*/
+}
+#HeroBannerApply table{
+    height: 300px;
+}
+.CirculoCentralImage .HeroBannerApplyBarra{
+    position: relative !important;
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+.HeroBannerApply_TalkMsg{
+    margin-top: 30px;
+    text-align: left;
+    line-height: 1em;
+    font-size: 3.2em;
+}
+.HeroBannerData{
+    /*margin-top: 50px;
+    font-family: 'Saira Condensed', sans-serif;*/
+    line-height: 0.8;
+    font-weight: 100 !important;
+    font-size: 5em !important;
+    color: #bebcc3;
+}
+/*====================================
+GRUPO PROGRAMS
+======================= */
+
+#CardProgram {
+    margin: 50px auto;
+    width: 334px;
+    height: 400px;
+    position: relative;
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.5s;
+}
+.blured{
+    /*opacity: 0.1!important;*/
+    transform: scale(0.8)!important;
+    animation-name: none !important;
+}
+.unblured{
+    transform: scale(1)!important;
+    /*opacity: 1!important;*/
+}
+/*#CardProgram .backgroundImgResponsive{
+    position: absolute;
+    top:0px;
+    right: 20px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}*/
+#CardProgram .ProgramImgResponsive{
+    position: absolute;
+    top:0px;
+    right: 20px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+#CardProgram .ProgramImgResponsive p{
+    line-height: 200px;
+    font-size: 10em;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 900;
+}
+/*#CardProgram:hover .backgroundImgResponsive{
+    transform: scale(1.2);
+}*/
+#CardProgram:hover .ProgramImgResponsive{
+    transform: scale(1.5);
+}
+/*#CardProgram:hover h2{
+    background-color: rgba(255,255,255,1);
+}*/
+#CardProgram .programTitle{
+    padding-top: 5px;
+    padding-bottom: 10px;
+    z-index: 100;
+    margin-top: 150px;
+    width: 290px;
+    background-color: white;
+}
+.backgroundOver1_force{
+    background-color: #1ba7c1 !important;
+}
+#CardProgram .programTitle h3{
+    font-weight: 200 !important;
+    font-size: 0.5em !important;
+    margin-left: 5px;
+}
+#CardProgram .programTitle h1{
+    margin-top: -5px;
+    margin-left: 5px;
+    font-weight: 700 !important;
+    font-size: 2em !important;
+    line-height: 1;
+    transition: all 0.1s ease;
+}
+#CardProgram h2{
+    position: absolute;
+    top:305px;
+    font-weight: 200 !important;
+    font-size: 1em !important;
+    line-height: 1;
+    width: 290px;
+    background-color: #fff;
+    padding: 5px;
+    /*color: #666666;*/
+    /*background-color: rgba(255,255,255,0);*/
+    transition: all 0.5s ease;
+}
+
+#CardProgram h2 strong{
+    font-weight: 700 !important;
+}
+#CardProgram img {
+    /*position: absolute;
+    top:350px;*/
+    margin-top: 10px;
+    width: 30px;
+}
+.CardProgramBarra{
+    position: absolute;
+    top: 150px;
+    width: 290px;
+}
+
+.imgHover {
+    background-color: #1ba7c1;
+}
+
+/*====================================
+GRUPO PROGRAMS OTROS
+======================= */
+#ProgramsMoreCircleBack{
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10vw;
+    height: 60vw;
+    width: 60vw;
+    background-color: #a4bac3;
+    z-index: -1000;
+
+}
+
+#ProgramsMore {
+    height: 170px;
+}
+
+#ProgramsMore .LeftPanel h1 {
+    text-align: right;
+    position: absolute;
+    right: 0px;
+    top: 30px;
+    width: 200px;
+    line-height: 1.1;
+}
+#ProgramsMore .LeftPanel img {
+    position: absolute;
+    right: 0px;
+    width: 80px;
+}
+#ProgramsMore .RightPanel h1 {
+    text-align: left;
+    position: absolute;
+    left: -5px;
+    top: 20px;
+    width: 200px;
+    line-height: 1.1;
+    font-size: 5em;
+}
+#ProgramsMore .RightPanel h2 {
+    text-align: left;
+    position: absolute;
+    left: 0px;
+    top: 100px;
+    width: 150px;
+    font-size: 1.2em;
+    line-height: 1.1;
+}
+#ProgramsMore .RightPanel img {
+    position: absolute;
+    left: 0px;
+    width: 80px;
+}
+.CentralImageHolder{
+    position: absolute;
+    top: -130px;
+    left: 50%;
+}
+.CentralImageHolder .CentralImage{
+    margin-left: -175px;
+    height: 10px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 350px;
+    background-size: cover;
+    background-position: center;
+    min-height: 350px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+.CentralImageOver{
+    margin-left: 0px;
+    height: 10px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    background: rgba(27,167,193,0);
+    width: 350px;
+    min-height: 350px;
+    z-index: -1000;
+    transition: all 0.5s ease;
+
+}
+.CentralImageBarra{
+    position: absolute;
+    left: -100px;
+    top: 100px;
+    width: 200px;
+}
+.CentralImageOver_Active{
+    background: rgba(27,167,193,1)!important;
+
+}
+.CentralImageHolder h1{
+    margin-left: -100px;
+    margin-top: -230px;
+    text-align: center;
+    width: 200px;
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8;
+    font-weight: 900 !important;
+    font-size: 5em !important;
+    z-index: 1000;
+}
+.CentralImageHolder h2{
+    text-align: center;
+    margin-left: -100px;
+    width: 200px;
+    margin-top: 0px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+.CentralImageHolder h3{
+    text-align: center;
+    margin-left: -100px;
+    margin-top: -15px;
+    width: 200px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+/*.ProgramsMoreOver:hover{
+    background-color: #1ba7c1;
+}*/
+#ProgramsMoreText {
+    height: 200px;
+    font-size: 1.4em;
+    /*line-height: 1.2em;*/
+    font-weight: lighter;
+}
+.ProgramsMoreTextBack{
+    background-color: #333333;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+.ProgramsMoreTextBack_Active{
+    background-color: #ffffff !important;
+    color: #121212;
+}
+/*#ProgramsMoreText .dummy{
+    height: 150px;
+}*/
+#ProgramsMoreText .LeftPanel {
+    text-align: right;
+    /*margin-right: 0px;
+    margin-left: auto;*/
+}
+#ProgramsMoreText img {
+    /*position: absolute;
+    right: 0px;
+    top:150px;*/
+    margin-top: -20px;
+}
+#ProgramsMoreText .LeftPanel .ProgramsMoreButton{
+    position: absolute;
+    right: 0px;
+    top:180px;/*150*/;
+}
+#ProgramsMoreText .ProgramsMoreButton_Over{
+    display: inline-block;
+    width: 0px;
+    height:40px;
+    overflow: hidden;
+    background-color: #1ba7c1;
+    padding: 0px;
+    padding-top: 5px;
+    top: 5px;
+    transition: all 0.3s ease;
+}
+#ProgramsMoreText .ProgramsMoreButton_Over_Active{
+    transition: all 0.7s ease;
+    width: 100px!important;
+    padding: 5px;
+}
+.ProgramsMoreButtonBarra{
+    width: 120%;
+    margin-top: -39px;
+    margin-left: -5px;
+    /*position: absolute;
+    top: 0px;
+    left: 0px;*/
+}
+#ProgramsMoreText .RightPanel .ProgramsMoreButton{
+    position: absolute;
+    left: 0px;
+    top:180px;
+}
+/*#ProgramsMoreText .RightPanel img {
+    position: absolute;
+    left: 0px;
+    top:150px;
+}*/
+#ProgramsMoreText img{
+    width: 30px;
+}
+#ProgramsMoreTextRight{
+    position: absolute;
+    left: 0px;
+    height: 180px;
+    width: 400px;
+}
+#ProgramsMoreTextLeft{
+    position: absolute;
+    right: 0px;
+    height: 180px;
+    width: 400px;
+}
+
+
+/*====================================
+GRUPO MALTA
+======================= */
+
+.MaltaCentral{
+    position: absolute;
+    top: -130px;
+    left: 50%;
+}
+
+.MaltaCentral .MaltaCentralImage{
+    margin-left: -200px;
+    height: 10px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 400px;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+.MaltaCentral h1{
+    margin-left: -125px;
+    margin-top: -330px;
+    text-align: center;
+    width: 200px;
+    /*font-weight: 900 !important;*/
+    font-size: 6em !important;
+}
+.MaltaCentral h2{
+    text-align: center;
+    margin-left: -95px;
+    width: 200px;
+    margin-top: -20px;
+    font-weight: lighter !important;
+    font-size: 1.5em !important;
+}
+.MaltaCentral h3{
+    text-align: center;
+    margin-left: -100px;
+    margin-top: -15px;
+    width: 200px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+.InstagramImg {
+    transition: all 0.5s ease;
+    border:10px solid white;
+    width: 200px;
+    height: 200px
+}
+.InstagramImg .flagActive {
+
+}
+.InstagramImg:hover {
+    transform: scale(1.1);
+
+}
+.InstagramImg .blured {
+
+    transform: scale(0.5);
+}
+
+.InstagramImg .unblured {
+    transform: scale(1);
+}
+.MaltaTextoHolderBarra{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.MaltaTextoHolder {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    /*margin: -10px;*/
+    padding-top: 40px;
+    height: 100%;
+    /*border-top: 1px solid #121212;*/
+    transition: all 0.5s ease;
+
+}
+.MaltaTextoHolder_Active {
+    cursor: pointer;
+    background-color: #ce1731;
+    color: white;
+    /*border-top: 1px solid #121212;*/
+
+}
+
+.MaltaTextoHolder h1{
+    font-weight: bold;
+    line-height: 1em;
+}
+.MaltaTextoHolder img{
+    position: absolute;
+    bottom: 20px;
+    width: 30px;
+}
+/*====================================
+GRUPO CARRUSEL GRANDE
+======================= */
+
+.carousel-fade {
+  .carousel-inner {
+    .item {
+      opacity: 0;
+      transition-property: opacity;
+    }
+
+    .active {
+      opacity: 1;
+    }
+
+    .active.left,
+    .active.right {
+      /*left: 0;*/
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .next.left,
+    .prev.right {
+      opacity: 1;
+    }
+  }
+
+  .carousel-control {
+    z-index: 2;
+  }
+}
+.carousel-inner h1{
+    position: absolute;
+    top: 40%;
+    color: white;
+    font-size: 7em;
+    font-weight: 200;
+}
+#CarouselValue{
+    /*height: 100vh;800px*/
+    height: 100vh;
+    width: 100vh;/*800px;*/
+
+}
+.CarouselValue_Holder{
+    height: 100vh;
+    width: 100vh;
+}
+#carouselBlog{
+    height: 100vh;
+    width: 100%;
+}
+#carouselApplyEnd{
+    height: 100vh;
+    width: 100%;
+}
+.carouselGrande{
+    height: 800px;
+    width: 800px;
+}
+.carousel-item {
+
+}
+.CarouselTest {
+    -webkit-border-radius: 100%;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 100%;
+    -moz-background-clip: padding;
+    /*width: 800px;*/
+    width: 100%;
+    border-radius: 100%;
+    background-clip: padding-box;
+    border: none;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    transform: translateY(0);
+    min-height: 100vh;/*800px;*/
+    /*overflow: hidden;*/
+}
+
+.carousel-indicators li {
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(255,255,255,0.3);
+    margin-top: -90vh;/*-750px;*/
+}
+/*====================================
+GRUPO CAROUSEL BANNER
+======================= */
+#CarouselBanner {
+    height: 300px;
+    background-color: white;
+    margin-top: -250px;
+    text-align: center !important;
+}
+#CarouselBanner h1{
+    margin-top: 50px;
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8;
+    font-weight: 900 !important;
+    font-size: 5em !important;
+}
+#CarouselBanner h2{
+    margin-top: -20px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+#CarouselBanner h3{
+    margin-top: -10px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+#CarouselBanner h4 img{
+    margin-top: -25px;
+    width: 20px;
+}
+#CarouselBanner .lineaVertical{
+    margin-top: 35px;
+    height: 230px;
+    width: 50%;
+    border-right: 1px solid #121212;
+}
+#CarouselBanner h5{
+    margin-top: 40px;
+    text-align: left;
+    font-weight: normal !important;
+    font-size: 2.5em !important;
+    line-height: 1em;
+}
+#CarouselBanner p{
+    margin-top: -5px;
+    text-align: left;
+    font-weight: 200 !important;
+    font-size: 1.5em !important;
+    line-height: 1;
+}
+#CarouselBanner h6 {
+    text-align: left;
+}
+#CarouselBanner h6 img{
+    position: absolute;
+    bottom: 50px;
+    margin-bottom: 0px;
+    width: 80px;
+}
+#CarouselBanner .BannerSuperText{
+    margin-top: 40px;
+    text-align: left;
+    font-weight: 200 !important;
+    font-size: 4.0em !important;
+    line-height: 1;
+}
+#CarouselBanner .BannerSuperText strong{
+    font-weight: 600 !important;
+}
+/*====================================
+GRUPO FACULTY
+======================= */
+
+
+.CuatroMiniCentral{
+
+}
+
+.CuatroMiniCentral .CuatroMiniCentralImage{
+    height: 10px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 400px;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+
+.CuatroMiniCentral h1{
+    margin-top: 70px;
+    text-align: center;
+    font-size: 6em !important;
+}
+.CuatroMiniCentral h2{
+    text-align: center;
+    margin-top: -10px;
+    font-weight: lighter !important;
+    font-size: 1.5em !important;
+}
+.CuatroCirculosHolder{
+    margin-top: -100px;
+}
+.CuatroCirculosItem{
+    width: 100%;
+    border: 10px solid white;
+}
+
+/*====================================
+GRUPO BLOG
+======================= */
+
+#CardBlog {
+    margin: 50px auto;
+    width: 340px;
+    height: 400px;
+    position: relative;
+    transform: scale(1);
+    opacity: 1;
+    transition: all 0.5s;
+}
+/*.blured{
+    transform: scale(0.8)!important;
+    animation-name: none !important;
+}
+.unblured{
+    transform: scale(1)!important;
+}*/
+
+#CardBlog .BlogImgResponsive{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 340px;
+    background-size: cover;
+    background-position: center;
+    min-height: 340px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+/*#CardBlog:hover .backgroundImgResponsive{
+    transform: scale(1.2);
+}
+#CardBlog:hover .BlogImgResponsive{
+    background-image: linear-gradient(rgba(0, 74, 135, 0.5),rgba(0, 74, 135, 0.5));
+}*/
+
+#CardBlog .BlogTxtResponsive{
+    position: absolute;
+    width:340px;
+    height:340px;
+     -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    top:0;
+    left: 0px;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+#CardBlog:hover .BlogTxtResponsive{
+    cursor: pointer;
+    opacity:1;
+}
+#CardBlog .BlogTxtResponsive h1{
+    margin-top: 30px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+/*#CardBlog:hover .BlogImgResponsive:after {
+    content:'\A';
+    position:absolute;
+    width:100%; height:100%;
+     -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    top:0; left:0;
+    background:rgba(0,0,0,0.6);
+    opacity:0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+}
+#CardBlog:hover .BlogImgResponsive:hover:after {
+    opacity:1;
+}*/
+/*#CardBlog:hover h2{
+    background-color: rgba(255,255,255,1);
+}*/
+
+#CardBlog h3{
+    position: absolute;
+    top:350px;
+    font-weight: 200 !important;
+    font-size: 0.5em !important;
+    line-height: 1;
+    width: 290px;
+    background-color: #fff;
+    /*background-color: rgba(255,255,255,0);
+    transition: all 0.5s ease;*/
+}
+#CardBlog h2{
+    position: absolute;
+    top:365px;
+    font-weight: 200 !important;
+    font-size: 1em !important;
+    line-height: 1;
+    width: 100%;
+    background-color: #fff;
+    /*background-color: rgba(255,255,255,0);
+    transition: all 0.5s ease;*/
+}
+#CardBlog h2 strong{
+    font-weight: 700 !important;
+}
+/*#CardBlog img {
+    margin-top: 10px;
+    width: 30px;
+}*/
+
+/*====================================
+GRUPO FOOTER
+======================= */
+
+#Footer {
+    background-color: #121212;
+    height: 300px;
+}
+.footer_GroupTitle{
+    border-top: 2px solid #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.footer_Item{
+    color: #CCCCCC;
+    font-size: 0.6em;
+    font-weight: 400;
+    margin-top: 2px;
+}
+.footer_Item a{
+    color: #CCCCCC;
+}
+.footer_Item a:hover{
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+.footer_Text{
+    font-size: 0.8em!important;
+    font-weight: 400!important;
+}
+.footer_Icon{
+     -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: #4A4B45;
+    margin-right: 5px;
+    transition: all 0.5s ease;
+}
+.footer_Icon img{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-top: 2px
+}
+.footer_Icon:hover{
+    cursor: pointer;
+    background-color: #1ba7c1;
+}
+.footer_Input{
+    -webkit-border-radius: 0%!important;
+    -moz-border-radius: 0%!important;
+    border-radius: 0%!important;
+    border: 0px!important;
+    font-size: 0.7em;
+    height: 30px;
+}
+.footer_Button{
+    cursor: pointer;
+    font-size: 0.5em;
+}
+/*====================================
+GRUPO GENERALES
+======================= */
+.IsButton:hover{
+    cursor: pointer;
+}
+.MiFlex_Even {
+  flex: 1;
+}
+
+.SpaceMin-400{
+    min-height: 400px;
+}
+.Space-600{
+    height: 600px;
+}
+.Space-500{
+    height: 500px;
+}
+.Space-400{
+    height: 400px;
+}
+.Space-300{
+    height: 300px;
+}
+.Space-200{
+    height: 200px;
+}
+.Space-100{
+    height: 100px;
+}
+.Space-50{
+    height: 50px;
+}
+.Space-25{
+    height: 25px;
+}
+.Space-20{
+    height: 20px;
+}
+.Space-10{
+    height: 10px;
+}
+.Space-400{
+    height: 400px;
+}
+.Table-FullSize{
+    height: 100%;
+    width: 100%;
+}
+.BarraAnim_Idle{
+    height: 3px;
+    background-color: #f4f4a9;
+    width: 0%;
+    transition: all 0.5s ease;
+}
+.BarraAnim_Active{
+    width: 100%!important;
+    transition: all 1.5s ease!important;
+}
+.OpacityFull_force{
+    opacity: 1;
+}
+.BannerButton{
+    transition: all 0.5s ease;
+}
+.BannerButtonBarra{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
+.MoreButton{
+    /*position: absolute;
+    right: 0px;
+    top:180px;*//*150*/;
+    color: white;
+    line-height: 40px;
+    font-size: small;/*1.5em;*/
+    height: 40px;
+    font-weight: 400;
+}
+.MoreButton img{
+    margin-top: -20px;
+    margin-left: -4px;
+    width: 30px;
+}
+.MoreButton_Over{
+    display: inline-block;
+    width: 0px;
+    height:40px;
+    overflow: hidden;
+    background-color: #1ba7c1;
+    padding: 0px;
+    padding-top: 5px;
+    top: 5px;
+    transition: all 0.3s ease;
+}
+.MoreButton_H30{
+    height:30px!important;
+    line-height: 30px!important;
+}
+.MoreButton_H20{
+    height:20px!important;
+    line-height: 20px!important;
+}
+.MoreButton_Over_Active{
+    transition: all 0.7s ease;
+    width: 100px!important;
+    padding: 5px;
+}
+.MoreButton_Over_Active_50{
+    transition: all 0.7s ease;
+    width: 50px!important;
+    padding: 5px;
+}
+.MoreButton_Over_Active_40{
+    transition: all 0.7s ease;
+    width: 40px!important;
+    padding: 5px;
+}
+.MoreButtonBarra{
+    width: 120%;
+    margin-top: -45px;
+    margin-left: -5px;
+}
+.MoreButtonBarra_H30{
+    margin-top: -35px!important;
+}
+.MoreButtonBarra_50{
+    width: 150%!important;
+}
+.BackgroundWhite{
+    background-color: white;
+}
+.BackgroundGrey{
+    background-color: #E9EAE4;
+}
+.BordeRight{
+    border-right: 2px solid #121212
+}
+.BordeRightWhite{
+    border-right: 2px solid #FFFFFF;
+}
+
+.OnHoverGrey{
+    transition: all 0.3s ease;
+}
+.OnHoverGrey:hover{
+    background-color: #e7e8e2 !important;
+}
+/*====================================
+GRUPO TOP MENU
+======================= */
+.TopMenuHolder {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #121212;
+    width: 70px;
+    height: 70px;
+     -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    opacity: 0;
+}
+.TopMenuHolder h1{
+    line-height: 68px;
+}
+
+/*====================================
+TEMPLATE PROGRAMS
+======================= */
+.tempProgram_BigText{
+    font-size: 7em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.tempProgram_BigText strong{
+    font-weight: bold;
+}
+.tempProgram_Bachelor{
+    font-size: 0.8em;
+}
+.tempProgram_TitleProgram{
+    font-size: 1.7em;
+    line-height: 0.9em;
+    font-weight: 600;
+}
+.tempProgram_TitleAproval{
+    margin-top: 5px;
+    font-size: 0.6em;
+}
+.tempProgram_BigYears_holder{
+    height: 103px;
+    /*background-color: #00ad9c;*/
+}
+.tempProgram_BigYears{
+    position: absolute;
+    bottom: -20px;
+    left: 10px;
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto, sans-serif;
+    font-size: 8em;
+    line-height: 1em;
+}
+.tempProgram_BigYears_sub{
+    position: absolute;
+    bottom: 0px;
+    left: 80px;
+    font-family: 'Muli', sans-serif !important;
+    font-size: 1em !important;
+    line-height: 1em;
+}
+.tempProgram_BigTuition_holder{
+    height: 103px;
+    font-weight: 900;
+    /*background-color: #00FF00;*/
+}
+.tempProgram_BigTuition{
+    position: absolute;
+    bottom: 18px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto, sans-serif;
+    font-size: 3.4em;
+    line-height: 1em;
+}
+.tempProgram_BigTuition_sub{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    font-family: 'Muli', sans-serif !important;
+    font-size: 1em !important;
+    line-height: 1em;
+}
+.tempProgram_BigTuition_Comment{
+    margin-top: 30px;
+    font-size: 0.7em;
+    line-height: 1em;
+}
+.tempProgram_Description2{
+    margin-top: 40px;
+    margin-left: 10px;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+.tempProgram_FlechaDown img{
+    width: 20px;
+}
+.tempProgram_Credits_holder{
+    height: 70px;
+}
+.tempProgram_Credits_Credit{
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto, sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+}
+.tempProgram_Credits_Credit_sub{
+    position: absolute;
+    top: 55px;
+    left: 10px;
+    margin: 0px;
+    padding: 0px;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+.tempProgram_Credits_Outline{
+    text-align: right;
+    font-size: 2.5em;
+    line-height: 1em;
+}
+/*====================================
+TABS GENERAL
+======================= */
+.tabAUM{
+    border: none;
+}
+.tabAUM .nav-link{
+    /*background-color: #00FF00;*/
+    border-bottom: 4px solid #1ba7c1;
+    font-size: 1.5em;
+
+}
+.tabAUM a{
+    color: #121212!important;
+    line-height: 1em;
+
+
+}
+.tabAUM a:hover{
+    /*background-color: #00ad9c!important;*/
+    border: 0px!important;
+    border-bottom: 4px solid #ce1731 !important;
+}
+.tabAUM .active{
+    border: 0px!important;
+    border-bottom: 4px solid #f4f4a9!important;
+    background-color: #00ad9c;
+    /*background-color: #00ad9c!important;*/
+}
+/*====================================
+TABLAS AUM
+======================= */
+.TableAUM_Title{
+    margin-top: -10px;
+    font-weight: bolder;
+    color: #1ba7c1;
+    margin-bottom: -10px;
+}
+.TableAUM_Item{
+    margin-top: 10px;
+    line-height: 1em;
+}
+.TableAUM_Item_LineBelow{
+    border-bottom: 1px solid #eaebed;
+}
+.TableAUM_Item h1{
+    font-size: 1.2em;
+}
+.TableAUM_Item h2{
+    font-size: 1.2em;
+    font-weight: 900;
+}
+.TableAUM_Item_Detail{
+    margin-top: 10px;
+    margin-bottom: -10px;
+    font-size: 0.7em;
+    color: #a4bac3;
+    line-height: 1em;
+}
+.TableAUM_Total{
+    margin-top: 10px;
+    font-size: 1.3em;
+    color: #a4bac3;
+}
+.TableAUM_Total strong{
+    font-weight: 900;
+}
+/*====================================
+SIDEBUTTONS
+======================= */
+.TalkAdmission_holder{
+    font-size: 0.7em;
+    cursor: pointer;
+}
+.TalkAdmission_icon{
+    width: 80px;
+}
+.TalkAdmission_big{
+    width: 120px;
+}
+.TalkAdmission_text{
+    font-size: 1.5em;
+    margin-top: 10px;
+    line-height: 1em;
+    margin-bottom: 5px;
+}
+.TalkAdmission_text strong{
+    font-weight: 900;
+}
+.SidButtonMini_holder{
+    font-size: 0.5em;
+    cursor: pointer;
+}
+.SidButtonMini_text{
+    font-size: 1.5em;
+    margin-top: 10px;
+    line-height: 1em;
+    margin-bottom: 5px;
+}
+.SidButtonMini_icon{
+    width: 50px;
+}
+.SideApply h1{
+    margin-top: 50px;
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8;
+    font-weight: 900 !important;
+    font-size: 5em !important;
+}
+.SideApply h2{
+    margin-top: -20px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+.SideApply h3{
+    margin-top: -10px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+.SideApply h4 img{
+    margin-top: -25px;
+    width: 20px;
+}
+/*====================================
+GRUPO CIRCULO CENTRAL
+======================= */
+.GenCirculoCentral {
+    height: 400px;
+
+    /*margin-top: -150px;*/
+    text-align: center !important;
+
+}
+.GenCirculoCentral h1{
+    line-height: 0.8;
+    font-weight: 400 !important;
+    font-size: 5em !important;
+}
+.GenCirculoCentral h2{
+    margin-top: 10px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+.GenCirculoCentral h3{
+    margin-top: -10px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+.GenCirculoCentral h4 img{
+    margin-top: -25px;
+    width: 20px;
+}
+.GenCirculoCentral .lineaVertical{
+    margin-top: 35px;
+    height: 230px;
+    width: 50%;
+    border-right: 1px solid #121212;
+}
+.GenCirculoCentral h5{
+    margin-top: 40px;
+    text-align: left;
+    font-weight: normal !important;
+    font-size: 2.5em !important;
+}
+.GenCirculoCentral p{
+    margin-top: -5px;
+    text-align: left;
+    font-weight: 200 !important;
+    font-size: 1.5em !important;
+    line-height: 1;
+}
+.GenCirculoCentral h6 {
+    text-align: left;
+}
+.GenCirculoCentral h6 img{
+    position: absolute;
+    bottom: 50px;
+    margin-bottom: 0px;
+    width: 80px;
+}
+
+.GenCirculoCentral .CirculoCentralImage{
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 400px;
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+.CirculoCentralImageOver{
+    background-color: #1ba7c1 !important;
+}
+.GenCirculoCentral .CirculoCentralImage h1{
+    margin: 0px !important;
+    /*padding-top: 50px;*/
+}
+.GenCirculoCentral table{
+    height: 400px;
+}
+.CirculoCentralImage .HeroBannerApplyBarra{
+    position: relative !important;
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*====================================
+CYAN SECTION
+======================= */
+.CyanSection_text1{
+    font-size: 2em;
+    text-align: center;
+    line-height: 1em;
+}
+.CyanSection_text1 strong{
+    font-weight: 900;
+}
+.CyanSection_resalted{
+    background-color: white;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    border: none;
+    text-align: center;
+    padding: 30px;
+    color: #1ba7c1;
+    font-size: 2em;
+    font-weight: 900;
+    line-height: 1em;
+}
+.CyanSection_CirculoMiniBlanco{
+    background-color: white;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 200px;
+    height: 200px;
+    line-height: 0.8em;
+    font-weight: 200;
+    font-size: 1em;
+    padding: 30px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.CyanSection_CirculoMiniBlanco strong{
+    font-weight: 700;
+}
+/*====================================
+GENERALES TEMP
+======================= */
+.temp_Description2{
+    margin-left: 10px;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+.temp_BlogContextTitle{
+    margin-top: 30px;
+    margin-left: -3px;
+    text-align: left;
+    font-size: 3.5em!important;
+    line-height: 1em;
+}
+/*====================================
+GENERALES TEMP BANNER MINI
+======================= */
+.temp_BannerCircMini {
+    height: 300px;
+    text-align: center !important;
+}
+
+.temp_BannerCircMini h1{
+    margin-top: 50px;
+    font-family: 'Saira Condensed', sans-serif;
+    line-height: 0.8;
+    font-weight: 900 !important;
+    font-size: 5em !important;
+}
+.temp_BannerCircMini h2{
+    margin-top: -20px;
+    font-weight: lighter !important;
+    font-size: 1.2em !important;
+}
+.temp_BannerCircMini h3{
+    margin-top: -10px;
+    font-weight: bold !important;
+    font-size: 1.8em !important;
+}
+.temp_BannerCircMini h4 img{
+    margin-top: -25px;
+    width: 20px;
+}
+.temp_BannerCircMini .CirculoCentralImage{
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    border: none;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    z-index: -100;
+    transition: all 0.5s ease;
+}
+.CirculoCentralImageOver{
+    background-color: #1ba7c1 !important;
+}
+.temp_BannerCircMini .CirculoCentralImage h1{
+    margin: 0px !important;
+    /*padding-top: 50px;*/
+}
+.temp_BannerCircMini table{
+    height: 300px;
+}
+.CirculoCentralImage .HeroBannerApplyBarra{
+    position: relative !important;
+    width: 60% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*====================================
+PAGES TEMP
+======================= */
+.pages_BigText{
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.pages_BigText strong{
+    font-weight: bold;
+}
+.pages_BigText a{
+    color: #ce1731;
+}
+.pages_GEP_bigNumbers h1{
+    line-height: 1em;
+    font-size: 6em;
+    font-weight: 200;
+}
+.pages_GEP_bigNumbers h1 strong{
+    font-weight: bold;
+}
+.pages_GEP_bigNumbers h2{
+    line-height: 1em;
+    font-size: 1em;
+    font-weight: 200;
+    margin-top: -15px;
+    position: relative;
+}
+.pages_MediumBigText{
+    font-size: 2.5em;
+    line-height: 1em;
+    font-weight: 200;
+}
+.pages_MediumBigText a{
+    color: #ce1731;
+}
+.pages_MediumText{
+    font-size: 2em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.pages_MediumText a{
+    color: #ce1731;
+}
+.pages_MediumText strong{
+    font-weight: bold;
+}
+.pages_TwoColumn1_BigText{
+    font-size: 2.4em;
+    line-height: 1em;
+    font-weight: 200;
+    /*margin-left: 20px;*/
+}
+.pages_TwoColumn1_BigText a{
+    color: #ce1731;
+}
+.pages_TwoColumn1_BigText strong{
+    font-weight: bold;
+}
+.pages_TwoColumn1_MoreBigText{
+    /*margin-left: 20px;*/
+    font-size: 3em;
+    line-height: 1em;
+    font-weight: 200;
+}
+.pages_TwoColumn1_MoreBigText a{
+    color: #ce1731;
+}
+.pages_TwoColumn1_MoreBigText strong{
+    font-weight: bold;
+}
+
+.pages_TwoColumn1_MediumText{
+    /*margin-left: 20px;*/
+    font-size: 1.4em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.pages_TwoColumn1_MediumText a{
+    color: #ce1731;
+}
+.pages_TwoColumn1_MediumText strong{
+    font-weight: bold;
+}
+.pages_TwoColumn1_RichText{
+    /*margin-left: 20px;*/
+    font-size: 1em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.pages_TwoColumn1_RichText a{
+    color: #ce1731;
+}
+.pages_TwoColumn1_RichText strong{
+    font-weight: 600;
+}
+.pages_TwoColumn1_MiniText{
+    /*margin-left: 20px;*/
+    font-size: 0.7em;
+    line-height: 1em;
+    font-weight: 300;
+}
+.pages_TwoColumn1_MiniText a{
+    color: #ce1731;
+}
+
+.pages_TwoColumn1_MiniText strong{
+    font-weight: bold;
+}
+.pages_GEP_Table_Page h1{
+    font-size: 4em;
+    line-height: 1em;
+    font-weight: 900;
+}
+.pages_GEP_Table_Page h2{
+    max-width: 50vw;
+    font-size: 1.2em;
+    line-height: 1em;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.pages_GEP_Table_Page h3{
+    max-width: 50vw;
+    font-size: 0.9em;
+    line-height: 1em;
+    font-weight: 200;
+}
+.pages_BorderBottom1{
+    border-bottom: 1px solid #c8c8c8;
+}
+.pages_Card1{
+    border-radius: 0px!important;
+    -moz-border-radius: 0px!important;
+    -webkit-border-radius: 0px!important;
+    border: none!important;
+}
+.pages_Card1_Letter{
+    font-family: Roboto, sans-serif;
+    font-size: 3em;
+    line-height: 1em;
+    font-weight: 900;
+
+}
+.pages_EAP_bignumbers{
+    line-height: 1em;
+    margin-left: 6px;
+}
+.pages_EAP_bignumbers p{
+    position: absolute;
+    font-size: 1em;
+}
+.pages_EAP_bignumbers h1{
+    font-size: 7em;
+    font-weight: 900;
+    line-height: 1em;
+}
+.pages_EAP_bignumbers h2{
+    font-size: 1em;
+    font-weight: 200;
+    line-height: 1em;
+    margin-top: -20px;
+    text-align: right;
+}
+.pages_Inline_ReallyBig{
+    font-size: 7em;
+    font-weight: 900;
+    line-height: 0.8em;
+}
+.pages_Inline_NormalMini{
+    font-size: 1em;
+    font-weight: 200;
+    line-height: 1em;
+}
+.pages_Inline_NormalMini strong{
+    font-weight: 900;
+}
+.pages_Inline_NormalBig{
+    font-size: 2em;
+    font-weight: 200;
+    line-height: 0.9em;
+}
+.pages_Inline_NormalBig strong{
+    font-weight: 900;
+}
+.pages_Inline_Normal{
+    font-size: 1.5em;
+    font-weight: 200;
+    line-height: 0.9em;
+}
+.pages_Inline_Normal strong{
+    font-weight: 900;
+}
+.pages_Inline_Big{
+    font-size: 2.5em;
+    font-weight: 200;
+    line-height: 0.9em;
+}
+.pages_Inline_Big strong{
+    font-weight: 900;
+}
+.pages_InlineBanner_BigText{
+    margin-right: 10px;
+}
+.pages_InlineBanner_BigText .AutoSizeTextOneLine{
+    width: 200px;
+    height: 100px;
+
+    font-weight: 900;
+}
+.pages_InlineBanner_BigText h2{
+    margin-top: -15px;
+    font-size: 1em;
+}
+.pages_InlineBanner h3{
+    margin-top: 20px;
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: 200;
+}
+.pages_InlineBanner h3 strong{
+    font-weight: 900;
+}
+.pages_InlineBanner_ShortDescription{
+    font-size: 2em!important;
+}
+.pages_VerticalCard{
+    background-color: #ffffff;
+    /*width: 200px;*/
+}
+.pages_VerticalCard h1{
+    padding-top: 40px;
+    font-size: 1em;
+    font-weight: 200;
+}
+.pages_VerticalCard h1 strong{
+    font-weight: 600;
+}
+.pages_VerticalCard_BigTitle{
+    font-size: 4em!important;
+}
+.pages_VerticalCard h2{
+    font-size: 5em;
+    font-weight: 900;
+}
+.pages_VerticalCard_line{
+    border-top: 2px solid #1ba7c1;
+    margin-left: 20%;
+    width: 60%;
+}
+.pages_VerticalCard h3{
+    padding-top: 20px;
+    text-align: left;
+    margin-left: 5%;
+    width: 90%;
+    font-size: 0.8em;
+    font-weight: 300;
+    padding-bottom: 20px;
+}
+.pages_VerticalCard h3 strong{
+    font-weight: 900;
+}
+.pages_VerticalParagraph h1{
+    font-size: 2.5em;
+}
+.pages_BlockStar_Star{
+    width: 100%;
+    text-align: center;
+    font-size: 8em;
+    font-weight: 900;
+    line-height: 1em;
+}
+.pages_BlockStar{
+    border-radius: 30px!important;
+    -moz-border-radius: 30px!important;
+    -webkit-border-radius: 30px!important;
+    border: none!important;
+    padding: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #E9EAE4;
+    width: 600px;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 200;
+    line-height: 1em;
+}
+.pages_BlockStar strong{
+    font-weight: 800;
+}
+
+.pages_ListaSimple{
+    font-size: 1.3em;
+    line-height: 1em;
+    font-weight: 200;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.pages_ListColumns{
+    font-size: 1.5em;
+    line-height: 1em;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+.pages_ListaSimple_Circle:before{
+    font-family: FontAwesome;
+    color: #eaebed;
+    content:"\f111";
+}
+.pages_ListaSimple strong{
+    font-weight: 600;
+}
+.pages_CardText a{
+    color: #ce1731;
+}
+.pages_Separator{
+    width: 100%;
+    border-top: 1px solid #dddbe3;
+}
+.pages_SeparatorWhite{
+    width: 100%;
+    border-top: 1px solid #ffffff;
+}
+.pages_FixedColumns_Normal{
+    font-size: 1em;
+    line-height: 1em;
+}
+.pages_ContactForm{
+    width: 100%;
+    font-size: 20px;
+}
+.pages_ContactForm label{
+    width: 100%;
+    font-size: 1.3em;
+}
+.pages_ContactForm input[type=text],input[type=email] {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #dddbe3;
+    font-size: 0.9em;
+}
+.pages_ContactForm input:focus, textarea:focus  {
+    border: none;
+    outline: none;
+    border-bottom: 3px solid #1ba7c1!important;
+}
+.pages_ContactForm input[type=text]::placeholder,input[type=email]::placeholder textarea::placeholder {
+    color: #c8c8c8;
+}
+.pages_ContactForm textarea{
+    border: none;
+    border-bottom: 1px solid #dddbe3;
+    width: 100%;
+    height: 200px;
+    font-size: 0.9em;
+    resize: none;
+    background-color: #f5f6f8;
+}
+.pages_ContactForm input[type=submit]{
+    visibility: hidden;
+}
+.pages_ContactForm .errorlist{
+    font-size: 0.5em;
+    color: #ce1731;
+}
+
+.pages_ContactForm_MiniText{
+    margin-left: 10px;
+    padding-top: 8px;
+    font-size: 0.9em!important;
+}
+.pages_ProfessorMini{
+    width: 300px;
+}
+.pages_ProfessorMiniCircle{
+    border-radius: 100px!important;
+    -moz-border-radius: 100px!important;
+    -webkit-border-radius: 100px!important;
+    border: none!important;
+    background-color: #ce1731;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    line-height: 80px;
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: 900;
+    background-size: cover;
+    background-position: center;
+}
+
+.pages_ProfessorMini h1{
+    font-size: 1em;
+}
+.pages_ProfessorMini h2{
+    margin-top: -10px;
+    font-size: 0.8em;
+    color: #bebcc3;
+}
+/*.pages_ContactForm input[type=button]{
+    display: none;
+}*/
+.panel-title{
+    border-bottom: 1px solid #c8c8c8;
+    padding-bottom: 15px;
+}
+.panel-title a{
+
+}
+.panel-body{
+    background-color: #E9EAE4;
+    padding: 10px;
+    padding-bottom: 40px;
+}
+.panel-body a{
+    color: #ce1731;
+}
+.panel-title > a:before {
+    float: left !important;
+    font-family: FontAwesome;
+    /*background-color: #aaa;*/
+    content:"\f068";
+    /*padding-right: 5px;*/
+    padding:2px;
+}
+.panel-title > a.collapsed:before {
+    float: left !important;
+
+    content:"\f067";
+    /*padding:4px;*/
+}
+.panel-title > a:hover,
+.panel-title > a:active,
+.panel-title > a:focus  {
+    text-decoration:none;
+}
+/*====================================
+GOOGLE MAP
+======================= */
+#map_google {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
+/*====================================
+TOP NAV
+======================= */
+.TopNav_OriginItem{
+
+}
+.TopNav_OriginItem:{
+
+}
+.TopNav_HolderList{
+    position: relative;
+    width: 200px;
+    background-color: #eaebed;
+    color: #333333;
+    margin-top: -50px;
+    margin-left: -30px;
+    padding: 10px;
+    line-height: 1em;
+    z-index: 10000000!important;
+}
+.TopNav_General{
+    /*font-family: 'Muli', sans-serif;*/
+    line-height: 1em!important;
+    /*text-transform: uppercase;*/
+
+}
+.dropdown .dropdown-menu{
+    visibility: hidden;
+        display: block;
+      opacity:0;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    }
+    .dropdown.show .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+.TopNav_General .dropdown.show{
+    background-color: #a4bac3 !important;
+}
+.TopNav_General .dropdown-toggle, .nav-link{
+    color: #ffffff;
+}
+.TopNav_General .dropdown-toggle:hover, .nav-link:hover{
+    color: #dcdcdc;
+    /*background-color: #a4bac3;*/
+    /*text-decoration: underline;*/
+    /*border-bottom: 1px solid #ffffff;*/
+}
+.TopNav_General .dropdown-toggle:hover .show{
+    border: none!important;
+}
+.TopNav_General .dropdown-item {
+    color: #333333;
+}
+/*====================================
+LIGHT BOX
+======================= */
+.LightBox{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 9000000;
+}
+.LightBoxShow{
+    display: inline-block!important;
+}
+.LightBoxHolder {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+.LightBoxHolder img{
+    position: absolute;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    z-index: -9000000;
+}
+.LightBox h1{
+    position: absolute;
+    margin-top: 60vh;
+    margin-left: 10vw;
+    font-size: 3em;
+    color: #ffffff;
+    z-index: 9000001;
+    background-color: #084b85;
+}
+/*====================================
+GRUPO PRUEBAS
+======================= */

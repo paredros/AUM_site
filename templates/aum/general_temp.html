@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    {% include 'snip/hero_snip.html' %}
+    {% include 'snip/topbanner_snip.html' %}
+    <div class="Space-100"></div>
+    {% if data.useTopData %}
+    <div class="container">
+            {{ data.topData | safe }}
+    </div>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1">
+            </div>
+            <div class="{{ data.useRightData|yesno:'col-lg-2, col-lg-3' }} {{ forcewhite|yesno:'BordeRightWhite,BordeRight'}} {{ forcewhite|yesno:'whiteAUM_force,' }}">
+                <div class="container">
+                    <div class="pages_TwoColumn1_RichText">
+                        {{ data.leftData | safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="container">
+                    <div class="pages_TwoColumn1_RichText">
+                        {{ data.middleData | safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="{{ data.useRightData|yesno:'col-lg-2, col-lg-1' }}">
+                {% if data.useRightData %}
+                <div class="container">
+                    <div class="pages_TwoColumn1_RichText">
+                        {{ data.rightData | safe }}
+                    </div>
+                </div>
+                {%  endif %}
+            </div>
+
+        </div>
+    </div>
+    {% if data.useBottomData %}
+    <div class="container">
+            {{ data.bottomData | safe }}
+    </div>
+    {% endif %}
+    <div class="Space-200"></div>
+    {% include 'snip/footer_snip.html' %}
+
+    <script>
+    function ScriptContent() {
+
+        $('.AutoSizeTextOneLine').textfill({maxFontPixels: 200});
+
+        var controller = new ScrollMagic.Controller({loglevel: 3});
+
+        if($('#BlogParallax').length){
+            BlogEnabled(controller);
+        }
+        HeroVideoBackEnable();
+        TopBannerActivation();
+        BannerCircActivation();
+    }
+    </script>
+{% endblock content %}

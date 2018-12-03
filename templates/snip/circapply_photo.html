@@ -1,0 +1,22 @@
+{% load staticfiles %}
+
+<div class="container-fluid p-lg-5">
+    <div id="ApplyPhotoPin" class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <div class="CentralImageHolder text-white fadeInUp wow" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
+                <!--div class="CentralImage" style="background-image: url({% static 'imgtest/img_central_apply.jpg' %})"-->
+                <div class="CentralImage" style="background-image: url({{ settingsapply.backImage.url }})">
+                    <div class="CentralImageOver"></div>
+                </div>
+                    <div class="CentralImageBarra">
+                        <div class="BarraAnim_Idle"></div>
+                    </div>
+                <h1>APPLY NOW</h1>
+                <h2>Open Inscriptions</h2>
+                <h3>Summer 2019</h3>
+            </div>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>

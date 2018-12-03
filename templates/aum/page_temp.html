@@ -1,0 +1,713 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
+    {% include 'snip/hero_snip.html' %}
+    {% include 'snip/topbanner_snip.html' %}
+
+
+    {% for section in content.sections %}
+        {% if section.type == "white_section" %}
+            {% for blocks1 in section.content %}
+
+                {% if blocks1.blocktype ==  "Space"%}
+                    <div class="Space-{{ blocks1.value | safe }}"></div>
+                {% endif %}
+                {% if blocks1.blocktype == "Anchor" %}
+                    <div id="{{ blocks1.value | safe }}"></div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "SuperBigText"%}
+                    <div class="container">
+                        <div class="text-center tempProgram_BigText">
+                            <p>{{ blocks1.value | safe }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "BigText"%}
+                    <div class="container">
+                        <div class="text-center pages_BigText">
+                            <p>{{ blocks1.value | safe }}</p>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "GEP_bigNumbers"%}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8  pages_GEP_bigNumbers">
+                                <div class="d-flex justify-content-around">
+                                    <div>
+                                        <h1>{{ blocks1.value.numbers1 | safe }} </h1>
+                                        <h2 class="text-right">{{ blocks1.value.numbers1_deco | safe }}</h2>
+                                    </div>
+
+                                    <div>
+                                        <h1>{{ blocks1.value.numbers2 | safe }}</h1>
+                                        <h2 class="text-right">{{ blocks1.value.numbers2_deco | safe }}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "MediumText"%}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8">
+                                <div class="text-center pages_MediumText">
+                                    <p>{{ blocks1.value | safe }}</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "twocolumns1"%}
+                    {% include "snip/white_section_columns_snip.html" %}
+                {% endif %}
+                {% if blocks1.blocktype ==  "twocolumns1_inverted"%}
+                    {% include "snip/columns_inverted_snip.html" %}
+                {% endif %}
+                {% if blocks1.blocktype ==  "BlockStar"%}
+                    <div class="container">
+                        <div class="row" >
+                            <div class="pages_BlockStar_Star">*</div>
+                            <div class="pages_BlockStar mx-auto">{{ blocks1.value | safe }}</div>
+
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "BlockVerticalParagraph"%}
+                     <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <div class="d-flex">
+                                    {% for segment in blocks1.content %}
+                                        <div class="p-1 MiFlex_Even">
+                                            <div class="pages_VerticalParagraph text-left h-100">
+                                                <h1>{{ segment.bigtext }}</h1>
+                                                <p>{{ segment.normaltext }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "StarOnly"%}
+                    <div class="container">
+                        <div class="row" >
+                            <div class="pages_BlockStar_Star">*</div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "superminibanner"%}
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="text-center">
+                               {% include "snip/miniapply_snip.html" %}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "ProgramsList"%}
+                    <div class="container mt-lg-5 ProgramsListChecker">
+                        <div class="row">
+                                <div id="CardManager" class="row">
+                                    {# {% for i in "xxxxxxxxxx" %} #}
+                                    {% for program in otherdata.programs %}
+                                        <div id="CardProgram" class="zoomIn wow CardClass" onclick="window.location='{% url 'programs' program.pk %}';">
+                                                <!--div class="ProgramImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})"-->
+                                                <div class="ProgramImgResponsive" style="background-color: {{ program.backgroundColorMini }}">
+                                                    <p>{{ program.logoTxt |safe }}</p>
+                                                </div>
+                                                <div class="programTitle">
+                                                    <h3>{{ program.groupBachelor |safe }}</h3>
+                                                    <h1>{{ program.title |safe }}</h1>
+                                                </div>
+                                            <h2>{{ program.shortTextMini |safe }}
+                                                <br>
+                                                <img src="{% static 'icons/FlechaRight2.png' %}">
+
+                                            </h2>
+                                            <div class="CardProgramBarra">
+                                                <div class="BarraAnim_Idle"></div>
+                                            </div>
+                                        </div>
+
+                                    {% endfor %}
+
+                                </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "ProfessorList"%}
+                    <div class="container">
+                         <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10 d-flex flex-wrap justify-content-center">
+                                    {% for prof in otherdata.professors %}
+                                        <div class="d-inline-flex p-1 pages_ProfessorMini mb-lg-5 IsButton" >
+                                            {% if prof.photoMed %}
+                                                <div class="pages_ProfessorMiniCircle float-lg-left text-center" style="background-image: url({{ prof.photoMed.url }})">
+
+                                                </div>
+                                            {% else %}
+                                                <div class="pages_ProfessorMiniCircle float-lg-left text-center" >
+                                                    {{ prof.photoTxt }}
+                                                </div>
+                                            {% endif %}
+                                            <div class="float-lg-right ml-lg-1">
+                                                <h1>{{ prof.nameTitle | safe }}</h1>
+                                                <h2>{{ prof.roleTitle | safe }}</h2>
+                                                <div class="MoreButton MoreButton_H30">
+                                                    <div class="MoreButton_Over MoreButton_H30">
+                                                        {{ buttonsgeneral.BasicButton }}
+                                                        <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                                            <div class="BarraAnim_Idle"></div>
+                                                        </div>
+                                                    </div>
+                                                    {% if button_coloricon == 'white' %}
+                                                        <img src="{% static 'icons/FlechaRight2White.png' %}">
+                                                    {% else %}
+                                                        <img src="{% static 'icons/FlechaRight2.png' %}">
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                         </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "ProfessorList_Select"%}
+                     <div class="container">
+                         <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10 d-flex flex-wrap justify-content-center">
+                                {% for prof in otherdata.professors %}
+                                    {% for pk in blocks1.value %}
+                                        {% if prof.pk == pk %}
+                                            <div class="d-inline-flex p-1 pages_ProfessorMini mb-lg-5 IsButton" onclick="window.location='{% url 'professors' prof.pk %}';">
+                                                {% if prof.photoMed %}
+                                                    <div class="pages_ProfessorMiniCircle float-lg-left text-center" style="background-image: url({{ prof.photoMed.url }})">
+
+                                                    </div>
+                                                {% else %}
+                                                    <div class="pages_ProfessorMiniCircle float-lg-left text-center" >
+                                                        {{ prof.photoTxt }}
+                                                    </div>
+                                                {% endif %}
+                                                <div class="float-lg-right ml-lg-1">
+                                                    <h1>{{ prof.nameTitle | safe }}</h1>
+                                                    <h2>{{ prof.roleTitle | safe }}</h2>
+                                                    <div class="MoreButton MoreButton_H30">
+                                                        <div class="MoreButton_Over MoreButton_H30">
+                                                            {{ buttonsgeneral.BasicButton }}
+                                                            <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                                                <div class="BarraAnim_Idle"></div>
+                                                            </div>
+                                                        </div>
+                                                        {% if button_coloricon == 'white' %}
+                                                            <img src="{% static 'icons/FlechaRight2White.png' %}">
+                                                        {% else %}
+                                                            <img src="{% static 'icons/FlechaRight2.png' %}">
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                         </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "BannerApplyPhoto"%}
+                    {% include 'snip/circapply_photo.html' %}
+                {% endif %}
+                {% if blocks1.blocktype == "VerticalCardsWhite" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8">
+                                <div class="d-flex">
+                                    {% for card in blocks1.cards %}
+                                        <!--div class="p-1 MiFlex_Even">
+                                            <div class="pages_VerticalCard text-center h-100">
+                                                <h1 class="greyAUM {{ card.toptextisbig|yesno:'pages_VerticalCard_BigTitle,' }}">{{ card.toptext|safe }}</h1>
+                                                <h2 class="cyanAUM">{{ card.midtext|safe }}</h2>
+                                                <div class="pages_VerticalCard_line"></div>
+                                                <div>
+                                                    <h3>{{ card.bottomtext|safe }}</h3>
+                                                </div>
+                                                <div class="Space-10"></div>
+                                            </div>
+                                        </div-->
+                                        {% if card.hasbutton %}
+                                            {% if card.url.type == "internal" %}
+                                                {% if card.url.anchor %}
+                                                    <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{% url card.url.dir card.url.param %}#{{ card.url.anchor }}';">
+                                                {% else %}
+                                                    <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{% url card.url.dir card.url.param %}';">
+                                                {% endif %}
+                                            {% elif card.url.type == "external"%}
+                                                {% if card.url.anchor %}
+                                                    <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{{ card.url.dir }}#{{ card.url.anchor }}';">
+                                                {% else %}
+                                                    <div class="p-1 MiFlex_Even IsButton" onclick="window.location='{{ card.url.dir }}';">
+                                                {% endif %}
+                                            {% endif %}
+
+                                        {% else %}
+                                            <div class="p-1 MiFlex_Even">
+                                        {% endif %}
+                                            <div class="pages_VerticalCard text-center h-100 zoomIn wow {{ card.hasbutton|yesno:"OnHoverGrey, " }}">
+                                                <h1 class="darkgreyAUM">
+                                                    {{ card.toptext|safe }}
+                                                </h1>
+                                                <h2 class="darkgreyAUM">{{ card.midtext|safe }}</h2>
+                                                <div class="pages_VerticalCard_line"></div>
+                                                <div>
+                                                    <h3>{{ card.bottomtext|safe }}
+                                                    </h3>
+                                                </div>
+                                                <div class="Space-10"></div>
+                                                <div class="MoreButton MoreButton_H30 text-left ml-lg-2">
+                                                    <div class="MoreButton_Over MoreButton_H30">
+                                                        Go
+                                                        <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                                            <div class="BarraAnim_Idle"></div>
+                                                        </div>
+                                                    </div>
+                                                    {% if button_coloricon == 'white' %}
+                                                        <img src="{% static 'icons/FlechaRight2White.png' %}">
+                                                    {% else %}
+                                                        <img src="{% static 'icons/FlechaRight2.png' %}">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="Space-10"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype == "CarouselForce1"%}
+                    {% include 'snip/carousel_force1_snip.html' with forcedata=blocks1.value%}
+                {% endif %}
+                {% if blocks1.blocktype == "CentralCircle"%}
+                    {% include 'snip/centralcirc_snip.html' with cc_backcolor=blocks1.value.backcolor cc_fontcolor=blocks1.value.textcolor cc_id='' cc_big1=blocks1.value.textBig cc_line1=blocks1.value.textLine1 cc_line2=blocks1.value.textLine2%}
+                {% endif %}
+                {% if blocks1.blocktype ==  "InstagramPhotos"%}
+                    <div class="container">
+                        <div class="d-flex justify-content-between">
+                            {% for photo in blocks1.value %}
+                                <div class="p-1 MiFlex_Even" >
+                                    <div class="text-center">
+                                        <a href="javascript:$('#Instagram_{{ blocks1.key }}{{ forloop.counter }}').addClass('LightBoxShow')">
+                                            <img src="{% static photo.img %}" class="rounded-circle InstagramImg">
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div id="Instagram_{{ blocks1.key }}{{ forloop.counter }}" class="LightBox" onclick="$(this).removeClass('LightBoxShow')">
+                                    <div class="LightBoxHolder">
+                                        <img class="img-fluid" src="{% static photo.imgBig %}">
+                                    </div>
+                                <h1>{{ photo.text }}</h1>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+                {% if blocks1.blocktype ==  "BixTextBoxes"%}
+                    {% include 'snip/bigtextboxes_snip.html' %}
+                {% endif %}
+                {% if blocks1.blocktype ==  "msgs_alert"%}
+                    {% if blocks1.value.key in msgs_alert.keys %}
+                        <div class="container">
+                            <div class="text-center pages_BigText">
+                                <p>{{ blocks1.value.msg | safe }}</p>
+                            </div>
+                        </div>
+                        <div class="Space-100"></div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% elif section.type == "cyan_section" %}
+            <div class="Space-100"></div>
+            {% include 'snip/centralcirc_snip.html' with cc_backcolor="#ce1731" cc_fontcolor="#FFFFFF" cc_id='CyanSection' cc_big1=section.separator.big cc_line1=section.separator.line1 cc_line2=section.separator.line2%}
+            {% for blocks1 in section.content %}
+                {% if blocks1.blocktype == "Space"%}
+                    <div class="Space-{{ blocks1.value | safe }}"></div>
+                {% elif blocks1.blocktype == "Anchor" %}
+                    <div id="{{ blocks1.value | safe }}"></div>
+                {% elif blocks1.blocktype == "MediumBigText" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="text-white pages_MediumBigText text-center">{{ blocks1.value | safe }}</div>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "MediumText" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="text-white pages_MediumText text-center">{{ blocks1.value | safe }}</div>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "CardsWithLetter" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="card-columns">
+                                {% for card in blocks1.cards %}
+                                    <div class="card pages_Card1">
+                                        <div class="card-body">
+                                            <p class="card-text pages_CardText">{{ card.content |safe}}</p>
+                                            <div class="Space-25"></div>
+                                            <div class="pages_Card1_Letter cyanAUM">{{ card.letter }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "VerticalCards" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-2"></div>
+                            <div class="col-lg-8">
+                                <div class="d-flex">
+                                    {% for card in blocks1.cards %}
+                                        <div class="p-1 MiFlex_Even">
+                                            <div class="pages_VerticalCard text-center h-100">
+                                                <h1 class="greyAUM {{ card.toptextisbig|yesno:'pages_VerticalCard_BigTitle,' }}">{{ card.toptext|safe }}</h1>
+                                                <h2 class="cyanAUM">{{ card.midtext|safe }}</h2>
+                                                <div class="pages_VerticalCard_line"></div>
+                                                <div>
+                                                    <h3>{{ card.bottomtext|safe }}</h3>
+                                                </div>
+                                                <div class="Space-10"></div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "minibanner" %}
+
+                    {% include 'snip/minibannercirc_snip.html' with mb_type=blocks1.value|safe mb_backred=True%}
+                {% elif blocks1.blocktype ==  "BlockStar"%}
+                    <div class="container">
+                        <div class="row" >
+                            <div class="pages_BlockStar_Star text-white">*</div>
+                            <div class="pages_BlockStar mx-auto">{{ blocks1.value | safe }}</div>
+
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype ==  "BlockWhite"%}
+                    <div class="container">
+                        <div class="row" >
+                            <div class="pages_BlockStar mx-auto cyanAUM">{{ blocks1.value | safe }}</div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype ==  "twocolumns1"%}
+                    {% include "snip/white_section_columns_snip.html" with forcewhite=True %}
+                {% elif blocks1.blocktype ==  "BlockVerticalParagraph"%}
+                     <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1"></div>
+                            <div class="col-lg-10">
+                                <div class="d-flex">
+                                    {% for segment in blocks1.content %}
+                                        <div class="p-1 MiFlex_Even">
+                                            <div class="pages_VerticalParagraph text-left h-100 p-1 text-white">
+                                                <h1>{{ segment.bigtext }}</h1>
+                                                <p>{{ segment.normaltext }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-1"></div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype ==  "InstagramPhotos"%}
+                    <div class="container">
+                        <div class="d-flex justify-content-between">
+                            {% for photo in blocks1.value %}
+                                <div class="p-1 MiFlex_Even" >
+                                    <div class="text-center">
+                                        <a href="javascript:$('#Instagram_{{ blocks1.key }}{{ forloop.counter }}').addClass('LightBoxShow')">
+                                            <img src="{% static photo.img %}" class="rounded-circle InstagramImg">
+                                        </a>
+
+                                    </div>
+                                </div>
+                                <div id="Instagram_{{ blocks1.key }}{{ forloop.counter }}" class="LightBox" onclick="$(this).removeClass('LightBoxShow')">
+                                    <div class="LightBoxHolder">
+                                        <img class="img-fluid" src="{% static photo.imgBig %}">
+                                    </div>
+                                <h1>{{ photo.text }}</h1>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype ==  "BixTextBoxes"%}
+                    {% include 'snip/bigtextboxes_snip.html' %}
+                {% endif %}
+            {% endfor %}
+        {% elif section.type == "red_section" %}
+            <div class="Space-100"></div>
+            {% include 'snip/centralcirc_snip.html' with cc_backcolor="#FFFFFF" cc_fontcolor="#02A7C2" cc_id='RedSection' cc_big1=section.separator.big cc_line1=section.separator.line1 cc_line2=section.separator.line2%}
+            {% for blocks1 in section.content %}
+                {% if blocks1.blocktype == "Space"%}
+                    <div class="Space-{{ blocks1.value | safe }}"></div>
+                {% elif blocks1.blocktype == "Anchor" %}
+                    <div id="{{ blocks1.value | safe }}"></div>
+                {% elif blocks1.blocktype == "MediumBigText" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-1">
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="text-white pages_MediumBigText text-center">{{ blocks1.value | safe }}</div>
+                            </div>
+                            <div class="col-lg-1">
+                            </div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "CardsWithLetter" %}
+                    <div class="container">
+                        <div class="row">
+                            <div class="card-columns">
+                                {% for card in blocks1.cards %}
+                                    <div class="card pages_Card1">
+                                        <div class="card-body">
+                                            <p class="card-text pages_CardText">{{ card.content | safe}}</p>
+                                            <div class="Space-25"></div>
+                                            <div class="pages_Card1_Letter cyanAUM">{{ card.letter }}</div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% elif blocks1.blocktype == "minibanner" %}
+                    {% include 'snip/minibannercirc_snip.html' with mb_type=blocks1.value|safe%}
+                {% endif %}
+            {% endfor %}
+        {% elif section.type == "grey_section" %}
+            <div class="Space-100"></div>
+            {% include 'snip/centralcirc_snip.html' with cc_backcolor="#FFFFFF" cc_fontcolor="#4A4B45" cc_id='GreySection' cc_big1=section.separator.big cc_line1=section.separator.line1 cc_line2=section.separator.line2%}
+            {% for blocks1 in section.content %}
+                {% if blocks1.blocktype == "Space"%}
+                    <div class="Space-{{ blocks1.value | safe }}"></div>
+                {% elif blocks1.blocktype == "Anchor" %}
+                    <div id="{{ blocks1.value | safe }}"></div>
+                 {% elif blocks1.blocktype ==  "twocolumns1"%}
+                    {% include "snip/white_section_columns_snip.html" with forcewhite=True %}
+                {% endif %}
+            {% endfor %}
+
+        {% elif section.type == "blog" %}
+            {% include 'snip/blog_snip.html' with bb_contextitle=section.contextitle %}
+            <div class="Space-200"></div>
+        {% elif section.type == "blog2" %}
+            {% include 'snip/blog2_snip.html'%}
+            <div class="Space-200"></div>
+        {% elif section.type == "lastwords" %}
+            {% include 'snip/lastwords_snip.html' %}
+            <div class="Space-200"></div>
+        {% endif %}
+    {% endfor %}
+    {% include 'snip/footer_snip.html' %}
+<script>
+    var watcherPrograms;
+        function watchPrograms() {
+            $(".CardClass:not(.flagActive)").each( function( index, element ){
+                    $(element).removeClass("animated");
+                    $(element).removeClass( 'unblured' );
+                    $(element).addClass( 'blured' );
+
+            });
+
+        }
+    function ScriptContent() {
+
+        $('.AutoSizeTextOneLine').textfill({maxFontPixels:200});
+        $(".TalkAdmission_holder").hover(function () {
+            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active");
+            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+        }, function () {
+            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active");
+            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+        })
+        $(".SidButtonMini_holder").hover(function () {
+            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+        }, function () {
+            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+        })
+        if($('.IsButton').length) {
+            $(".IsButton").hover(function () {
+                $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            })
+        }
+
+        var controller = new ScrollMagic.Controller({loglevel: 3});
+
+        if($('#CyanSection').length) {
+            $('.CyanSection_CirculoMiniBlanco').textfill({changeLineHeight:true});
+            var CyanSection = new ScrollMagic.Scene({
+                triggerElement: "#CyanSection",
+                triggerHook: "0.3",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#CyanSection")
+                .setTween("body", {backgroundColor: "#084b85"})
+                .addTo(controller);
+        }
+        if($('#RedSection').length) {
+            $('.CyanSection_CirculoMiniBlanco').textfill({changeLineHeight:true});
+            var CyanSection = new ScrollMagic.Scene({
+                triggerElement: "#RedSection",
+                triggerHook: "0.3",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#RedSection")
+                .setTween("body", {backgroundColor: "#ce1731"})
+                .addTo(controller);
+        }
+        if($('#GreySection').length) {
+            $('.CyanSection_CirculoMiniBlanco').textfill({changeLineHeight:true});
+            var CyanSection = new ScrollMagic.Scene({
+                triggerElement: "#GreySection",
+                triggerHook: "0.3",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#GreySection")
+                .setTween("body", {backgroundColor: "#C7C9BF"})
+                .addTo(controller);
+        }
+        if($('.CirculoMiniBanner').length) {
+            $(".CirculoMiniBanner").hover(function () {
+                $(this).css('cursor', 'pointer');
+                $(this).addClass('CirculoCentralImageOver');
+            }, function () {
+                $(this).removeClass('CirculoCentralImageOver');
+            });
+        }
+        if($('.ProgramsListChecker').length) {
+            $(".CardClass").hover(function() {
+                $(this).addClass( 'flagActive' );
+                //$(this).find('img').addClass('imgHover');
+                $(this).find('img').attr("src","{% static 'icons/FlechaRight2White.png' %}");
+                $(this).find('.programTitle').addClass('backgroundOver1_force');
+                $(this).find('h1').addClass('text-white');
+                $(this).find('h3').addClass('text-white');
+                $(this).find('h2').addClass('text-white');
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+                $(this).find('h2').addClass('backgroundOver1_force');
+                $(this).css('cursor','pointer');
+                //$("#CardProgram:not(.flagActive)").addClass( 'blured' );
+                watcherPrograms = setInterval(watchPrograms, 50);
+            }, function() {
+                $(this).removeClass( 'flagActive' );
+                //$(this).find('img').removeClass('imgHover');
+                $(this).find('img').attr("src","{% static 'icons/FlechaRight2.png' %}");
+                $(this).find('.programTitle').removeClass('backgroundOver1_force');
+                $(this).find('h1').removeClass('text-white');
+                $(this).find('h3').removeClass('text-white');
+                $(this).find('h2').removeClass('text-white');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+                $(this).find('h2').removeClass('backgroundOver1_force');
+                clearInterval(watcherPrograms);
+                $(".CardClass:not(.flagActive)").each( function( index, element ){
+                    $(element).removeClass( 'blured' );
+                    $(element).addClass( 'unblured' );
+                });
+            });
+        }
+        if($('#ApplyPhotoPin').length) {
+            $("#ApplyPhotoPin .CentralImageHolder").hover(function () {
+                $(this).css('cursor','pointer');
+                $(this).find(".CentralImageOver").addClass('CentralImageOver_Active');
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find(".CentralImageOver").removeClass('CentralImageOver_Active');
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            });
+            var sceneMalta = new ScrollMagic.Scene({
+                triggerElement: "#ApplyPhotoPin",
+                triggerHook: "0.45",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#ApplyPhotoPin")
+                .setTween("body", {backgroundColor: "#ce1731"}) // the tween durtion can be omitted and defaults to 1
+                //.addIndicators() // add indicators (requires plugin)
+                .addTo(controller);
+        }
+        if($('.MaltaTextoHolder.IsButton').length) {
+            $(".MaltaTextoHolder.IsButton").hover(function () {
+                $(this).addClass("MaltaTextoHolder_Active");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+                $(this).find('img').attr("src","{% static 'icons/FlechaRight2White.png' %}");
+            },function () {
+                $(this).removeClass("MaltaTextoHolder_Active");
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+                $(this).find('img').attr("src","{% static 'icons/FlechaRight2.png' %}");
+            });
+        }
+        if($('#BlogParallax').length){
+            BlogEnabled(controller);
+        }
+        if($('#CarouselValuePin').length){
+            CarouselForce1Enable(controller);
+        }
+        if($('#carouselApplyEnd').length) {
+            LastWordsEnable(controller);
+        }
+        HeroVideoBackEnable();
+        TopBannerActivation();
+        BannerCircActivation();
+    }
+</script>
+{% endblock content %}

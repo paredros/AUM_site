@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load staticfiles %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="{% static 'corp/logo_AUMLOgo_Mid.png' %}" height="40px" />
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+{% comment %}
+{% extends 'admin/base.html' %}
+
+{% block branding %}
+<h1>AUM Admin</h1>
+{% endblock %}
+{% endcomment %}

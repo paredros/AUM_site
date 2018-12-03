@@ -1,0 +1,19 @@
+{% load staticfiles %}
+
+<div id="MiniButtonLeaf1" class="SidButtonMini_holder" onclick="window.location='{% url 'pages' 'scholarship' %}';">
+    <img class="SidButtonMini_icon" src="{% static 'icons/scholar.png' %}" class="img-fluid">
+    <div class="SidButtonMini_text">{{ buttonsgeneral.Scholarship | safe }}</div>
+    <div class="MoreButton MoreButton_H30">
+        <div class="MoreButton_Over MoreButton_H30">
+            {{ buttonsgeneral.ScholarshipShort | safe }}
+            <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                <div class="BarraAnim_Idle"></div>
+            </div>
+        </div>
+        {% if button_coloricon == 'white' %}
+            <img src="{% static 'icons/FlechaRight2White.png' %}">
+        {% else %}
+            <img src="{% static 'icons/FlechaRight2.png' %}">
+        {% endif %}
+    </div>
+</div>
