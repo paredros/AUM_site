@@ -172,3 +172,10 @@ CKEDITOR_CONFIGS = {
 
 ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+
