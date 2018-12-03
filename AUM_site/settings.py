@@ -174,7 +174,7 @@ ADMIN_TOOLS_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
 
 try:
-    from .local_settings import *
+    from .local_settings.py import *
 except ImportError:
     pass
 
