@@ -13,7 +13,8 @@ usefontrich=si usa tipo que reacciona al bold
 -->
 
 {% if settingstop.useimg %}
-<div id="VideoBack" class="backgroundImgResponsive ForceMinHeight" style="background-image: url({% static 'videos/backvideoMini.jpg' %})">
+<div id="VideoBack" class="backgroundImgResponsive ForceMinHeight">
+<!--div id="VideoBack" class="backgroundImgResponsive ForceMinHeight" style="background-image: url({% static 'videos/backvideoMini.jpg' %})"-->
     <!--div id="VideoBack" class="backgroundImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})"-->
 
 {% elif settingstop.usebackcolor%}
@@ -351,7 +352,7 @@ usefontrich=si usa tipo que reacciona al bold
                                             "{% static 'videos/dreamscapes.webm' %}"
                                           ],
                                         parallaxEffect:1,
-                                        autoplayFallback: "{% static 'imgtest/programfondo1.jpg' %}",
+                                        autoplayFallback: "{% static 'videos/backvideoMini.jpg' %}",
                                         onReady: function () {
                                             $(".bv-video-wrap").addClass('ForceMinHeight');
                                         }
