@@ -707,7 +707,11 @@
         }
         HeroVideoBackEnable();
         TopBannerActivation();
-        BannerCircActivation();
+
+
+        if (typeof BannerCircActivation !== "undefined") {
+            BannerCircActivation();
+        }
     }
 </script>
 {% endblock content %}
