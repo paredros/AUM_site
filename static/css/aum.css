@@ -99,6 +99,9 @@ GRUPO HERO
 
     margin-top: 10px;
 }
+.HeroLogoClassic{
+    width: 200px;
+}
 #HeroLogoTexto{
     font-size: 2.5vw;
     font-family: "Times New Roman", Times, serif;
@@ -501,6 +504,13 @@ GRUPO PROGRAMS
     z-index: -100;
     transition: all 0.5s ease;
 }
+#CardProgram .ProgramImgResponsive p{
+    line-height: 200px;
+    font-size: 10em;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 900;
+}
 /*#CardProgram:hover .backgroundImgResponsive{
     transform: scale(1.2);
 }*/
@@ -532,7 +542,7 @@ GRUPO PROGRAMS
     font-weight: 700 !important;
     font-size: 2em !important;
     line-height: 1;
-    transition: all 0.5s ease;
+    transition: all 0.1s ease;
 }
 #CardProgram h2{
     position: absolute;
@@ -837,6 +847,8 @@ GRUPO MALTA
 .InstagramImg {
     transition: all 0.5s ease;
     border:10px solid white;
+    width: 200px;
+    height: 200px
 }
 .InstagramImg .flagActive {
 
@@ -855,17 +867,18 @@ GRUPO MALTA
 }
 .MaltaTextoHolderBarra{
     position: absolute;
-    top: -15px;
+    top: 0px;
     left: 0px;
     width: 100%;
     margin: 0px;
-    padding: 5px;
+    padding: 0px;
     overflow: hidden;
 }
 .MaltaTextoHolder {
+    position: relative;
     background-color: white;
     padding: 20px;
-    margin: -10px;
+    /*margin: -10px;*/
     padding-top: 40px;
     height: 100%;
     /*border-top: 1px solid #121212;*/
@@ -1227,8 +1240,11 @@ GRUPO FOOTER
     font-weight: 400;
     margin-top: 2px;
 }
-.footer_Item:hover{
-    cursor: pointer;
+.footer_Item a{
+    color: #CCCCCC;
+}
+.footer_Item a:hover{
+    text-decoration: none;
     color: #FFFFFF;
 
 }
@@ -1413,6 +1429,13 @@ GRUPO GENERALES
 }
 .BordeRightWhite{
     border-right: 2px solid #FFFFFF;
+}
+
+.OnHoverGrey{
+    transition: all 0.3s ease;
+}
+.OnHoverGrey:hover{
+    background-color: #e7e8e2 !important;
 }
 /*====================================
 GRUPO TOP MENU
@@ -2127,6 +2150,9 @@ PAGES TEMP
     font-weight: 300;
     padding-bottom: 20px;
 }
+.pages_VerticalCard h3 strong{
+    font-weight: 900;
+}
 .pages_VerticalParagraph h1{
     font-size: 2.5em;
 }
@@ -2222,9 +2248,14 @@ PAGES TEMP
     height: 200px;
     font-size: 0.9em;
     resize: none;
+    background-color: #f5f6f8;
 }
 .pages_ContactForm input[type=submit]{
     visibility: hidden;
+}
+.pages_ContactForm .errorlist{
+    font-size: 0.5em;
+    color: #ce1731;
 }
 
 .pages_ContactForm_MiniText{
@@ -2303,6 +2334,111 @@ GOOGLE MAP
 #map_google {
     height: 400px;  /* The height is 400 pixels */
     width: 100%;  /* The width is the width of the web page */
+}
+/*====================================
+TOP NAV
+======================= */
+.TopNav_OriginItem{
+
+}
+.TopNav_OriginItem:{
+
+}
+.TopNav_HolderList{
+    position: relative;
+    width: 200px;
+    background-color: #eaebed;
+    color: #333333;
+    margin-top: -50px;
+    margin-left: -30px;
+    padding: 10px;
+    line-height: 1em;
+    z-index: 10000000!important;
+}
+.TopNav_General{
+    /*font-family: 'Muli', sans-serif;*/
+    line-height: 1em!important;
+    /*text-transform: uppercase;*/
+
+}
+.dropdown .dropdown-menu{
+    visibility: hidden;
+        display: block;
+      opacity:0;
+    -webkit-transition: all 200ms ease-in;
+    -moz-transition: all 200ms ease-in;
+    -ms-transition: all 200ms ease-in;
+    -o-transition: all 200ms ease-in;
+    transition: all 200ms ease-in;
+    }
+    .dropdown.show .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+.TopNav_General .dropdown.show{
+    background-color: #a4bac3 !important;
+}
+.TopNav_General .dropdown-toggle, .nav-link{
+    color: #ffffff;
+}
+.TopNav_General .dropdown-toggle:hover, .nav-link:hover{
+    color: #dcdcdc;
+    /*background-color: #a4bac3;*/
+    /*text-decoration: underline;*/
+    /*border-bottom: 1px solid #ffffff;*/
+}
+.TopNav_General .dropdown-toggle:hover .show{
+    border: none!important;
+}
+.TopNav_General .dropdown-item {
+    color: #333333;
+}
+/*====================================
+LIGHT BOX
+======================= */
+.LightBox{
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 9000000;
+}
+.LightBoxShow{
+    display: inline-block!important;
+}
+.LightBoxHolder {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    overflow: hidden;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+}
+.LightBoxHolder img{
+    position: absolute;
+    margin: auto;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    z-index: -9000000;
+}
+.LightBox h1{
+    position: absolute;
+    margin-top: 60vh;
+    margin-left: 10vw;
+    font-size: 3em;
+    color: #ffffff;
+    z-index: 9000001;
+    background-color: #084b85;
 }
 /*====================================
 GRUPO PRUEBAS
