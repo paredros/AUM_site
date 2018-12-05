@@ -9,9 +9,13 @@ def viewallblogs(request):
     dt = datetime.datetime.now().timestamp()
     passget = "?"
     authorfind = request.GET.get('author')
+    tagfind = request.GET.get('tag')
     if authorfind:
         posts = get_list_or_404(Post, enabled=True, author=authorfind)
         passget="author="+authorfind+"&"
+    elif tagfind:
+        posts = get_list_or_404(Post, enabled=True, tags__name__in=[tagfind])
+        passget = "tag=" + tagfind + "&"
     else:
         posts = get_list_or_404(Post, enabled=True)
     page = request.GET.get('page')

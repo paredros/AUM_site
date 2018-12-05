@@ -41,6 +41,12 @@
                 <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a>
             </small>
         </div>
+        <div class="d-flex justify-content-end ">
+            {% for tag in post.tags.all %}
+                <!--span class="badge badge-secondary m-1">{{ tag }}</span-->
+                <a href="{% url 'blog' %}?tag={{ tag }}" class="btn btn-primary backBlueAum btn-sm m-1">{{ tag }}</a>
+            {% endfor %}
+        </div>
 
     </div>
 {% endblock content%}

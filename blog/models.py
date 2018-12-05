@@ -6,6 +6,7 @@ from django.template.defaultfilters import slugify
 from aum.models import PageGeneral
 from aum.models import Professor
 from aum.models import ProgramData
+from taggit.managers import TaggableManager
 
 
 # Create your models here.
@@ -29,6 +30,8 @@ class Post(models.Model):
     pagesRelated = models.ManyToManyField('aum.PageGeneral', blank=True)
     professorRelated = models.ManyToManyField('aum.Professor', blank=True)
     programRelated = models.ManyToManyField('aum.ProgramData', blank=True)
+
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title

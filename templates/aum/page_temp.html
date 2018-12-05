@@ -551,6 +551,7 @@
     {% endfor %}
     {% include 'snip/footer_snip.html' %}
 <script>
+
     var watcherPrograms;
         function watchPrograms() {
             $(".CardClass:not(.flagActive)").each( function( index, element ){
@@ -562,6 +563,7 @@
 
         }
     function ScriptContent() {
+
 
         $('.AutoSizeTextOneLine').textfill({maxFontPixels:200});
         $(".TalkAdmission_holder").hover(function () {
@@ -623,7 +625,7 @@
                 loglevel: 3
             })
                 .setPin("#GreySection")
-                .setTween("body", {backgroundColor: "#C7C9BF"})
+                .setTween("body", {backgroundColor: "#dcdcdc"}) //C7C9BF
                 .addTo(controller);
         }
         if($('.CirculoMiniBanner').length) {
@@ -705,7 +707,7 @@
         if($('#carouselApplyEnd').length) {
             LastWordsEnable(controller);
         }
-        HeroVideoBackEnable();
+         HeroVideoBackEnable(controller);
         TopBannerActivation();
 
 

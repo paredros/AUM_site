@@ -8,6 +8,9 @@ from django.template.defaultfilters import slugify
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
+    def tag_list(self, obj):
+        return u", ".join(o.name for o in obj.tags.all())
+
     def _get_unique_slug(self, obj):
         slug = slugify(obj.title)
         unique_slug = slug

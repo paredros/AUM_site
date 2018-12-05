@@ -20,10 +20,11 @@ usefontrich=si usa tipo que reacciona al bold
 {% elif settingstop.usebackcolor%}
 <div id="VideoBack" class="ForceMinHeight" style="background-color: {{ settingstop.colorback }}">
 {% else %}
-<div id="VideoBack" class="ForceMinHeight">
+<div id="VideoBack" class="ForceMinHeight" >
 {% endif %}
     {% if settingstop.usevideo %}
-    <video autoplay muted loop class="bv-video">
+    <!--video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop class="bv-video"-->
+    <video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop poster="{% static 'videos/backvideoMini.jpg' %}" style="min-width: 120%;height: auto; min-height: 105%; margin-top: -40%">
     </video>
     {% endif %}
 </div>
@@ -345,8 +346,8 @@ usefontrich=si usa tipo que reacciona al bold
 </div>
 
 <script>
-    function HeroVideoBackEnable() {
-        const backgroundVideo = new BackgroundVideo('.bv-video', {
+    function HeroVideoBackEnable(controller) {
+        /*const backgroundVideo = new BackgroundVideo('.bv-video', {
                                         src: [
                                             "{% static 'videos/backgroundMini.mp4' %}",
                                             "{% static 'videos/backgroundMini.webm' %}"
@@ -356,10 +357,13 @@ usefontrich=si usa tipo que reacciona al bold
                                         onReady: function () {
                                             $(".bv-video-wrap").addClass('ForceMinHeight');
                                         }
-                                        });
+                                        });*/
 
-        $(".bv-video").addClass( 'bv-video-wrap--ready' );
-
-
+        //$(".bv-video").addClass( 'bv-video-wrap' ).addClass('ForceMinHeight');
+        //$(".bv-video-wrap").addClass('ForceMinHeight');
+        var controller2 = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+            new ScrollMagic.Scene({triggerElement: "#HeroLogo"})
+					.setTween("#VideoBack > video", {y: "100%", ease: Linear.easeNone})
+					.addTo(controller2);
     }
 </script>
