@@ -1,0 +1,25 @@
+{% extends 'blog/baseblog.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="Space-100"></div>
+    <div class="container">
+            {% for post in posts %}
+
+                <div class="card mx-auto zoomIn wow" style="width: 80%;">
+                    <img class="card-img-top-blog-all" src="{{ post.bigPicture.url }}" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.summary | safe}}</p>
+                    <a href="{% url 'blogpost' post.slug %}" class="btn btn-primary backBlueAum">Read More</a>
+                  </div>
+                    <div class="card-footer text-muted">
+                        Created {{ post.date_created|timesince }} ago by {{ post.author.get_full_name }}
+                  </div>
+                </div>
+                <div class="mt-5"></div>
+
+            {% endfor %}
+
+     </div>
+{% endblock content%}

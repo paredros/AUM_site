@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import include, url
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.paramhome, name='home'),
@@ -27,6 +28,7 @@ urlpatterns = [
     path('pages/<str:page_id>', views.pages, name='pages'),
     path('faculty/<int:prof_id>', views.professors, name='professors'),
     path('content/<str:page_id>', views.generalpages, name='content'),
+    path('blog/', include('blog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^admin_tools/', include('admin_tools.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
