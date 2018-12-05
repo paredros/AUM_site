@@ -90,6 +90,14 @@
 .aumblog_Title strong{
     font-weight: bold;
 }
+.aumBlog_Related{
+    margin-right: 25px;
+    margin-left: 25px;
+    background-color: white;
+}
+.aumBlog_Related a{
+    color: #333333;
+}
 Table-FullSize{
     height: 100%;
     width: 100%;

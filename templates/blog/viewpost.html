@@ -7,12 +7,25 @@
         <div class="card">
         <img class="aumblog_PostContainer_TopImage_Holder" src="{{ post.bigPicture.url }}" alt="">
             <div class="card-img-overlay">
+                <div class="d-flex justify-content-end">
+                    {% if post.professorRelated.count > 0 or post.programRelated.count > 0 %}
+                    <small class="text-muted bg-white p-1 aumBlog_Related">
+                        {% for page in post.professorRelated.all %}
+                            <a href="/faculty/{{ page.pk }}">{{ page.name | safe }}</a> /
+                        {% endfor %}
+                        {% for page in post.programRelated.all %}
+                            <a href="/programs/{{ page.pk }}">{{ page.title | safe }}</a> /
+                    {% endfor %}
+                    </small>
+                    {% endif %}
+                </div>
                 <div class="d-flex align-items-end" style="height: 100%">
                     <div class="aumblog_Title">
                         {{ post.title | safe }}
                     </div>
                     <div class="Space-10"></div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -28,5 +41,6 @@
                 <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a>
             </small>
         </div>
+
     </div>
 {% endblock content%}
