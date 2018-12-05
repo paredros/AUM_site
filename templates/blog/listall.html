@@ -14,7 +14,8 @@
                     <a href="{% url 'blogpost' post.slug %}" class="btn btn-primary backBlueAum">Read More</a>
                   </div>
                     <div class="card-footer text-muted">
-                        Created {{ post.date_created|timesince }} ago by {{ post.author.get_full_name }}
+                        Created {{ post.date_created|timesince }} ago by
+                        <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a>
                   </div>
                 </div>
 
@@ -25,11 +26,11 @@
     <div class="container">
         <div class="d-flex justify-content-center">
             {% if posts.has_previous %}
-                <a href="?page={{ posts.previous_page_number }}" class="btn btn-primary backBlueAum m-2" >Previous</a>
+                <a href="{{ passget }}page={{ posts.previous_page_number }}" class="btn btn-primary backBlueAum m-2" >Previous</a>
             {% endif %}
             <a href="#" class="btn btn-primary backBlueAum m-2">View All</a>
             {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}" class="btn btn-primary backBlueAum m-2">Next</a>
+                <a href="{{ passget }}page={{ posts.next_page_number }}" class="btn btn-primary backBlueAum m-2">Next</a>
             {% endif %}
         </div>
     </div>

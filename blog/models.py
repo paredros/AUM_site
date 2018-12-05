@@ -26,9 +26,9 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     enabled = models.BooleanField(default=False)
 
-    pagesRelated = models.ManyToManyField('aum.PageGeneral')
-    professorRelated = models.ManyToManyField('aum.Professor')
-    programRelated = models.ManyToManyField('aum.ProgramData')
+    pagesRelated = models.ManyToManyField('aum.PageGeneral', blank=True)
+    professorRelated = models.ManyToManyField('aum.Professor', blank=True)
+    programRelated = models.ManyToManyField('aum.ProgramData', blank=True)
 
     def __str__(self):
         return self.title
