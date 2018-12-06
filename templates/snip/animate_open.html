@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!--div id="AnimateOpening" style="width: 100%; height: 100vh;background-color: #dcdcdc">
+    <div id="AnimText2_a" class="anim_Text2 anim_TextBase" style="left: 50px;top:-20vh;opacity: 0"> Because the <strong>Rules are
+        not made</strong></div>
+    <div id="AnimText2_b" class="anim_Text2 anim_TextBase" style="left: 50px;top:-30vh;opacity: 0"> Because <strong>Nothing
+        is determined</strong></div>
+    <div id="AnimText2_c" class="anim_Text2 anim_TextBase" style="left: 50px;top:-40vh;opacity: 0"> Because the <strong>Rules are
+        not made</strong></div>
+    <div id="AnimText2_d" class="anim_Text2 anim_TextBase" style="left: 50px;top:-50vh;opacity: 0"> Because the <strong>Rules are
+        not made</strong></div>
+    <div id="AnimText1" class="anim_Text1 anim_TextBase" style="left: 50px;top:-70vh;opacity: 0"><strong>Step</strong>into your
+        <strong>future</strong></div>
+</div-->
+<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:1440px; height:900px;position: fixed;z-index: 10000000">
+		<canvas id="canvas" width="1440" height="900" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 0.00);z-index: 10000000"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1440px; height:900px; position: absolute; left: 0px; top: 0px; display: none;z-index: 10000000">
+		</div>
+	</div>
+    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:900px; width: 1440px; text-align: center;'>
+        <!--span style='display: inline-block; height: 100%; vertical-align: middle;'></span>
+        <img src={% static '/preload/_preloader.gif' %} style='vertical-align: middle; max-height: 100%'/-->
+        <div>
+            <div class="loader" style="margin-top:50vh;margin-left: 50vw">
+                <div class="square-spin">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+<script>
+    function AnimateOpeningStart() {
+        initAnim();
+    }
+    function PreOutAnimation() {
+        $("#FullContent").css('visibility','visible')
+        $("body").css('background-color','white')
+        $(".ShowAfterAnim").css('display','')
+    }
+    function EndAnimation() {
+        $("#animation_container").css('display','none')
+        $("body").css('background-color','white')
+        enableScroll()
+    }
+    function AnimateOpeningStartOld() {
+        var viewportWidth = $("body").innerWidth();
+        var viewportHeight = $("body").innerHeight();
+
+        var landPos = viewportHeight*0.7;
+        var landPosSmooth = landPos-10;
+        var firstLine = viewportHeight*0.2;
+        var secondLine = firstLine + 40;
+        /*$("#AnimText1").animate({
+                left: '250px',
+                top:'10vh'
+            }, {
+                'duration':2000
+            }
+        );*/
+        $("#AnimText2_a").delay(100).animate({
+                top:landPos+'px',
+                opacity:1
+            }, {
+                'duration':300
+            }
+        ).animate({
+                top:landPosSmooth+'px',
+                opacity:0.8
+            }, {
+                'duration':1000
+            }
+        ).animate({
+                top:firstLine+'px',
+                opacity:0.8
+            }, {
+                'duration':300
+            }
+        );
+        $("#AnimText2_b").delay(1500).animate({
+                top:landPos+'px',
+                opacity:1
+            }, {
+                'duration':300
+            }
+        ).animate({
+                top:landPosSmooth+'px',
+                opacity:0.8
+            }, {
+                'duration':1000
+            }
+        ).animate({
+                top:secondLine+'px',
+                opacity:0.8
+            }, {
+                'duration':300
+            }
+        );
+    }
+</script>

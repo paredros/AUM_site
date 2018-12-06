@@ -4,6 +4,7 @@
 }
 body {
     /*font-family: 'Muli', sans-serif;*/
+    background-color: #FFFFFF;
 }
 #VideoBack {
     position: absolute;
@@ -463,11 +464,11 @@ GRUPO PROGRAMS
     position: relative;
     transform: scale(1);
     opacity: 1;
-    transition: all 0.5s;
+    transition: all 0.9s;
 }
 .blured{
     /*opacity: 0.1!important;*/
-    transform: scale(0.8)!important;
+    transform: scale(0.9)!important;
     animation-name: none !important;
 }
 .unblured{
@@ -502,7 +503,7 @@ GRUPO PROGRAMS
     background-position: center;
     min-height: 300px;
     z-index: -100;
-    transition: all 0.5s ease;
+    transition: all 0.9s ease;
 }
 #CardProgram .ProgramImgResponsive p{
     line-height: 200px;
@@ -515,7 +516,7 @@ GRUPO PROGRAMS
     transform: scale(1.2);
 }*/
 #CardProgram:hover .ProgramImgResponsive{
-    transform: scale(1.5);
+    transform: scale(1.2);
 }
 /*#CardProgram:hover h2{
     background-color: rgba(255,255,255,1);
@@ -2439,6 +2440,26 @@ LIGHT BOX
     color: #ffffff;
     z-index: 9000001;
     background-color: #084b85;
+}
+/*====================================
+ANIMATION
+======================= */
+.anim_TextBase{
+    position: fixed;
+    color: #FFFFFF;
+    font-weight: 200;
+}
+.anim_TextBase strong{
+    font-weight: 900;
+}
+.anim_Text1{
+    font-size: 80px;
+}
+.anim_Text2{
+    font-size: 40px;
+}
+.square-spin > div {
+    background-color: #333333!important;
 }
 /*====================================
 GRUPO PRUEBAS

@@ -24,12 +24,12 @@ usefontrich=si usa tipo que reacciona al bold
 {% endif %}
     {% if settingstop.usevideo %}
     <!--video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop class="bv-video"-->
-    <video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop poster="{% static 'videos/backvideoMini.jpg' %}" style="min-width: 120%;height: auto; min-height: 105%; margin-top: -40%">
+    <video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop poster="{% static 'videos/backvideoMini.jpg' %}" style="min-width: 120%;height: auto; min-height: 110%; margin-top: -40%">
     </video>
     {% endif %}
 </div>
 
-<div class="container-fluid text-white ForceMinHeight">
+<div class="container-fluid text-white ForceMinHeight" >
 {% if settingstop.tintoverlay == 0 %}
     <div class="row fullViewportHeight backgroundImgResponsive ForceMinHeight">
 {% else %}
@@ -38,11 +38,11 @@ usefontrich=si usa tipo que reacciona al bold
                                                                     rgba(0, 74, 135, {{ settingstop.tintoverlay }})
                                                                 )">
 {% endif %}
-        <div id="HeroLogo" class="col-lg-1 {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
+        <div id="HeroLogo" class="col-lg-1 {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" >
             {% if topdata.useClassicLogo %}
                 <div class="mt-lg-2">
                     <a href="{% url 'home' %}">
-                        <img src="{{ topdata.classicLogo.url }}" class="HeroLogoClassic">
+                        <img src="{{ topdata.classicLogo.url }}" class="HeroLogoClassic slideInDown wow ShowAfterAnim" style="display: none">
                     </a>
                 </div>
             {% else %}
@@ -59,7 +59,7 @@ usefontrich=si usa tipo que reacciona al bold
 
         </div>
         <div class="col-lg-11">
-            <div id="HeroMenuTop" class="row TopNav_General {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
+            <div id="HeroMenuTop" class="row TopNav_General {{ settingstop.invertnavcolor|yesno:'heronavDark,' }} slideInDown wow ShowAfterAnim" style="display: none">
 
                 <!--div class="col-lg-1">
                     <img src="{% static 'icons/magnifying-glass.png' %}" class="float-right">
@@ -215,7 +215,7 @@ usefontrich=si usa tipo que reacciona al bold
             <div class="row">
                 <div class="col-lg-10">
                     {% if settingstop.typemodel == 'home' %}
-                        <div class="font-weight-light TextoInicio">{{ settingstop.texttop | safe }}</div>
+                        <div class="font-weight-light TextoInicio fadeIn wow ShowAfterAnim" data-wow-delay="0.5s" style="display: none">{{ settingstop.texttop | safe }}</div>
                     {% elif settingstop.typemodel == 'program' %}
                         <div class="row HeroProgramSpace1">
                         </div>
