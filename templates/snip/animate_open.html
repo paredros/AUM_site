@@ -11,9 +11,9 @@
     <div id="AnimText1" class="anim_Text1 anim_TextBase" style="left: 50px;top:-70vh;opacity: 0"><strong>Step</strong>into your
         <strong>future</strong></div>
 </div-->
-<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:1440px; height:900px;position: fixed;z-index: 10000000">
-		<canvas id="canvas" width="1440" height="900" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 0.00);z-index: 10000000"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:1440px; height:900px; position: absolute; left: 0px; top: 0px; display: none;z-index: 10000000">
+<div id="animation_container" style="background-color:rgba(255, 255, 255, 0.00); width:100%; height:900px;position: fixed;z-index: 10000000">
+		<canvas id="canvas" width="100%" height="900" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 0.00);z-index: 10000000"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100%; height:900px; position: absolute; left: 0px; top: 0px; display: none;z-index: 10000000">
 		</div>
 	</div>
     <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:900px; width: 1440px; text-align: center;'>
@@ -31,18 +31,48 @@
 
 
 <script>
+    var ScrollOutEnable=false;
     function AnimateOpeningStart() {
         initAnim();
     }
     function PreOutAnimation() {
-        $("#FullContent").css('visibility','visible')
-        $("body").css('background-color','white')
-        $(".ShowAfterAnim").css('display','')
+        $("#FullContent").css('visibility','visible');
+        $("body").css('background-color','white');
+        ScrollOutEnable=true;
+        //$(".ShowAfterAnim").css('display','')
+    }
+    function ScrollOut(val) {
+        if(ScrollOutEnable){
+            var viewportHeight = $(window ).height()
+            if(val>0){
+            /*    var v = parseInt($("#animation_container").css('top'));
+                alert($(window ).height() + ":" +viewportHeight + " : "+ parseInt($("#animation_container").css('bottom')))
+                return
+            }
+
+            var v = parseInt($("#animation_container").css('top'));
+            v-=val;
+            val=v;
+            $("#animation_container").css('top','-'+val+'px');
+            if(parseInt($("#animation_container").css('top'))<-10){*/
+                ScrollOutEnable=false
+                $("#animation_container").animate({
+                bottom:$("#animation_container").height(),
+
+                }, {
+                    complete: function() {
+                      EndAnimation()
+                    }
+                  })
+            }
+        }
     }
     function EndAnimation() {
+        $(".ShowAfterAnim").css('display','')
         $("#animation_container").css('display','none')
         $("body").css('background-color','white')
-        enableScroll()
+        setTimeout(enableScroll, 1000)
+        //enableScroll()
     }
     function AnimateOpeningStartOld() {
         var viewportWidth = $("body").innerWidth();

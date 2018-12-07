@@ -2461,6 +2461,12 @@ ANIMATION
 .square-spin > div {
     background-color: #333333!important;
 }
+#animation_container, #_preload_div_ {
+	position:absolute;
+	margin:auto;
+	left:-100%;right:-100%;
+	top:-100%;bottom:-100%;
+  }
 /*====================================
 GRUPO PRUEBAS
 ======================= */
