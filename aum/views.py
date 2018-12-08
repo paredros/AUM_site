@@ -94,7 +94,8 @@ def program(request, program_id):
                                                      'topnav':topnav,
                                                      'footernav':footernav,
                                                      'msgs_alert': msgs_alert,
-                                                     'formnewsletter': formnewsletter
+                                                     'formnewsletter': formnewsletter,
+                                                     'viewintroanim': False
                                                      })
 
 
@@ -128,6 +129,9 @@ def pages(request, page_id):
             form = ContactForm()
 
 
+    isHome = False;
+    if page_id=='home':
+        isHome = True
 
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
@@ -200,7 +204,9 @@ def pages(request, page_id):
                                                  'footernav': footernav,
                                                  'form':form,
                                                  'msgs_alert':msgs_alert,
-                                                 'formnewsletter':formnewsletter
+                                                 'formnewsletter':formnewsletter,
+                                                 'viewintroanim':False,
+                                                 'isHome':isHome
                                                  })
 
 def professors(request, prof_id):
@@ -349,7 +355,8 @@ def professors(request, prof_id):
                                                         'topnav':topnav,
                                                        'footernav': footernav,
                                                        'msgs_alert': msgs_alert,
-                                                       'formnewsletter': formnewsletter
+                                                       'formnewsletter': formnewsletter,
+                                                       'viewintroanim': False
                                                     })
 
 def generalpages(request, page_id):
@@ -415,5 +422,6 @@ def generalpages(request, page_id):
                                                     'topnav':topnav,
                                                     'footernav': footernav,
                                                     'msgs_alert': msgs_alert,
-                                                    'formnewsletter': formnewsletter
+                                                    'formnewsletter': formnewsletter,
+                                                    'viewintroanim': False
                                                  })

@@ -2459,7 +2459,7 @@ ANIMATION
     font-size: 40px;
 }
 .square-spin > div {
-    background-color: #333333!important;
+    background-color: #FFFFFF!important;
 }
 #animation_container, #_preload_div_ {
 	position:absolute;

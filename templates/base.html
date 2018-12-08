@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
     <title>AUM Site</title>
 </head>
+{% if viewintroanim %}
 <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 <script src="{% static 'js/anim_v2.js' %}?{{ timestamp }}"></script>
 
@@ -90,6 +91,7 @@ function handleComplete(evt,comp) {
 	fnStartAnimation();
 }
 </script>
+{% endif %}
 
 <body style="background-color: #fff">
     {% block content %}
@@ -130,14 +132,14 @@ function handleComplete(evt,comp) {
         function preventDefault(e) {
           e = e || window.event;
           if (e.preventDefault)
-
-                if(e.type == 'wheel' || e.type=='mousewheel'){
-                    //alert("try scroll"+e.type);
-                    ScrollOut(e.deltaY)
-                }else if(e.keyCode==40){
-                    ScrollOut(20)
-                }
-
+                {% if viewintroanim %}
+                    if(e.type == 'wheel' || e.type=='mousewheel'){
+                        //alert("try scroll"+e.type);
+                        ScrollOut(e.deltaY)
+                    }else if(e.keyCode==40){
+                        ScrollOut(20)
+                    }
+                {% endif %}
               e.preventDefault();
           e.returnValue = false;
         }
@@ -168,9 +170,13 @@ function handleComplete(evt,comp) {
           document.onkeydown  = preventDefaultForScrollKeys;
 
         }
-        disableScroll()
+        {% if isHome %}
+            disableScroll()
+        {% endif %}
         $( document ).ready(function() {
+            {% if isHome %}
                 window.scrollTo(0, 0);
+            {% endif %}
               ScriptContent();
         });
     </script>

@@ -24,19 +24,38 @@ usefontrich=si usa tipo que reacciona al bold
 {% endif %}
     {% if settingstop.usevideo %}
     <!--video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop class="bv-video"-->
-    <video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop poster="{% static 'videos/backvideoMini.jpg' %}" style="min-width: 120%;height: auto; min-height: 110%; margin-top: -40%">
-    </video>
+    <!--video src="{% static 'videos/backgroundMini.mp4' %}" autoplay muted loop poster="{% static 'videos/backvideoMini.jpg' %}" style="min-width: 120%;height: auto; min-height: 110%; margin-top: -40%">
+    </video-->
+        {% if isHome %}
+        <div id="HeroImg1" style="position:absolute; left:0%;min-height: 100%;width: 0%;background-image: url({% static 'imgsback/aumback1.jpg' %}); background-position: -50px 50%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg2" style="position:absolute; left:0%;min-height: 100%;width: 0%;background-image: url({% static 'imgsback/aumback2.jpg' %}); background-position: -50px 50%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg3" style="position:absolute; left:0%;min-height: 100%;width: 0%;background-image: url({% static 'imgsback/aumback3.jpg' %}); background-position: -50px 20%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg4" style="position:absolute; left:0%;min-height: 100%;width: 0%;background-image: url({% static 'imgsback/aumback4.jpg' %}); background-position: -50px 20%;background-attachment: fixed;">
+        </div>
+        {% else %}
+        <div id="HeroImg1" style="position:absolute; left:0%;min-height: 100%;width: 25%;background-image: url({% static 'imgsback/aumback1.jpg' %}); background-position: -50px 50%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg2" style="position:absolute; left:25%;min-height: 100%;width: 25%;background-image: url({% static 'imgsback/aumback2.jpg' %}); background-position: -50px 50%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg3" style="position:absolute; left:50%;min-height: 100%;width: 25%;background-image: url({% static 'imgsback/aumback3.jpg' %}); background-position: -50px 20%;background-attachment: fixed;">
+        </div>
+        <div id="HeroImg4" style="position:absolute; left:75%;min-height: 100%;width: 25%;background-image: url({% static 'imgsback/aumback4.jpg' %}); background-position: -50px 20%;background-attachment: fixed;">
+        </div>
+        {% endif %}
     {% endif %}
 </div>
 
 <div class="container-fluid text-white ForceMinHeight" >
 {% if settingstop.tintoverlay == 0 %}
-    <div class="row fullViewportHeight backgroundImgResponsive ForceMinHeight">
+    <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight">
 {% else %}
-    <div class="row fullViewportHeight backgroundImgResponsive ForceMinHeight" style="background-image: linear-gradient(
+    <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight" style="background-image: linear-gradient(
                                                                     rgba(0, 74, 135, {{ settingstop.tintoverlay }}),
                                                                     rgba(0, 74, 135, {{ settingstop.tintoverlay }})
-                                                                )">
+                                                                );opacity: 0">
 {% endif %}
         <div id="HeroLogo" class="col-lg-1 {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}" >
             {% if topdata.useClassicLogo %}
@@ -59,7 +78,7 @@ usefontrich=si usa tipo que reacciona al bold
 
         </div>
         <div class="col-lg-11">
-            <div id="HeroMenuTop" class="row TopNav_General {{ settingstop.invertnavcolor|yesno:'heronavDark,' }} slideInDown wow ShowAfterAnim" style="display: none">
+            <div id="HeroMenuTop" class="row TopNav_General{{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
 
                 <!--div class="col-lg-1">
                     <img src="{% static 'icons/magnifying-glass.png' %}" class="float-right">
@@ -68,6 +87,7 @@ usefontrich=si usa tipo que reacciona al bold
                   <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form-->
+                <div class="row TopNav_General slideInDown wow ShowAfterAnim ml-auto mr-2" style="display: none;">
                 <nav class="navbar navbar-expand-lg ml-auto">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
@@ -143,79 +163,24 @@ usefontrich=si usa tipo que reacciona al bold
                         </ul>
                     </div>
                 </nav>
-                {% comment %}
-                <nav class="navbar navbar-expand-lg ml-auto">
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">HOME <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  PROGRAMS
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Accounting</a>
-                                    <a class="dropdown-item" href="#">Business Administration</a>
-                                    <a class="dropdown-item" href="#">Business and Finance</a>
-                                    <a class="dropdown-item" href="#">Civil Engineering</a>
-                                    <a class="dropdown-item" href="#">Electronics and Communications Engineering</a>
-                                    <a class="dropdown-item" href="#">Game Development</a>
-                                    <a class="dropdown-item" href="#">Graphic Design and Animation</a>
-                                    <a class="dropdown-item" href="#">Industrial Engineering</a>
-                                    <a class="dropdown-item" href="#">Mechanical Engineering</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">MBA</a>
-                                </div>
-                            </li>
-                            <!--li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  ACADEMIC
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">GENERAL EDUCATION</a>
-                                    <a class="dropdown-item" href="#">ENGLISH FOR ACADEMIC PURPOSE</a>
-                                    <a class="dropdown-item" href="#">MESSAGE FROM PROVOST</a>
-                                    <a class="dropdown-item" href="#">FACULTY</a>
-                                    <a class="dropdown-item" href="#">CALENDAR</a>
-                                    <a class="dropdown-item" href="#">CATALOGUE</a>
-                                </div>
-                            </li-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
-                            </li>
-                            <!--li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  ADMISSION
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">UNDERGRADUATE</a>
-                                    <a class="dropdown-item" href="#">GRADUATE</a>
-                                    <a class="dropdown-item" href="#">TUITION</a>
-                                    <a class="dropdown-item" href="#">VISA</a>
-                                    <a class="dropdown-item" href="#">SCHOLARSHIP</a>
-                                </div>
-                            </li-->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">AUM LIVE</a>
-                            </li>
-                            <div class="ml-lg-4 mr-lg-4" style="border-right: 1px solid #FFFFFF"></div>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">CONTACT</a>
-                            </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#">Disabled</a>
-                          </li>
-                        </ul>
-
-                      </div>
-                </nav>
-                {% endcomment %}
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-10">
                     {% if settingstop.typemodel == 'home' %}
-                        <div class="font-weight-light TextoInicio fadeIn wow ShowAfterAnim" data-wow-delay="0.5s" style="display: none">{{ settingstop.texttop | safe }}</div>
+                        <!--div class="font-weight-light TextoInicio fadeIn wow ShowAfterAnim" data-wow-delay="0.5s" style="display: none">{{ settingstop.texttop | safe }}</div-->
+                        <div class="HeroTextStepBox" style="position: fixed;width: 700px;height: 162px;top: 200px;left: 330px;overflow: hidden">
+                            <div id="HeroTextStep_1" class="HeroTextStep" style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Step into
+                            </div>
+                        </div>
+                        <div class="HeroTextStepBox" style="position: fixed;width: 700px;height: 100px;top: 370px;left: 330px;overflow: hidden">
+                            <div id="HeroTextStep_2" class="HeroTextStep" style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Your Future
+                            </div>
+                        </div>
+                        <div class="HeroTextStepBox" style="position: fixed;width: 700px;height: 162px;top: 370px;left: 10px;overflow: hidden">
+                            <div id="HeroTextStep_3" class="HeroTextStep" style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">go
+                            </div>
+                        </div>
                     {% elif settingstop.typemodel == 'program' %}
                         <div class="row HeroProgramSpace1">
                         </div>
@@ -365,5 +330,72 @@ usefontrich=si usa tipo que reacciona al bold
             new ScrollMagic.Scene({triggerElement: "#HeroLogo"})
 					.setTween("#VideoBack > video", {y: "100%", ease: Linear.easeNone})
 					.addTo(controller2);
+
+        function MoveRandomImg1() {
+            TweenMax.to("#HeroImg1", Math.random()*3+1, {'background-position':( (Math.random() * -500)-300)+"px 50%",onComplete:MoveRandomImg1})
+        }
+        MoveRandomImg1()
+        function MoveRandomImg2() {
+            TweenMax.to("#HeroImg2", Math.random()*3+1, {'background-position':(( Math.random() * -500)+100)+"px 50%",onComplete:MoveRandomImg2})
+        }
+        MoveRandomImg2()
+        function MoveRandomImg3() {
+            TweenMax.to("#HeroImg3", Math.random()*3+1, {'background-position':( Math.random() * -500)+"px 0%",onComplete:MoveRandomImg3})
+        }
+        MoveRandomImg3()
+        function MoveRandomImg4() {
+            TweenMax.to("#HeroImg4", Math.random()*3+1, {'background-position':( (Math.random() * 500)+100)+"px 20%",onComplete:MoveRandomImg4})
+        }
+        MoveRandomImg4()
+
+
+        //MoveRandomHolders()
+
+    }
+    function StartHeroHomAnim() {
+        MoveRandomHolders(2);
+        TweenMax.to("#HeroOverlay",3,{'opacity':1});
+        setTimeout(EndAnimation,2000);
+
+    }
+    function MoveRandomHolders(tt){
+        //alert("haklhka")
+        var a = Math.random()*30+10;
+        var b = Math.random()* (70-a)+20;
+        var b1 = Math.random()* (b-20)+10;
+        var b2 = b-b1;
+        var d = 100-a-b;
+        var t= Math.random()*5+2;
+        if(tt>0){
+            t=tt;
+        }
+
+        TweenMax.to("#HeroImg1", t, {'width':a+"%"});
+        TweenMax.to("#HeroImg2", t, {'width':b1+"%", 'left':a+"%"});
+        TweenMax.to("#HeroImg3", t, {'width':b2+"%", 'left':(a+b1)+"%"});
+        TweenMax.to("#HeroImg4", t, {'width':d+"%", 'left':(a+b1+b2)+"%"});
+        setTimeout(MoveRandomHolders,t*1000 + (Math.random()*3000))
+    }
+    function HeroHomeStepAnim() {
+        var tl = new TimelineLite();
+        tl.to("#HeroTextStep_1",0.3,{'top':0}).to("#HeroTextStep_2",0.3,{'top':-40})
+            .to("#HeroTextStep_3",0.3,{'top':-40})
+        var content1 = document.getElementById('HeroTextStep_1')
+        var content2 = document.getElementById('HeroTextStep_2')
+        var content3 = document.getElementById('HeroTextStep_3')
+        scroller = function () {
+            content1.style.top = -(document.documentElement.scrollTop || document.body.scrollTop) + 0 + 'px';
+            content2.style.top = -(document.documentElement.scrollTop || document.body.scrollTop) -40 + 'px';
+            content3.style.top = -(document.documentElement.scrollTop || document.body.scrollTop) -40 + 'px';
+
+            if((document.documentElement.scrollTop || document.body.scrollTop) > $(window).height()){
+                console.log((document.documentElement.scrollTop || document.body.scrollTop))
+                $('.HeroTextStepBox').css('display','none')
+            }else{
+                $('.HeroTextStepBox').css('display','')
+            }
+            return;
+        };
+        window.addEventListener('scroll', scroller, false);
     }
 </script>

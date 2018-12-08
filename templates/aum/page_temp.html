@@ -747,6 +747,10 @@
         if (typeof BannerCircActivation !== "undefined") {
             BannerCircActivation();
         }
+        {% if not viewintroanim %}
+
+            PreloadOut()
+        {% endif %}
     }
 </script>
 {% endblock content %}
