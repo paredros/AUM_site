@@ -35,7 +35,7 @@ def program(request, program_id):
         'usevideo':True,
         'useimg':False,
         'imgurl':imgtop,
-        'tintoverlay':0.9,
+        'tintoverlay':0.5,
         'usebackcolor':False,
         'colorback':'#121212',
         'typemodel':'program',
@@ -183,7 +183,7 @@ def pages(request, page_id):
                                                                                                                  'groupBachelor',
                                                                                                                  'logoTxt',
                                                                                                                  'shortTextMini',
-                                                                                                                 'bigImage')
+                                                                                                                 'midImage')
             otherdata["programs"] = progData
     return render(request,'aum/page_temp.html', {'settingstop': settingstop,
                                                     "timestamp": dt,
@@ -206,7 +206,8 @@ def pages(request, page_id):
                                                  'msgs_alert':msgs_alert,
                                                  'formnewsletter':formnewsletter,
                                                  'viewintroanim':False,
-                                                 'isHome':isHome
+                                                 'isHome':isHome,
+                                                 'data':data
                                                  })
 
 def professors(request, prof_id):
@@ -356,7 +357,8 @@ def professors(request, prof_id):
                                                        'footernav': footernav,
                                                        'msgs_alert': msgs_alert,
                                                        'formnewsletter': formnewsletter,
-                                                       'viewintroanim': False
+                                                       'viewintroanim': False,
+                                                       'isHome': False
                                                     })
 
 def generalpages(request, page_id):

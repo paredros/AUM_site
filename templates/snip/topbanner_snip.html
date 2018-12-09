@@ -59,7 +59,7 @@ settingsapply
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-12">
-            <div id="HeroBannerApply" class="HeroBannerApplyCirculo blackAUM" >
+            <div id="HeroBannerApply" class="HeroBannerApplyCirculo blackAUM slideInUp wow ShowAfterAnim" data-wow-delay="0.3s" style="display: none">
                 <div class="CirculoCentralImage mx-auto" style="background-color: #ffffff">
                     <div class="HeroBannerApplyButton" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
                         <table class="Table-FullSize">
@@ -114,9 +114,9 @@ settingsapply
         <div class="col-lg-1"></div>
         <div class="col-lg-9">
             {% if settingsapply.variantbanner == "grey"%}
-                <div id="HeroBannerApply" class="row BackgroundGrey">
+                <div id="HeroBannerApply" class="row BackgroundGrey slideInUp wow ShowAfterAnim" data-wow-delay="0.3s" style="display: none">
             {% else %}
-                <div id="HeroBannerApply" class="row BackgroundWhite">
+                <div id="HeroBannerApply" class="row BackgroundWhite slideInUp wow ShowAfterAnim" data-wow-delay="0.3s" style="display: none">
             {% endif %}
                 <div class="col-lg-4 HeroBannerApplyButton_Top" onclick="window.open('{{ buttonsgeneral.TalkToAdmissionLink |safe }}');">
                     <div class="Space-50"></div>

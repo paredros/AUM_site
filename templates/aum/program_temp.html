@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block content %}
+    {% include 'snip/animate_open.html' %}
+    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
     <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
     {% include 'snip/hero_snip.html' %}
     {% include 'snip/topbanner_snip.html' %}
@@ -258,6 +260,7 @@
     <div class="Space-200"></div>
 
     {% include 'snip/footer_snip.html' %}
+    </div>
 <script>
 
     function ScriptContent() {
@@ -298,7 +301,9 @@
         BannerCircActivation();
         BlogEnabled(controller);
         FooterEnable();
-
+        {% if not viewintroanim %}
+            PreloadOut()
+        {% endif %}
     }
 </script>
 

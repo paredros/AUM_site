@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block content %}
+    {% include 'snip/animate_open.html' %}
+    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
     {% include 'snip/hero_snip.html' %}
     {% include 'snip/topbanner_snip.html' %}
 
@@ -20,10 +22,9 @@
     {% include 'snip/blog_snip.html' with bb_contextitle=settingstop.texttop %}
     <div class="Space-200"></div>
     {% include 'snip/footer_snip.html' %}
-
+    </div>
     <script>
     function ScriptContent() {
-
         $('.AutoSizeTextOneLine').textfill({maxFontPixels: 200});
 
         var controller = new ScrollMagic.Controller({loglevel: 3});
@@ -32,8 +33,15 @@
             BlogEnabled(controller);
         }
         HeroVideoBackEnable();
-        TopBannerActivation();
-        BannerCircActivation();
+        if(typeof TopBannerActivation!="undefined"){
+            TopBannerActivation();
+        }
+        if(typeof BannerCircActivation!="undefined") {
+            BannerCircActivation();
+        }
+        {% if not viewintroanim %}
+            PreloadOut()
+        {% endif %}
     }
     </script>
 {% endblock content %}

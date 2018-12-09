@@ -71,6 +71,12 @@ class ProgramData(models.Model):
     shortTextTop = RichTextField(null=True, blank=True)
     shortTextMini = RichTextField(null=True, blank=True)
     bigImage = models.ImageField(upload_to='images/', null=True, blank=True)
+    midImage = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageA = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageB = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageC = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageD = models.ImageField(upload_to='images/', null=True, blank=True)
+    hasImagesHero = models.BooleanField(default=False)
     #more data
     yearsLong = models.IntegerField(default=5)
     tuitonFee = models.CharField(max_length=50, default="15,500*")
@@ -102,6 +108,12 @@ class PageGeneral(models.Model):
     medImage2 = models.ImageField(upload_to='images/', null=True, blank=True)
     minImage1 = models.ImageField(upload_to='images/', null=True, blank=True)
     minImage2 = models.ImageField(upload_to='images/', null=True, blank=True)
+
+    bigImageA = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageB = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageC = models.ImageField(upload_to='images/', null=True, blank=True)
+    bigImageD = models.ImageField(upload_to='images/', null=True, blank=True)
+    hasImagesHero = models.BooleanField(default=False)
 
     def __str__(self):
         return self.id_short_name
