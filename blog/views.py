@@ -105,7 +105,7 @@ def bloggeneral(request):
         posts = get_list_or_404(Post, enabled=True)
     page = request.GET.get('page')
 
-    paginator = Paginator(posts, 2)
+    paginator = Paginator(posts, 6)
     posts_page = paginator.get_page(page)
 
     navdata = NavSetting.objects.first()
@@ -223,6 +223,74 @@ def postenhanced(request, id_slug):
     }
     return render(request,'blog/viewpost.html', {'settingstop': settingstop,
                                                 'post': post,
+                                                    "timestamp": dt,
+                                                    'topdata':topdata,
+                                                    'settingsapply': settingsapply,
+                                                    'buttonsgeneral': buttonsgeneral,
+                                                    'bloggeneral':bloggeneral,
+                                                    'generaldata':generaldata,
+                                                    'topnav':topnav,
+                                                    'footernav': footernav,
+                                                    'floatnav':floatnav,
+                                                    'msgs_alert': msgs_alert,
+                                                    'formnewsletter': formnewsletter,
+                                                    'viewintroanim': False
+                                                 })
+
+def blogallforce(request):
+    dt = datetime.datetime.now().timestamp()
+
+
+
+    navdata = NavSetting.objects.first()
+    topnav = json.loads(navdata.topNavBar)
+    footernav = json.loads(navdata.footerNav)
+    floatnav = json.loads(navdata.floatNav)
+    generaldata = GlobalTextAndTitle.objects.first()
+    topdata = HeroGlobalData.objects.first()
+    applybanner = ApplyBanner.objects.first()
+    buttonsgeneral = ButtonsGeneral.objects.first()
+    bloggeneral = BlogGeneral.objects.first()
+
+    formnewsletter = ""
+    msgs_alert = {}
+
+    if request.method == 'POST':
+        formnewsletter = NewsletterForm(request.POST)
+        if formnewsletter.is_valid():
+            msgs_alert["Newsletter"] = True
+            formnewsletter.save()
+            formnewsletter = NewsletterForm()
+
+    else:
+        formnewsletter = NewsletterForm()
+
+    settingsapply = {
+        'call': applybanner.callToAction,
+        'landing1': applybanner.landing1,
+        'landing2': applybanner.landing2,
+        'applyLink': applybanner.applyLink,
+        'tipo': 'circulo'
+    }
+    topimg = ''
+
+    settingstop = {
+        'minilogotxt': "BLO",
+        'invertnavcolor':False,
+        'usevideo': True,
+        'useimg': False,
+        'imgurl': None,
+        'tintoverlay': 0.5,
+        'usebackcolor': False,
+        'colorback': '#121212',
+        'typemodel': 'generalpage',
+        'texttop': "<strong>All</strong> Posts",
+        'textbody': "AUM Live"
+    }
+
+    posts = get_list_or_404(Post, enabled=True)
+    return render(request,'blog/listallforce.html', {'settingstop': settingstop,
+                                                'posts': posts,
                                                     "timestamp": dt,
                                                     'topdata':topdata,
                                                     'settingsapply': settingsapply,

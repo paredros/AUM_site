@@ -73,11 +73,19 @@ usefontrich=si usa tipo que reacciona al bold
     {% if settingstop.tintoverlay == 0 %}
         <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight">
     {% else %}
+        {% if settingstop.overlayred %}
+            <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight"
+             style="background-image: linear-gradient(
+                     rgba(206,23,49, {{ settingstop.tintoverlay }}),
+                     rgba(0,0,0, {{ settingstop.tintoverlay }})
+                     );opacity: {{ isHome|yesno:'0,1' }}">
+        {% else %}
         <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight"
              style="background-image: linear-gradient(
                      rgba(0, 74, 135, {{ settingstop.tintoverlay }}),
                      rgba(0, 74, 135, {{ settingstop.tintoverlay }})
                      );opacity: {{ isHome|yesno:'0,1' }}">
+        {% endif %}
     {% endif %}
     <div id="HeroLogo" class="col-lg-1 {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
         {% if topdata.useClassicLogo %}
@@ -325,11 +333,11 @@ usefontrich=si usa tipo que reacciona al bold
                         {% else %}
                             <div class="HeroProfessorCircle"><p>{{ settingstop.minilogotxt }}</p></div>
                         {% endif %}
-                        <table class="HeroProfessorTitleHolder">
+                        <table class="HeroProfessorTitleHolder ">
                             <tbody>
                             <tr>
-                                <td class="align-bottom darkgreyAUM">
-                                    <div class="{{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}">{{ settingstop.texttop | safe }}</div>
+                                <td class="align-bottom text-white ">
+                                    <div class="{{ settingstop.usefontrich|yesno:'HeroProgramTitle_rich,HeroProgramTitle' }}"><strong>{{ settingstop.texttop | safe }}</strong></div>
                                 </td>
                             </tr>
                             </tbody>
@@ -337,7 +345,7 @@ usefontrich=si usa tipo que reacciona al bold
 
                     </div>
                     <div class="row">
-                        <div class="HeroProfessorText darkgreyAUM">{{ settingstop.textbody | safe }}</div>
+                        <div class="HeroProfessorText text-white"><strong>{{ settingstop.textbody | safe }}</strong></div>
                     </div>
                 {% elif settingstop.typemodel == 'generalpage' %}
                     <div class="row" style="height: 500px" style="color: {{ settingstop.colortext | safe }}">

@@ -2,10 +2,16 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="Space-100"></div>
-    <div class="container">
+    {% include 'snip/animate_open.html' %}
+    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
+        <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
+        {% include 'snip/hero_snip.html' %}
+        {% include 'snip/topbanner_snip.html' %}
+    <div class="Space-25"></div>
+    <div class="container-fluid">
+        <div class="d-flex flex-wrap justify-content-center">
         {% for post in posts %}
-            <div class="mt-5"></div>
+            <!--div class="mt-5"></div>
             <div class="card mx-auto zoomIn wow" style="width: 80%;">
                 <small class="card-body">
                     <div class="d-flex justify-content-between">
@@ -20,8 +26,66 @@
                     </small>
                 </div>
             </div>
-            <div class="mt-5"></div>
+            <div class="mt-5"></div-->
+            <div class="aumBlog_ContainerAll m-5">
+                <small>Created {{ post.date_created|timesince }} ago by
+                    <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a></small>
+                <div class="IsButton" onclick="location.href='{% url 'blogpost' post.slug %}'">
+                    <h5>{{ post.title }}</h5>
+                    <div class="MoreButton MoreButton_H30">
+                        <div class="MoreButton_Over MoreButton_H30">
+                            View
+                            <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                <div class="BarraAnim_Idle"></div>
+                            </div>
+                        </div>
+                        {% if button_coloricon == 'white' %}
+                            <img src="{% static 'icons/FlechaRight2White.png' %}">
+                        {% else %}
+                            <img src="{% static 'icons/FlechaRight2.png' %}">
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
         {% endfor %}
+        </div>
     </div>
     <div class="Space-100"></div>
+    {% include 'snip/footer_snip.html' %}
+
+        {% include 'snip/topnavstick_snip.html' %}
+    </div>
+    <script>
+            function ScriptContent() {
+                if ($('.IsButton').length) {
+                    $(".IsButton").hover(function () {
+                        $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+                        $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+                    }, function () {
+                        $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+                        $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+                    })
+                }
+                var controller = new ScrollMagic.Controller({loglevel: 3});
+                HeroVideoBackEnable(controller);
+                TopBannerActivation();
+
+                if($("#TopMenuMini").length) {
+                    var TopMenuMiniScroll = new ScrollMagic.Scene({
+                        triggerElement: "#HeroBannerApply",
+                        triggerHook: 0,
+                        duration: 0
+                    })
+                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
+                        .addTo(controller);
+                }
+                if (typeof BannerCircActivation !== "undefined") {
+                    BannerCircActivation();
+                }
+                {% if not viewintroanim %}
+                    PreloadOut()
+                {% endif %}
+            }
+    </script>
 {% endblock content %}

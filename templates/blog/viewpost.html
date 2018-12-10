@@ -49,7 +49,7 @@
         <div class="d-flex justify-content-end ">
             {% for tag in post.tags.all %}
                 <!--span class="badge badge-secondary m-1">{{ tag }}</span-->
-                <a href="{% url 'blog' %}?tag={{ tag }}" class="btn btn-primary backRedAum btn-sm m-1">{{ tag }}</a>
+                <a href="{% url 'blog' %}?tag={{ tag }}" class="btn btn-primary badge-pill backRedAum btn-sm m-1">{{ tag }}</a>
             {% endfor %}
         </div>
 

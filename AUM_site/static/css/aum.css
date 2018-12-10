@@ -162,6 +162,7 @@ GRUPO HERO
 }
 .HeroProfessorCircle {
     position: absolute;
+    top: 120px;
     right: 0px;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;

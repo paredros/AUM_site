@@ -267,12 +267,13 @@ def professors(request, prof_id):
         'tipo': 'data'
     }
     settingstop = {
-        'invertnavcolor':True,
+        'invertnavcolor':False,
         'minilogotxt': data.photoTxt,
-        'usevideo': False,
+        'usevideo': True,
         'useimg': False,
         'imgurl': "",
-        'tintoverlay': 0,
+        'tintoverlay': 0.6,
+        'overlayred':True,
         'usebackcolor': True,
         'colorback': '#E9EAE4',
         'typemodel': 'professor',

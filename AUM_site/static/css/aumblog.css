@@ -111,7 +111,9 @@
 .aumBlog_Related a{
     color: #333333;
 }
-Table-FullSize{
-    height: 100%;
-    width: 100%;
+.aumBlog_ContainerAll{
+    width: 300px;
+}
+.aumBlog_ContainerAll a{
+    color: #ce1731;
 }

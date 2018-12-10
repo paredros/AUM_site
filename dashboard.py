@@ -59,6 +59,13 @@ class CustomIndexDashboard(Dashboard):
                     )
         ))
 
+        # append an app list module for "BLOG"
+        self.children.append(modules.AppList(
+            _('BLOG'),
+            models=('blog.models.Post',
+                    )
+        ))
+
         # append an app list module for "GLOBAL DATA"
         self.children.append(modules.AppList(
             _('GLOBAL DATA'),
