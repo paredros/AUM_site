@@ -13,7 +13,7 @@ usefontrich=si usa tipo que reacciona al bold
 -->
 
 {% if settingstop.useimg %}
-    <div id="VideoBack" class="backgroundImgResponsive ForceMinHeight">
+    <div id="VideoBack" class="backgroundImgResponsive ForceMinHeight" style="background-image: url({{ settingstop.imgurl.url }})">
     <!--div id="VideoBack" class="backgroundImgResponsive ForceMinHeight" style="background-image: url({% static 'videos/backvideoMini.jpg' %})"-->
     <!--div id="VideoBack" class="backgroundImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})"-->
 
@@ -357,6 +357,24 @@ usefontrich=si usa tipo que reacciona al bold
                     <div class="row">
 
                     </div>
+                {% elif settingstop.typemodel == 'blogholder' %}
+                    <div class="row" style="height: 500px" style="color: {{ settingstop.colortext | safe }}">
+                        <table class="HeroGeneralTitleHolder Table-FullSize">
+                            <tbody>
+                            <tr>
+                                <td class="align-bottom">
+                                    <div class="HeroGeneralMidTitle_rich">{{ settingstop.texttop | safe }}
+                                    </div>
+                                    <div class="HeroGeneralText w-75">{{ settingstop.textbody | safe }}</div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="row">
+
+                    </div>
                 {% endif %}
 
             </div>
@@ -462,7 +480,7 @@ usefontrich=si usa tipo que reacciona al bold
                 content3.style.top = -(document.documentElement.scrollTop || document.body.scrollTop) - 40 + 'px';
 
                 if ((document.documentElement.scrollTop || document.body.scrollTop) > $(window).height()) {
-                    console.log((document.documentElement.scrollTop || document.body.scrollTop))
+                    //console.log((document.documentElement.scrollTop || document.body.scrollTop))
                     $('.HeroTextStepBox').css('display', 'none')
                 } else {
                     $('.HeroTextStepBox').css('display', '')

@@ -2,55 +2,159 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div class="Space-100"></div>
+    {% include 'snip/animate_open.html' %}
+    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
+        <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
+        {% include 'snip/hero_snip.html' %}
+        {% include 'snip/topbanner_snip.html' %}
+        <div class="Space-25"></div>
+        <!--div class="container">
+                {% for post in posts %}
+                    <div class="mt-5"></div>
+                    <div class="card mx-auto zoomIn wow" style="width: 80%;">
+                        <img class="card-img-top-blog-all" src="{{ post.bigPicture.url }}" alt="">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.summary | safe}}</p>
+                        <a href="{% url 'blogpost' post.slug %}" class="btn btn-primary backBlueAum">Read More</a>
+                      </div>
+                        <div class="card-footer text-muted">
+                            Created {{ post.date_created|timesince }} ago by
+                            <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a>
+                      </div>
+                    </div>
+
+
+                {% endfor %}
+
+         </div-->
+
     <div class="container">
+        <div class="row">
             {% for post in posts %}
-                <div class="mt-5"></div>
-                <div class="card mx-auto zoomIn wow" style="width: 80%;">
-                    <img class="card-img-top-blog-all" src="{{ post.bigPicture.url }}" alt="">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="card-text">{{ post.summary | safe}}</p>
-                    <a href="{% url 'blogpost' post.slug %}" class="btn btn-primary backBlueAum">Read More</a>
-                  </div>
-                    <div class="card-footer text-muted">
-                        Created {{ post.date_created|timesince }} ago by
-                        <a href="{% url 'blog' %}?author={{ post.author.pk }}">{{ post.author.get_full_name }}</a>
-                  </div>
-                </div>
-
-
+                {% include 'snip/blogitem_snip.html' %}
             {% endfor %}
-
-     </div>
-    <div class="container">
-        <div class="d-flex justify-content-center">
-            {% if posts.has_previous %}
-                <a href="{{ passget }}page={{ posts.previous_page_number }}" class="btn btn-primary backBlueAum m-2" >Previous</a>
-            {% endif %}
-            <a href="#" class="btn btn-primary backBlueAum m-2">View All</a>
-            {% if posts.has_next %}
-                <a href="{{ passget }}page={{ posts.next_page_number }}" class="btn btn-primary backBlueAum m-2">Next</a>
-            {% endif %}
         </div>
     </div>
-    {% comment %}
-    <div class="pagination">
-        <span class="step-links">
-            {% if posts.has_previous %}
-                <a href="?page=1">&laquo; first</a>
-                <a href="?page={{ posts.previous_page_number }}">previous</a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
-            </span>
-
-            {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}">next</a>
-                <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+    <div class="Space-100"></div>
+        <div class="container">
+            <div class="d-flex justify-content-center">
+                {% if posts.has_previous %}
+                    <a href="{{ passget }}page={{ posts.previous_page_number }}" class="btn btn-primary backBlueAum m-2" >Previous</a>
+                {% endif %}
+                <a href="{% url "blogall" %}" class="btn btn-primary backBlueAum m-2">View All</a>
+                {% if posts.has_next %}
+                    <a href="{{ passget }}page={{ posts.next_page_number }}" class="btn btn-primary backBlueAum m-2">Next</a>
+                {% endif %}
+            </div>
+        </div>
     </div>
-    {% endcomment %}
+    <!--div class="Space-100"></div>
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-2">
+                {% if posts.has_previous %}
+                <div class="d-flex justify-content-end">
+                    <div class="pages_TwoColumn1_MediumTextText IsButton" onclick="location.href='{{ passget }}page={{ posts.previous_page_number }}'">
+                        Previous
+                        <div class="MoreButton MoreButton_H30">
+                            <div class="MoreButton_Over MoreButton_H30">
+                                Go
+                                <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            {% if button_coloricon == 'white' %}
+                                <img src="{% static 'icons/FlechaRight2White.png' %}">
+                            {% else %}
+                                <img src="{% static 'icons/FlechaRight2.png' %}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-2">
+                <div class="d-flex justify-content-center">
+                    <div class="pages_TwoColumn1_MediumTextText IsButton" onclick="location.href='{% url "blogall" %}'">
+                        View All
+                        <div class="MoreButton MoreButton_H30">
+                            <div class="MoreButton_Over MoreButton_H30">
+                                Go
+                                <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            {% if button_coloricon == 'white' %}
+                                <img src="{% static 'icons/FlechaRight2White.png' %}">
+                            {% else %}
+                                <img src="{% static 'icons/FlechaRight2.png' %}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                {% if posts.has_next %}
+                <div class="d-flex justify-content-start">
+                    <div class="pages_TwoColumn1_MediumTextText IsButton" onclick="location.href='{{ passget }}page={{ posts.next_page_number }}'">
+                        Next
+                        <div class="MoreButton MoreButton_H30">
+                            <div class="MoreButton_Over MoreButton_H30">
+                                Go
+                                <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            {% if button_coloricon == 'white' %}
+                                <img src="{% static 'icons/FlechaRight2White.png' %}">
+                            {% else %}
+                                <img src="{% static 'icons/FlechaRight2.png' %}">
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-3"></div>
+            </div>
+        </div>
+    </div-->
+    <div class="Space-50"></div>
+    {% include 'snip/footer_snip.html' %}
+
+        {% include 'snip/topnavstick_snip.html' %}
+    <script>
+            function ScriptContent() {
+                if ($('.IsButton').length) {
+                    $(".IsButton").hover(function () {
+                        $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+                        $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+                    }, function () {
+                        $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+                        $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+                    })
+                }
+                var controller = new ScrollMagic.Controller({loglevel: 3});
+                HeroVideoBackEnable(controller);
+                TopBannerActivation();
+
+                if($("#TopMenuMini").length) {
+                    var TopMenuMiniScroll = new ScrollMagic.Scene({
+                        triggerElement: "#HeroBannerApply",
+                        triggerHook: 0,
+                        duration: 0
+                    })
+                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
+                        .addTo(controller);
+                }
+                if (typeof BannerCircActivation !== "undefined") {
+                    BannerCircActivation();
+                }
+                {% if not viewintroanim %}
+                    PreloadOut()
+                {% endif %}
+            }
+    </script>
 {% endblock content%}

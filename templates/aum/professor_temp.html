@@ -22,6 +22,7 @@
     {% include 'snip/blog_snip.html' with bb_contextitle=settingstop.texttop %}
     <div class="Space-200"></div>
     {% include 'snip/footer_snip.html' %}
+    {% include 'snip/topnavstick_snip.html' %}
     </div>
     <script>
     function ScriptContent() {
@@ -32,6 +33,15 @@
         if($('#BlogParallax').length){
             BlogEnabled(controller);
         }
+        if($("#TopMenuMini").length) {
+                    var TopMenuMiniScroll = new ScrollMagic.Scene({
+                        triggerElement: "#HeroBannerApply",
+                        triggerHook: 0,
+                        duration: 0
+                    })
+                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
+                        .addTo(controller);
+                }
         HeroVideoBackEnable();
         if(typeof TopBannerActivation!="undefined"){
             TopBannerActivation();

@@ -11,6 +11,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'css/aumblog.css' %}?{{ timestamp }}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aum.css' %}?{{ timestamp }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
     <meta charset="UTF-8">
@@ -22,11 +23,61 @@
 
     {% block scripts %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/plugins/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
+        function preventDefault(e) {
+        e = e || window.event;
+        if (e.preventDefault)
+            {% if viewintroanim %}
+                if (e.type == 'wheel' || e.type == 'mousewheel') {
+                    //alert("try scroll"+e.type);
+                    ScrollOut(e.deltaY)
+                } else if (e.keyCode == 40) {
+                    ScrollOut(20)
+                }
+            {% endif %}
+        e.preventDefault();
+        e.returnValue = false;
+    }
+
+    function preventDefaultForScrollKeys(e) {
+        if (keys[e.keyCode]) {
+            //alert("try scroll");
+            //ScrollOut(e.deltaY)
+            preventDefault(e);
+            return false;
+        }
+    }
+
+    function enableScroll() {
+        if (window.removeEventListener)
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.onmousewheel = document.onmousewheel = null;
+        window.onwheel = null;
+        window.ontouchmove = null;
+        document.onkeydown = null;
+    }
+
+    function disableScroll() {
+
+        if (window.addEventListener) // older FF
+            window.addEventListener('DOMMouseScroll', preventDefault, false);
+        window.onwheel = preventDefault; // modern standard
+        window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+        window.ontouchmove = preventDefault; // mobile
+        document.onkeydown = preventDefaultForScrollKeys;
+
+    }
         new WOW().init();
+        $(document).ready(function () {
+            ScriptContent();
+        });
     </script>
     {% endblock scripts%}
 </body>

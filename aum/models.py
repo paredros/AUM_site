@@ -187,6 +187,7 @@ class PageBasic(models.Model):
 class NavSetting(models.Model):
     topNavBar = models.TextField(default="", blank=True)
     footerNav = models.TextField(default="", blank=True)
+    floatNav = models.TextField(default="", blank=True)
 
 class ContactWebpage(models.Model):
     created = models.DateTimeField(auto_now_add=True)

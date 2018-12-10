@@ -2,11 +2,6 @@
 {% load staticfiles %}
 
 {% block content %}
-    {% include 'snip/animate_open.html' %}
-    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
-        <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
-        {% include 'snip/hero_snip.html' %}
-        {% include 'snip/topbanner_snip.html' %}
     <div class="Space-10"></div>
     <div class="container aumblog_PostContainer_TopImage" style="background-color: #FFFFFF">
         <div class="card">
@@ -49,45 +44,9 @@
         <div class="d-flex justify-content-end ">
             {% for tag in post.tags.all %}
                 <!--span class="badge badge-secondary m-1">{{ tag }}</span-->
-                <a href="{% url 'blog' %}?tag={{ tag }}" class="btn btn-primary backRedAum btn-sm m-1">{{ tag }}</a>
+                <a href="{% url 'blog' %}?tag={{ tag }}" class="btn btn-primary backBlueAum btn-sm m-1">{{ tag }}</a>
             {% endfor %}
         </div>
 
     </div>
-    </div>
-    {% include 'snip/footer_snip.html' %}
-
-        {% include 'snip/topnavstick_snip.html' %}
-    <script>
-            function ScriptContent() {
-                if ($('.IsButton').length) {
-                    $(".IsButton").hover(function () {
-                        $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
-                        $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
-                    }, function () {
-                        $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
-                        $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
-                    })
-                }
-                var controller = new ScrollMagic.Controller({loglevel: 3});
-                HeroVideoBackEnable(controller);
-                TopBannerActivation();
-
-                if($("#TopMenuMini").length) {
-                    var TopMenuMiniScroll = new ScrollMagic.Scene({
-                        triggerElement: "#HeroBannerApply",
-                        triggerHook: 0,
-                        duration: 0
-                    })
-                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
-                        .addTo(controller);
-                }
-                if (typeof BannerCircActivation !== "undefined") {
-                    BannerCircActivation();
-                }
-                {% if not viewintroanim %}
-                    PreloadOut()
-                {% endif %}
-            }
-    </script>
 {% endblock content%}

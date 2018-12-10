@@ -3,6 +3,7 @@ from .models import *
 import json
 import datetime
 from .forms import ContactForm, NewsletterForm
+from blog.models import Post
 
 # Create your views here.
 def home(request):
@@ -59,6 +60,7 @@ def program(request, program_id):
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
     footernav = json.loads(navdata.footerNav)
+    floatnav = json.loads(navdata.floatNav)
     applybanner = ApplyBanner.objects.first()
     settingsapply = {
         'call':applybanner.callToAction,
@@ -78,6 +80,11 @@ def program(request, program_id):
     future = json.loads(data.futureBlock)
     future_key = json.loads(data.futureBlock_keys)
     degree = json.loads(data.degreeBlock)
+
+    blogData = Post.objects.filter(enabled=True)[:6]
+    otherdata = {}
+    otherdata["blog"] = blogData
+
     return render(request, 'aum/program_temp.html', {'data':data,
                                                      'topdata':topdata,
                                                      'settingstop':settingstop,
@@ -93,9 +100,11 @@ def program(request, program_id):
                                                      'degree':degree,
                                                      'topnav':topnav,
                                                      'footernav':footernav,
+                                                     'floatnav':floatnav,
                                                      'msgs_alert': msgs_alert,
                                                      'formnewsletter': formnewsletter,
-                                                     'viewintroanim': False
+                                                     'viewintroanim': False,
+                                                     'otherdata': otherdata,
                                                      })
 
 
@@ -136,6 +145,7 @@ def pages(request, page_id):
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
     footernav = json.loads(navdata.footerNav)
+    floatnav = json.loads(navdata.floatNav)
     generaldata = GlobalTextAndTitle.objects.first()
     topdata = HeroGlobalData.objects.first()
     applybanner = ApplyBanner.objects.first()
@@ -173,18 +183,25 @@ def pages(request, page_id):
 
     otherdata={}
     if 'useextradata' in settingstop.keys():
-        if settingstop["useextradata"] == "professors":
-            profData = Professor.objects.only('pk','nameTitle','roleTitle','photoMed','photoTxt')
-            otherdata["professors"] = profData
-        if settingstop["useextradata"] == "programs":
-            progData = ProgramData.objects.filter(enabled=True, isGraduatedProgram=False).order_by('order').only('pk',
-                                                                                                                 'title',
-                                                                                                                 'backgroundColorMini',
-                                                                                                                 'groupBachelor',
-                                                                                                                 'logoTxt',
-                                                                                                                 'shortTextMini',
-                                                                                                                 'midImage')
-            otherdata["programs"] = progData
+
+        dataExtra = settingstop["useextradata"].split(',')
+        for extra in dataExtra:
+            if extra == "professors":
+                profData = Professor.objects.only('pk','nameTitle','roleTitle','photoMed','photoTxt')
+                otherdata["professors"] = profData
+            if extra == "programs":
+                progData = ProgramData.objects.filter(enabled=True, isGraduatedProgram=False).order_by('order').only('pk',
+                                                                                                                     'title',
+                                                                                                                     'backgroundColorMini',
+                                                                                                                     'groupBachelor',
+                                                                                                                     'logoTxt',
+                                                                                                                     'shortTextMini',
+                                                                                                                     'midImage')
+                otherdata["programs"] = progData
+            if extra == "blog":
+                blogData = Post.objects.filter(enabled=True)[:6]
+                otherdata["blog"] = blogData
+
     return render(request,'aum/page_temp.html', {'settingstop': settingstop,
                                                     "timestamp": dt,
                                                     'topdata':topdata,
@@ -202,6 +219,7 @@ def pages(request, page_id):
                                                     'otherdata':otherdata,
                                                     'topnav':topnav,
                                                  'footernav': footernav,
+                                                 'floatnav':floatnav,
                                                  'form':form,
                                                  'msgs_alert':msgs_alert,
                                                  'formnewsletter':formnewsletter,
@@ -216,12 +234,16 @@ def professors(request, prof_id):
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
     footernav = json.loads(navdata.footerNav)
+    floatnav = json.loads(navdata.floatNav)
     generaldata = GlobalTextAndTitle.objects.first()
     topdata = HeroGlobalData.objects.first()
     applybanner = ApplyBanner.objects.first()
     buttonsgeneral = ButtonsGeneral.objects.first()
     bloggeneral = BlogGeneral.objects.first()
 
+    blogData = Post.objects.filter(enabled=True)[:6]
+    otherdata = {}
+    otherdata["blog"] = blogData
 
     formnewsletter = ""
     msgs_alert = {}
@@ -355,10 +377,12 @@ def professors(request, prof_id):
                                                         'skillsanddata':skillsanddata,
                                                         'topnav':topnav,
                                                        'footernav': footernav,
+                                                       'floatnav':floatnav,
                                                        'msgs_alert': msgs_alert,
                                                        'formnewsletter': formnewsletter,
                                                        'viewintroanim': False,
-                                                       'isHome': False
+                                                       'isHome': False,
+                                                       'otherdata':otherdata
                                                     })
 
 def generalpages(request, page_id):
@@ -368,6 +392,7 @@ def generalpages(request, page_id):
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
     footernav = json.loads(navdata.footerNav)
+    floatnav = json.loads(navdata.floatNav)
     generaldata = GlobalTextAndTitle.objects.first()
     topdata = HeroGlobalData.objects.first()
     applybanner = ApplyBanner.objects.first()
@@ -423,6 +448,7 @@ def generalpages(request, page_id):
                                                     'data':data,
                                                     'topnav':topnav,
                                                     'footernav': footernav,
+                                                    'floatnav':floatnav,
                                                     'msgs_alert': msgs_alert,
                                                     'formnewsletter': formnewsletter,
                                                     'viewintroanim': False

@@ -2,6 +2,8 @@
 {% load staticfiles %}
 
 {% block content %}
+    {% include 'snip/animate_open.html' %}
+    <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
     {% include 'snip/hero_snip.html' %}
     {% include 'snip/topbanner_snip.html' %}
     <div class="Space-100"></div>
@@ -47,7 +49,8 @@
     {% endif %}
     <div class="Space-200"></div>
     {% include 'snip/footer_snip.html' %}
-
+    {% include 'snip/topnavstick_snip.html' %}
+    </div>
     <script>
     function ScriptContent() {
 
@@ -58,9 +61,24 @@
         if($('#BlogParallax').length){
             BlogEnabled(controller);
         }
+        if($("#TopMenuMini").length) {
+                    var TopMenuMiniScroll = new ScrollMagic.Scene({
+                        triggerElement: "#HeroBannerApply",
+                        triggerHook: 0,
+                        duration: 0
+                    })
+                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
+                        .addTo(controller);
+                }
         HeroVideoBackEnable();
         TopBannerActivation();
-        BannerCircActivation();
+        if (typeof BannerCircActivation !== "undefined") {
+            BannerCircActivation();
+        }
+        {% if not viewintroanim %}
+
+            PreloadOut()
+        {% endif %}
     }
     </script>
 {% endblock content %}

@@ -1,0 +1,234 @@
+{% load staticfiles %}
+
+{% comment %}
+<div class="container-fluid fixed-top" style="height: 32px; background-color: rgba(10,10,10,0.7);font-size: 0.7em">
+    <div class="row ml-auto mr-2">
+        <nav class="navbar navbar-expand-lg ml-auto p-0">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    {% for navinfo in topnav.groups %}
+                        {% if navinfo.type == "link" %}
+                            <li class="nav-item active">
+                                {% if navinfo.url.type == "internal" %}
+                                    {% if navinfo.url.param %}
+                                        {% if navinfo.url.anchor %}
+                                            <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                               href="{% url navinfo.url.dir navinfo.url.param %}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe }}</a>
+                                        {% else %}
+                                            <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                               href="{% url navinfo.url.dir navinfo.url.param %}">{{ navinfo.text |safe }}</a>
+                                        {% endif %}
+
+                                    {% else %}
+                                        {% if navinfo.url.anchor %}
+                                            <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                               href="{% url navinfo.url.dir %}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe }}</a>
+                                        {% else %}
+                                            <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                               href="{% url navinfo.url.dir %}">{{ navinfo.text |safe }}</a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% else %}
+                                    {% if navinfo.url.anchor %}
+                                        <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                           href="{{ navinfo.url.dir }}#{{ navinfo.url.anchor }}">{{ navinfo.text |safe }}</a>
+                                    {% else %}
+                                        <a class="nav-link {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                           href="{{ navinfo.url.dir }}">{{ navinfo.text |safe }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            </li>
+                        {% elif navinfo.type == "dropdown" %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle {{ settingstop.invertnavcolor|yesno:'heronavDark,' }}"
+                                   href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    {{ navinfo.text |safe }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    {% for item in navinfo.content %}
+                                        {% if item.type == "link" %}
+                                            {% if item.url.type == "internal" %}
+                                                {% if item.url.param %}
+                                                    {% if item.url.anchor %}
+                                                        <a class="dropdown-item"
+                                                           href="{% url item.url.dir item.url.param %}#{{ item.url.anchor }}">{{ item.text |safe }}</a>
+                                                    {% else %}
+                                                        <a class="dropdown-item"
+                                                           href="{% url item.url.dir item.url.param %}">{{ item.text |safe }}</a>
+                                                    {% endif %}
+                                                    <!--a class="dropdown-item" href="{% url item.url.dir item.url.param %}">{{ item.text |safe }}</a-->
+                                                {% else %}
+                                                    {% if item.url.anchor %}
+                                                        <a class="dropdown-item"
+                                                           href="{% url item.url.dir %}#{{ item.url.anchor }}">{{ item.text |safe }}</a>
+                                                    {% else %}
+                                                        <a class="dropdown-item"
+                                                           href="{% url item.url.dir %}">{{ item.text|safe }}</a>
+                                                    {% endif %}
+
+                                                {% endif %}
+                                            {% else %}
+                                                {% if item.url.anchor %}
+                                                    <a class="dropdown-item"
+                                                       href="{{ item.url.dir }}#{{ item.url.anchor }}"
+                                                       target="_blank">{{ item.text|safe }}</a>
+                                                {% else %}
+                                                    <a class="dropdown-item" href="{{ item.url.dir }}"
+                                                       target="_blank">{{ item.text|safe }}</a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% elif item.type == "separator" %}
+                                            <div class="dropdown-divider"></div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </li>
+                        {% elif navinfo.type == "separator" %}
+                            <div class="ml-lg-4 mr-lg-4"
+                                 style="border-right: 1px solid {{ settingstop.invertnavcolor|yesno:'#121212,#FFFFFF' }}"></div>
+                        {% endif %}
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!--div style="position: absolute;left: 10px;top: 10px">
+        <a href="{% url 'home' %}">
+                    <img src="{{ topdata.classicLogo.url }}" style="width:auto;height: 35px">
+                </a>
+    </div-->
+</div>
+{% endcomment %}
+<!--TOP MENU-->
+    <div id="TopMenuMini" class="TopMenuHolder text-center text-white" onclick="showMenu();">
+        <h1>&#9776;</h1>
+    </div>
+
+<div id="TopMenuFloat" class="container"
+     style="width: 80%;position: fixed;top: 30px;right: 50px;background-color: #121212; font-size: 1em; display: none;opacity:0;transition: all 0.5s ease">
+    <div class="row text-white">
+        <div class="col-12 mt-3">
+            <div class="floatnav_Item" style="border-bottom: 1px solid white">
+                <a href="{% url 'home'%}">HOME</a>
+            </div>
+
+        </div>
+        <div style="position: absolute;right: 8px;top: 4px">
+            <div class="footer_Icon">
+            <a href="javascript:hideMenu()">
+                <img src="{% static 'icons/forbidden-mark.png' %}">
+            </a>
+        </div>
+        </div>
+    </div>
+    <div class="row text-white">
+        {% for group in floatnav.groups %}
+            {% if group.type == "column" %}
+                <div class="{% if group.size == 2 %}col-lg-2
+                        {% elif group.size == 3 %}col-lg-3
+                        {% elif group.size == 4 %}col-lg-4
+                        {% elif group.size == 5 %}col-lg-5
+                        {% elif group.size == 1 %}col-lg-1
+                        {% endif %}mt-3 ">
+                    {% for content_group in group.content %}
+                        {% if content_group.type == "group" %}
+                            <p class="floatnav_GroupTitle" {% if content_group.decorator%}style="color: #02A7C2" {% endif %}>
+                                {{ content_group.title |safe }}
+                            </p>
+                            <div class="Space-10"></div>
+                            {% for element in content_group.elements %}
+                                {% if element.type == "link" %}
+                                    <div class="floatnav_Item">
+                                        {% if element.url.type == "internal" %}
+                                            {% if element.url.param %}
+                                                {% if element.url.anchor %}
+                                                    <a href="{% url element.url.dir element.url.param %}#{{ element.url.anchor }}">{{ element.text|safe }}</a>
+                                                {% else %}
+                                                    <a href="{% url element.url.dir element.url.param %}">{{ element.text|safe }}</a>
+                                                {% endif %}
+                                            {% else %}
+                                                {% if element.url.anchor %}
+                                                    <a href="{% url element.url.dir %}#{{ element.url.anchor }}">{{ element.text|safe }}</a>
+                                                {% else %}
+                                                    <a href="{% url element.url.dir %}">{{ element.text|safe }}</a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% else %}
+                                            {% if element.url.anchor %}
+                                                <a href="{{ element.url.dir }}#{{ element.url.anchor }}"
+                                                   target="_blank">{{ element.text|safe }}</a>
+                                            {% else %}
+                                                <a href="{{ element.url.dir }}"
+                                                   target="_blank">{{ element.text|safe }}</a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </div>
+                                {% elif element.type == "separator" %}
+                                    <div style="margin-top:0.5em;margin-bottom:0.5em;width: 200px;border-bottom: 1px solid #ffffff"></div>
+                                {% elif element.type == "social" %}
+                                    {% include 'snip/social_snip.html' with social=element.value %}
+                                {% elif element.type == "input" %}
+                                    <div class="form-group">
+
+                                        <!--input type="email" class="form-control footer_Input" id="newsletterSubscribe" aria-describedby="emailHelp" placeholder="{{ element.data.hint }}"-->
+                                        {% if "Newsletter" in msgs_alert.keys %}
+                                            <small id="emailHelp" class="form-text text-muted footer_Text">Thanks For
+                                                Your Subscription
+                                            </small>
+                                        {% else %}
+                                            <small id="emailHelp"
+                                                   class="form-text text-muted footer_Text">{{ element.text }}</small>
+                                            <form method="post" id="usrnewsletter">
+                                                {% csrf_token %}
+                                                {{ formnewsletter }}
+                                            </form>
+                                            <div class="Space-10"></div>
+                                            <div class="footer_Button">
+                                                <div class="MoreButton MoreButton_H30"
+                                                     onclick="$('#usrnewsletter').submit()">
+                                                    <div class="MoreButton_Over MoreButton_H30">
+                                                        Send
+                                                        <div class="MoreButtonBarra MoreButtonBarra_H30 MoreButtonBarra_50">
+                                                            <div class="BarraAnim_Idle"></div>
+                                                        </div>
+                                                    </div>
+                                                    <img src="{% static 'icons/FlechaRight2White.png' %}">
+
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                            <div class="Space-25"></div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<script>
+    function showMenu() {
+        $("#TopMenuFloat").css('display','')
+        TweenMax.to("#TopMenuFloat", 0.1, {
+                    'opacity': 1, onComplete: function () {
+                        $("#TopMenuMini").css('display','none')
+                    }
+                })
+
+    }
+    function hideMenu(){
+        TweenMax.to("#TopMenuFloat", 0.1, {
+                    'opacity': 0, onComplete: function () {
+                        $("#TopMenuFloat").css('display','none')
+                        $("#TopMenuMini").css('display','')
+                    }
+                })
+
+
+    }
+</script>

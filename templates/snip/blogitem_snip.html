@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<div id="CardBlog" class="zoomIn wow BlogItem" onclick="window.location='{% url 'blogpost' post.slug %}';">
+                        <div class="BlogImgResponsive" style="background-image: url({{ post.bigPicture.url }})">
+                        </div>
+                        <div class="BlogTxtResponsive text-center text-white">
+                            <table class="Table-FullSize">
+                              <tbody>
+                                <tr>
+                                    <td class="align-middle"><h1>{{ post.title }}</h1></td>
+                                </tr>
+                              </tbody>
+                            </table>
+
+                        </div>
+                    <h3>{{ post.date_created|date }} by {{ post.author.get_full_name }}</h3>
+                    <h2>
+                        {{ post.summary | safe}}
+                        <br>
+                        <div class="MoreButton">
+                            <div class="MoreButton_Over">
+                                View
+                                <div class="MoreButtonBarra">
+                                    <div class="BarraAnim_Idle"></div>
+                                </div>
+                            </div>
+                            <img src="{% static 'icons/FlechaRight2.png' %}">
+                        </div>
+                    </h2>
+                </div>

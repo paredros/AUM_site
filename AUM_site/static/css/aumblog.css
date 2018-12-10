@@ -10,6 +10,9 @@
     width: 75%;
     padding: 50px;
 }
+.aumblog_PostContainer a{
+    color: #ce1731;
+}
 .aumblog_PostContainer_TopImage{
     width: 75%;
     height: auto;
@@ -29,12 +32,22 @@
 
 }
 .backBlueAum{
+    color: white!important;
     background-color: #084b85;
+    border: none!important;
+    transition: all 0.2s ease;
+}
+.backRedAum{
+    color: white!important;
+    background-color: #ce1731;
     border: none!important;
     transition: all 0.2s ease;
 }
 .backBlueAum:hover{
     background-color: #ce1731;
+}
+.backRedAum:hover{
+    background-color: #333333;
 }
 
 .card-img-top-blog-all {

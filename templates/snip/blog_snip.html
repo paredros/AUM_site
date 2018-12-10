@@ -76,36 +76,8 @@
     </div>
     <div class="container">
         <div class="row">
-            {% for i in "xxxxxx" %}
-                <div id="CardBlog" class="zoomIn wow BlogItem">
-                        <div class="BlogImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})">
-                        </div>
-                        <div class="BlogTxtResponsive text-center text-white">
-                            <!--table style="height: 100%; width: 100%"-->
-                            <table class="Table-FullSize">
-                              <tbody>
-                                <tr>
-                                    <td class="align-middle"><h1>Title Of The Blog Larger On The Line</h1></td>
-                                </tr>
-                              </tbody>
-                            </table>
-
-                        </div>
-                    <h3>10/10/2020 by Author</h3>
-                    <h2>
-                        <strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem <strong>Ipsum</strong> has  ever <strong>since the 1500s</strong>, when an unknown printer
-                        <br>
-                        <div class="MoreButton">
-                            <div class="MoreButton_Over">
-                                View
-                                <div class="MoreButtonBarra">
-                                    <div class="BarraAnim_Idle"></div>
-                                </div>
-                            </div>
-                            <img src="{% static 'icons/FlechaRight2.png' %}">
-                        </div>
-                    </h2>
-                </div>
+            {% for post in otherdata.blog %}
+                {% include 'snip/blogitem_snip.html' %}
             {% endfor %}
         </div>
     </div>
