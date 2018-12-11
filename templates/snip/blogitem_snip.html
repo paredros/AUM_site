@@ -1,5 +1,5 @@
 {% load staticfiles %}
-<div id="CardBlog" class="zoomIn wow BlogItem" onclick="window.location='{% url 'blogpost' post.slug %}';">
+<div class="CardBlog zoomIn wow BlogItem" onclick="window.location='{% url 'blogpost' post.slug %}';">
                         <div class="BlogImgResponsive" style="background-image: url({{ post.bigPicture.url }})">
                         </div>
                         <div class="BlogTxtResponsive text-center text-white">

@@ -124,10 +124,10 @@
                                 <div id="CardManager" class="row">
                                     {# {% for i in "xxxxxxxxxx" %} #}
                                     {% for program in otherdata.programs %}
-                                        <div id="CardProgram" class=" CardClass"
+                                        <div class="CardProgram CardClass zoomIn wow"
                                              onclick="window.location='{% url 'programs' program.pk %}';">
                                             <!--div class="ProgramImgResponsive" style="background-image: url({% static 'imgtest/bookkeeping.jpg' %})"-->
-                                            <div class="ProgramImgResponsive zoomIn wow"
+                                            <div class="ProgramImgResponsive"
                                                  style="background-color: {{ program.backgroundColorMini }};background-image: url({{ program.midImage.url }})">
                                                 <p>{{ program.logoTxt |safe }}</p>
                                             </div>

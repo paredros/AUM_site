@@ -467,7 +467,7 @@ GRUPO HERO APPLY
 GRUPO PROGRAMS
 ======================= */
 
-#CardProgram {
+.CardProgram {
     margin: 50px auto;
     width: 334px;
     height: 400px;
@@ -500,7 +500,7 @@ GRUPO PROGRAMS
     z-index: -100;
     transition: all 0.5s ease;
 }*/
-#CardProgram .ProgramImgResponsive{
+.CardProgram .ProgramImgResponsive{
     position: absolute;
     top:0px;
     right: 20px;
@@ -509,13 +509,14 @@ GRUPO PROGRAMS
     border-radius: 100%;
     border: none;
     width: 300px;
-    background-size: cover;
+    /*background-size: cover;*/
     background-position: center;
     min-height: 300px;
     z-index: -100;
     transition: all 0.9s ease;
+    background-size: 200%;
 }
-#CardProgram .ProgramImgResponsive p{
+.CardProgram .ProgramImgResponsive p{
     line-height: 200px;
     font-size: 10em;
     color: #ffffff;
@@ -525,13 +526,14 @@ GRUPO PROGRAMS
 /*#CardProgram:hover .backgroundImgResponsive{
     transform: scale(1.2);
 }*/
-#CardProgram:hover .ProgramImgResponsive{
+.CardProgram:hover .ProgramImgResponsive{
     transform: scale(1.2);
+    background-size: 100%;
 }
 /*#CardProgram:hover h2{
     background-color: rgba(255,255,255,1);
 }*/
-#CardProgram .programTitle{
+.CardProgram .programTitle{
     padding-top: 5px;
     padding-bottom: 10px;
     z-index: 100;
@@ -542,12 +544,12 @@ GRUPO PROGRAMS
 .backgroundOver1_force{
     background-color: #1ba7c1 !important;
 }
-#CardProgram .programTitle h3{
+.CardProgram .programTitle h3{
     font-weight: 200 !important;
     font-size: 0.5em !important;
     margin-left: 5px;
 }
-#CardProgram .programTitle h1{
+.CardProgram .programTitle h1{
     margin-top: -5px;
     margin-left: 5px;
     font-weight: 700 !important;
@@ -555,7 +557,7 @@ GRUPO PROGRAMS
     line-height: 1;
     transition: all 0.1s ease;
 }
-#CardProgram h2{
+.CardProgram h2{
     position: absolute;
     top:305px;
     font-weight: 200 !important;
@@ -569,10 +571,10 @@ GRUPO PROGRAMS
     transition: all 0.5s ease;
 }
 
-#CardProgram h2 strong{
+.CardProgram h2 strong{
     font-weight: 700 !important;
 }
-#CardProgram img {
+.CardProgram img {
     /*position: absolute;
     top:350px;*/
     margin-top: 10px;
@@ -1138,7 +1140,7 @@ GRUPO FACULTY
 GRUPO BLOG
 ======================= */
 
-#CardBlog {
+.CardBlog {
     margin: 50px auto;
     width: 340px;
     height: 400px;
@@ -1155,7 +1157,7 @@ GRUPO BLOG
     transform: scale(1)!important;
 }*/
 
-#CardBlog .BlogImgResponsive{
+.CardBlog .BlogImgResponsive{
     position: absolute;
     top:0px;
     left: 0px;
@@ -1164,20 +1166,20 @@ GRUPO BLOG
     border-radius: 100%;
     border: none;
     width: 340px;
-    background-size: cover;
+    background-size: 200%;
     background-position: center;
     min-height: 340px;
     z-index: -100;
     transition: all 0.5s ease;
 }
-/*#CardBlog:hover .backgroundImgResponsive{
-    transform: scale(1.2);
+.CardBlog:hover .BlogImgResponsive{
+    background-size: 150%;
 }
-#CardBlog:hover .BlogImgResponsive{
+/*#CardBlog:hover .BlogImgResponsive{
     background-image: linear-gradient(rgba(0, 74, 135, 0.5),rgba(0, 74, 135, 0.5));
 }*/
 
-#CardBlog .BlogTxtResponsive{
+.CardBlog .BlogTxtResponsive{
     position: absolute;
     width:340px;
     height:340px;
@@ -1192,11 +1194,11 @@ GRUPO BLOG
     transition: all 0.5s;
     -webkit-transition: all 0.5s;
 }
-#CardBlog:hover .BlogTxtResponsive{
+.CardBlog:hover .BlogTxtResponsive{
     cursor: pointer;
     opacity:1;
 }
-#CardBlog .BlogTxtResponsive h1{
+.CardBlog .BlogTxtResponsive h1{
     margin-top: 30px;
     padding: 10px;
     font-weight: bold;
@@ -1223,7 +1225,7 @@ GRUPO BLOG
     background-color: rgba(255,255,255,1);
 }*/
 
-#CardBlog h3{
+.CardBlog h3{
     position: absolute;
     top:350px;
     font-weight: 200 !important;
@@ -1234,7 +1236,7 @@ GRUPO BLOG
     /*background-color: rgba(255,255,255,0);
     transition: all 0.5s ease;*/
 }
-#CardBlog h2{
+.CardBlog h2{
     position: absolute;
     top:365px;
     font-weight: 200 !important;
@@ -1245,7 +1247,7 @@ GRUPO BLOG
     /*background-color: rgba(255,255,255,0);
     transition: all 0.5s ease;*/
 }
-#CardBlog h2 strong{
+.CardBlog h2 strong{
     font-weight: 700 !important;
 }
 /*#CardBlog img {
