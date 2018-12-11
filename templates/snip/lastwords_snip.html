@@ -37,11 +37,11 @@
                 <div id="CarouselBanner" class="row">
                     <div class="col-lg-4 BannerButton" onclick="window.open('{{ settingsapply.applyLink |safe }}');">
                         <h1>
-                            APPLY<br>NOW
+                            {{ settingsapply.call|safe }}
                         </h1>
                         <h4><img src="{% static 'icons/down-arrow.png' %}"></h4>
-                        <h2>Open Inscriptions</h2>
-                        <h3>Summer 2019</h3>
+                        <h2>{{ settingsapply.landing1|safe }}</h2>
+                        <h3>{{ settingsapply.landing2|safe }}</h3>
                         <div class="BannerButtonBarra">
                             <div class="BarraAnim_Idle"></div>
                         </div>
