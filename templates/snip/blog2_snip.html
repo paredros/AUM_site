@@ -36,13 +36,13 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
                 <div id="CarouselBanner" class="row">
-                    <div class="col-lg-4 BannerButton">
+                    <div class="col-lg-4 BannerButton" onclick="window.location={% url 'blog' %}">
                         <h1>
-                            BLOG<br>STORIES
+                            {{ bloggeneral.bannerTitle | safe }}
                         </h1>
                         <h4><img src="{% static 'icons/down-arrow.png' %}"></h4>
-                        <h2>Out Journey</h2>
-                        <h3>Into Your Future</h3>
+                        <h2>{{ bloggeneral.bannerLine1 | safe }}</h2>
+                        <h3>{{ bloggeneral.bannerLine2 | safe }}</h3>
                         <div class="BannerButtonBarra">
                             <div class="BarraAnim_Idle"></div>
                         </div>

@@ -139,8 +139,8 @@ def pages(request, page_id):
 
 
     isHome = False;
-    if page_id=='home':
-        isHome = True
+    #if page_id=='home':
+    #    isHome = True
 
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)

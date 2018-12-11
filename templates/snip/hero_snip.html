@@ -209,6 +209,7 @@ usefontrich=si usa tipo que reacciona al bold
             <div class="col-lg-10">
                 {% if settingstop.typemodel == 'home' %}
                     <!--div class="font-weight-light TextoInicio fadeIn wow ShowAfterAnim" data-wow-delay="0.5s" style="display: none">{{ settingstop.texttop | safe }}</div-->
+                    {% if isHero %}
                     <div class="HeroTextStepBox"
                          style="position: fixed;width: 700px;height: 162px;top: 200px;left: 330px;overflow: hidden">
                         <div id="HeroTextStep_1" class="HeroTextStep"
@@ -228,6 +229,9 @@ usefontrich=si usa tipo que reacciona al bold
                              style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">go
                         </div>
                     </div>
+                    {% else %}
+                        <div class="font-weight-light TextoInicio fadeIn wow">{{ settingstop.texttop | safe }}</div>
+                    {% endif %}
                 {% elif settingstop.typemodel == 'program' %}
                     <div class="row HeroProgramSpace1">
                     </div>

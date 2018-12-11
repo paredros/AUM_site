@@ -16,7 +16,7 @@
         <div class="carousel-item">
             <div class="CarouselTest" style="background-image: url({% static section.value.img3 %})"></div>
         </div>
-          <h1 class="w-100 text-center">{{ section.value.title|safe }}
+          <h1 class="w-100 text-center" style="font-size: 4em">{{ section.value.title|safe }}
           </h1>
       </div>
       <a class="carousel-control-prev" href="#carouselApplyEnd" role="button" data-slide="prev">
@@ -50,7 +50,8 @@
                         <div class="lineaVertical"></div>
                     </div>
                     <div class="col-lg-7">
-                        <div class="BannerSuperText">{{ section.value.text|safe }}</div>
+                        <h5 style="font-size: 2em!important;">{{ section.value.text|safe }}</h5>
+                        <p></p>
                         <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
             <div class="col-lg-1"></div>
             <div class="col-lg-10">
                 <div id="CarouselBanner" class="row">
-                    <div class="col-lg-4 BannerButton">
+                    <div class="col-lg-4 BannerButton" onclick="window.location={% url 'blog' %}">
                         <h1>
                             {{ bloggeneral.bannerTitle | safe }}
                         </h1>
@@ -109,5 +109,17 @@
             $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active");
             $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
         })
+        $(".BannerButton").hover(function() {
+            $(this).css('cursor','pointer');
+            $(this).addClass('backgroundOver1_force');
+            $(this).addClass('text-white');
+            $(this).find('img').attr("src","{% static 'icons/down-arrow-2.png' %}");
+            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+        }, function () {
+            $(this).find('img').attr("src","{% static 'icons/down-arrow.png' %}");
+            $(this).removeClass('backgroundOver1_force');
+            $(this).removeClass('text-white');
+            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+        });
     }
 </script>

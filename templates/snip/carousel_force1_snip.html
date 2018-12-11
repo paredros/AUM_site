@@ -56,9 +56,9 @@
                     <div class="lineaVertical"></div>
                 </div>
                 <div class="col-lg-7">
-                    <h5>{{ forcedata.bannerExplain1 }}</h5>
+                    <h5>{{ forcedata.bannerExplain1 | safe}}</h5>
                     <p>
-                        {{ forcedata.bannerExplain2 }}
+                        {{ forcedata.bannerExplain2 | safe}}
                     </p>
                     <h6><img src="{% static 'icons/FlechaRight1.png' %}"></h6>
                 </div>
