@@ -80,7 +80,7 @@ usefontrich=si usa tipo que reacciona al bold
                      rgba(0,0,0, {{ settingstop.tintoverlay }})
                      );opacity: {{ isHome|yesno:'0,1' }}">
         {% else %}
-        <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight"
+            <div id="HeroOverlay" class="row fullViewportHeight backgroundImgResponsive ForceMinHeight"
              style="background-image: linear-gradient(
                      rgba(0, 74, 135, {{ settingstop.tintoverlay }}),
                      rgba(0, 74, 135, {{ settingstop.tintoverlay }})
@@ -100,7 +100,7 @@ usefontrich=si usa tipo que reacciona al bold
                 <img src="{{ topdata.logoImage1.url }}" class="img-fluid">
             </a>
             <div id="HeroLogoTexto">AUM</div>
-            <p>AMERICAN UNIVERSITY OF MALTA</p-->
+            <p>AMERICAN UNIVERSITY OF MALTA</p>
         {% endif %}
         <!--img src="{{ topdata.logoImage1.url }}" class="img-fluid">
             <div id="HeroLogoTexto">AUM</div>
@@ -111,7 +111,7 @@ usefontrich=si usa tipo que reacciona al bold
     <div class="col-lg-11">
         <div id="HeroMenuTop" class="row TopNav_General{{ settingstop.invertnavcolor|yesno:'heronavDark,' }}">
 
-            <div class="row TopNav_General slideInDown wow ShowAfterAnim ml-auto mr-2" style="display: none;">
+            <div class="row TopNav_General slideInDown wow ShowAfterAnim ml-auto mr-2" style="display: none;z-index: 900000">
                 <nav class="navbar navbar-expand-lg ml-auto">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
