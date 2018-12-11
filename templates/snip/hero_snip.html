@@ -403,9 +403,10 @@ usefontrich=si usa tipo que reacciona al bold
             new ScrollMagic.Scene({triggerElement: "#HeroLogo"})
                 .setTween("#VideoBack > video", {y: "100%", ease: Linear.easeNone})
                 .addTo(controller2);*/
-
+            var T1=5;
+            var T2=2;
             function MoveRandomImg1() {
-                TweenMax.to("#HeroImg1", Math.random() * 3 + 1, {
+                TweenMax.to("#HeroImg1", Math.random() * T1 + T2, {
                     'background-position': ((Math.random() * -500) - 300) + "px 50%",
                     onComplete: MoveRandomImg1
                 })
@@ -414,7 +415,7 @@ usefontrich=si usa tipo que reacciona al bold
             MoveRandomImg1()
 
             function MoveRandomImg2() {
-                TweenMax.to("#HeroImg2", Math.random() * 3 + 1, {
+                TweenMax.to("#HeroImg2", Math.random() * T1 + T2, {
                     'background-position': ((Math.random() * -500) + 100) + "px 50%",
                     onComplete: MoveRandomImg2
                 })
@@ -423,7 +424,7 @@ usefontrich=si usa tipo que reacciona al bold
             MoveRandomImg2()
 
             function MoveRandomImg3() {
-                TweenMax.to("#HeroImg3", Math.random() * 3 + 1, {
+                TweenMax.to("#HeroImg3", Math.random() * T1 + T2, {
                     'background-position': (Math.random() * -500) + "px 0%",
                     onComplete: MoveRandomImg3
                 })
@@ -432,7 +433,7 @@ usefontrich=si usa tipo que reacciona al bold
             MoveRandomImg3()
 
             function MoveRandomImg4() {
-                TweenMax.to("#HeroImg4", Math.random() * 3 + 1, {
+                TweenMax.to("#HeroImg4", Math.random() * T1 + T2, {
                     'background-position': ((Math.random() * 500) + 100) + "px 20%",
                     onComplete: MoveRandomImg4
                 })
@@ -463,7 +464,7 @@ usefontrich=si usa tipo que reacciona al bold
             var b1 = Math.random() * (b - 20) + 10;
             var b2 = b - b1;
             var d = 100 - a - b;
-            var t = Math.random() * 5 + 2;
+            var t = Math.random() * 10 + 5;
             if (tt > 0) {
                 t = tt;
             }

@@ -91,6 +91,7 @@ class ProgramData(models.Model):
     outlineXMLDATA = models.TextField(null=True, blank=True)
     futureBlock = models.TextField(default="",null=True, blank=True)
     futureBlock_keys = models.TextField(default="",null=True, blank=True)
+    futureRich = RichTextUploadingField(null=True, blank=True)
     degreeBlock = models.TextField(default="",null=True, blank=True)
 
     def __str__(self):

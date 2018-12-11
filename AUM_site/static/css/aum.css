@@ -1882,6 +1882,12 @@ GENERALES TEMP
     font-size: 1.5em;
     line-height: 1em;
 }
+.temp_Description2 strong{
+    font-weight: 900;
+}
+.temp_Description2 hr{
+    border-top: 1px solid white;
+}
 .temp_BlogContextTitle{
     margin-top: 30px;
     margin-left: -3px;
@@ -2519,6 +2525,32 @@ ANIMATION
 	left:-100%;right:-100%;
 	top:-100%;bottom:-100%;
   }
+/*====================================
+GRUPO STORY CARD
+======================= */
+.card_Story{
+    background-color: white;
+    font-size: 18px;
+    color: #121212;
+    padding: 10px;
+    /*-webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    border: none;*/
+}
+.card_Story img{
+    /*-webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    border: none;*/
+    width: 100%;
+    height: auto;
+    float: left;
+    margin-bottom: 20px;
+}
+.card_Story p{
+    /*padding: 20px;*/
+}
 
 /*====================================
 GRUPO PRUEBAS

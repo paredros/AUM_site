@@ -4,117 +4,125 @@
 {% block content %}
     {% include 'snip/animate_open.html' %}
     <div id="FullContent" style="visibility: hidden;overflow-x:hidden;">
-    <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
-    {% include 'snip/hero_snip.html' %}
-    {% include 'snip/topbanner_snip.html' %}
+        <!--tint overlay 0.5 normal, 0.8 darkest, 0 disabled-->
+        {% include 'snip/hero_snip.html' %}
+        {% include 'snip/topbanner_snip.html' %}
 
-    <div class="Space-100"></div>
-    <div class="container">
-        <div class="text-center tempProgram_BigText">
-            <p>{{ proggeneral.TextBig1 | safe }}</p>
-        </div>
-    </div>
-    <div class="Space-50"></div>
-    <div class="container">
-    <div class="row">
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3 BordeRight">
-            <!--TITLE MINI-->
-            <div class="tempProgram_Bachelor">{{ data.groupBachelor | safe }}</div>
-            <div class="tempProgram_TitleProgram">{{ data.title | safe }}</div>
-            <div class="tempProgram_TitleAproval">{{ data.titleClarification | safe }}</div>
-            <div class="Space-50"></div>
-            <!--BUTTON TALK TO ADMISSION-->
-            {% include "snip/button_talk_snip.html" %}
-            <div class="Space-25"></div>
-            <div class="row">
-                <!--BUTTON GET LEAFT-->
-                {% if data.leafletHas %}
-                <div class="col-lg-6">
-                    {% include "snip/button_getleaf_snip.html" %}
-                </div>
-                {% endif %}
-                <!--BUTTON SCHOLAR-->
-                <div class="col-lg-6">
-                    {% include "snip/button_scholar_snip.html" %}
-                </div>
-            </div>
-            <div class="Space-50"></div>
-            <!--APPLY NOW-->
-            <div class="row">
-                <div class="col-lg-12 SideApply">
-                    {% include 'snip/button_apply_snip.html' %}
-                </div>
+        <div class="Space-100"></div>
+        <div class="container">
+            <div class="text-center tempProgram_BigText">
+                <p>{{ proggeneral.TextBig1 | safe }}</p>
             </div>
         </div>
-        <div class="col-lg-7">
-            <!--YEAR, TUITION-->
-            <div class="row" >
-                <div class="col-lg-3 tempProgram_BigYears_holder">
-                    <div class="tempProgram_BigYears">{{ data.yearsLong }}</div>
-                    <div class="tempProgram_BigYears_sub">Years</div>
-                </div>
-
-                <div class="col-lg-5 tempProgram_BigTuition_holder">
-                    <div class="tempProgram_BigTuition">€{{ data.tuitonFee }}</div>
-                    <div class="tempProgram_BigTuition_sub">Tuition Fee/Year</div>
-                </div>
-
-                <div class="col-lg-4 tempProgram_BigTuition_Comment">
-                    {{ data.tuitonFeeClarification | safe }}
-                </div>
-            </div>
-            <!--DESCRIPTION-->
+        <div class="Space-50"></div>
+        <div class="container">
             <div class="row">
-                <div class="tempProgram_Description2">
-                    {{ data.description2 | safe }}
+                <div class="col-lg-1">
                 </div>
-            </div>
-            <!--FLECHA DOWN-->
-            <div class="Space-50"></div>
-            <div class="row">
-                <div class="mx-auto tempProgram_FlechaDown">
-                    <img src="{% static 'icons/down-arrow.png' %}">
-                </div>
-            </div>
-            <!-- CREDITOS-->
-            <div class="Space-50"></div>
-            <div class="row tempProgram_Credits_holder">
-                <div class="col-lg-12">
-                    <div class="tempProgram_Credits_Credit">{{ data.creditsTotal }}</div>
-                    <div class="tempProgram_Credits_Credit_sub">Credits</div>
-                    <div class="tempProgram_Credits_Outline">{{ proggeneral.PlanOutlineTitle | safe }}</div>
-                </div>
-            </div>
-            <!-- OUTLINE-->
-            <div class="row">
-                <section class="container py-4">
+                <div class="col-lg-3 BordeRight">
+                    <!--TITLE MINI-->
+                    <div class="tempProgram_Bachelor">{{ data.groupBachelor | safe }}</div>
+                    <div class="tempProgram_TitleProgram">{{ data.title | safe }}</div>
+                    <div class="tempProgram_TitleAproval">{{ data.titleClarification | safe }}</div>
+                    <div class="Space-50"></div>
+                    <!--BUTTON TALK TO ADMISSION-->
+                    {% include "snip/button_talk_snip.html" %}
+                    <div class="Space-25"></div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <!--BUTTON GET LEAFT-->
+                        {% if data.leafletHas %}
+                            <div class="col-lg-6">
+                                {% include "snip/button_getleaf_snip.html" %}
+                            </div>
+                        {% endif %}
+                        <!--BUTTON SCHOLAR-->
+                        <div class="col-lg-6">
+                            {% include "snip/button_scholar_snip.html" %}
+                        </div>
+                    </div>
+                    <div class="Space-50"></div>
+                    <!--APPLY NOW-->
+                    <div class="row">
+                        <div class="col-lg-12 SideApply">
+                            {% include 'snip/button_apply_snip.html' %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <!--YEAR, TUITION-->
+                    <div class="row">
+                        <div class="col-lg-3 tempProgram_BigYears_holder">
+                            <div class="tempProgram_BigYears">{{ data.yearsLong }}</div>
+                            <div class="tempProgram_BigYears_sub">Years</div>
+                        </div>
 
-                            <ul id="tabsJustified" class="nav nav-tabs nav-justified tabAUM">
-                                {% for x in tabla.groups %}
-                                    {% if forloop.first %}
-                                        <li class="nav-item"><a href="" data-target="#tabla{{ forloop.counter }}" data-toggle="tab" class="nav-link small active">{{ x.title | safe }}</a></li>
-                                    {% else %}
-                                        <li class="nav-item"><a href="" data-target="#tabla{{ forloop.counter }}" data-toggle="tab" class="nav-link small">{{ x.title | safe }}</a></li>
-                                    {% endif %}
+                        <div class="col-lg-5 tempProgram_BigTuition_holder">
+                            <div class="tempProgram_BigTuition">€{{ data.tuitonFee }}</div>
+                            <div class="tempProgram_BigTuition_sub">Tuition Fee/Year</div>
+                        </div>
 
-                                {% endfor %}
-                            </ul>
-                            <br>
-                            <div id="tabsJustifiedContent" class="tab-content">
-                                {% for x in tabla.groups %}
-                                    {% if forloop.first %}
-                                    <div id="tabla{{ forloop.counter }}" class="tab-pane fade active show">
-                                    {% else %}
-                                    <div id="tabla{{ forloop.counter }}" class="tab-pane fade">
-                                    {% endif %}
+                        <div class="col-lg-4 tempProgram_BigTuition_Comment">
+                            {{ data.tuitonFeeClarification | safe }}
+                        </div>
+                    </div>
+                    <!--DESCRIPTION-->
+                    <div class="row">
+                        <div class="tempProgram_Description2">
+                            {{ data.description2 | safe }}
+                        </div>
+                    </div>
+                    <!--FLECHA DOWN-->
+                    <div class="Space-50"></div>
+                    <div class="row">
+                        <div class="mx-auto tempProgram_FlechaDown">
+                            <img src="{% static 'icons/down-arrow.png' %}">
+                        </div>
+                    </div>
+                    <!-- CREDITOS-->
+                    <div class="Space-50"></div>
+                    <div class="row tempProgram_Credits_holder">
+                        <div class="col-lg-12">
+                            <div class="tempProgram_Credits_Credit">{{ data.creditsTotal }}</div>
+                            <div class="tempProgram_Credits_Credit_sub">Credits</div>
+                            <div class="tempProgram_Credits_Outline">{{ proggeneral.PlanOutlineTitle | safe }}</div>
+                        </div>
+                    </div>
+                    <!-- OUTLINE-->
+                    <div class="row">
+                        <section class="container py-4">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <ul id="tabsJustified" class="nav nav-tabs nav-justified tabAUM">
+                                        {% for x in tabla.groups %}
+                                            {% if forloop.first %}
+                                                <li class="nav-item"><a href=""
+                                                                        data-target="#tabla{{ forloop.counter }}"
+                                                                        data-toggle="tab"
+                                                                        class="nav-link small active">{{ x.title | safe }}</a>
+                                                </li>
+                                            {% else %}
+                                                <li class="nav-item"><a href=""
+                                                                        data-target="#tabla{{ forloop.counter }}"
+                                                                        data-toggle="tab"
+                                                                        class="nav-link small">{{ x.title | safe }}</a>
+                                                </li>
+                                            {% endif %}
+
+                                        {% endfor %}
+                                    </ul>
+                                    <br>
+                                    <div id="tabsJustifiedContent" class="tab-content">
+                                        {% for x in tabla.groups %}
+                                            {% if forloop.first %}
+                                                <div id="tabla{{ forloop.counter }}" class="tab-pane fade active show">
+                                            {% else %}
+                                                <div id="tabla{{ forloop.counter }}" class="tab-pane fade">
+                                            {% endif %}
 
                                         {% for tables in x.tables %}
                                             <div class="d-flex justify-content-between TableAUM_Title">
-                                                {% for columnatitulo in  tables.fieldstitle%}
+                                                {% for columnatitulo in  tables.fieldstitle %}
                                                     <p>{{ columnatitulo | safe }}</p>
                                                 {% endfor %}
                                             </div>
@@ -131,192 +139,249 @@
                                             </div>
                                             <div class="Space-50"></div>
                                         {% endfor %}
+                                        </div>
+
+                                        {% endfor %}
+
+                                        </div>
                                     </div>
-
-                                {% endfor %}
-
-                            </div>
-                        </div>
+                                </div>
+                        </section>
                     </div>
-                </section>
+                </div>
+                <div class="col-lg-1">
+                </div>
             </div>
         </div>
-        <div class="col-lg-1">
-        </div>
-    </div>
-    </div>
 
-    <div class="Space-100"></div>
-    {% include 'snip/centralcirc_snip.html' with cc_backcolor="#ce1731" cc_fontcolor="#FFFFFF" cc_id='YourFuture' cc_big1=proggeneral.FutureBanner cc_line1=proggeneral.FutureBanner_FirstLine cc_line2=proggeneral.FutureBanner_SecondLine%}
-    <div class="Space-50"></div>
-    <div class="container">
-        <!--FUTURE TEXT-->
-        <div class="row">
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-10">
-                {% for bloques in future.blocks %}
-                    <div class="Space-25"></div>
-                    {% if bloques.type == "text" %}
-                        <div class="CyanSection_text1 text-white">
-                            {{ bloques.content | safe }}
-                        </div>
-                    {% elif bloques.type == "white" %}
-                        <div class="CyanSection_resalted">
-                            {{ bloques.content | safe }}
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="col-lg-1">
-            </div>
-        </div>
         <div class="Space-100"></div>
-        <!--FUTURE CIRCULOS CHICOS-->
-        <div class="row">
-            <div class="col-lg-1">
-            </div>
-            <div class="col-lg-10 d-flex flex-wrap justify-content-center">
-                {% for keyv in future_key.keyValues %}
-                    <div class="CyanSection_CirculoMiniBlanco">
-                        <table class="Table-FullSize">
-                            <tbody class="text-center">
+        {% include 'snip/centralcirc_snip.html' with cc_backcolor="#ce1731" cc_fontcolor="#FFFFFF" cc_id='YourFuture' cc_big1=proggeneral.FutureBanner cc_line1=proggeneral.FutureBanner_FirstLine cc_line2=proggeneral.FutureBanner_SecondLine %}
+        <div class="Space-50"></div>
+        <div class="container">
+            <!--FUTURE TEXT-->
+            <!--div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-10">
+                    {% for bloques in future.blocks %}
+                        <div class="Space-25"></div>
+                        {% if bloques.type == "text" %}
+                            <div class="CyanSection_text1 text-white">
+                                {{ bloques.content | safe }}
+                            </div>
+                        {% elif bloques.type == "white" %}
+                            <div class="CyanSection_resalted">
+                                {{ bloques.content | safe }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-lg-1">
+                </div>
+            </div-->
+            <div class="Space-10"></div>
+            <!--FUTURE CIRCULOS CHICOS-->
+            <div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-10 d-flex flex-wrap justify-content-center">
+                    {% for keyv in future_key.keyValues %}
+                        <div class="CyanSection_CirculoMiniBlanco">
+                            <table class="Table-FullSize">
+                                <tbody class="text-center">
                                 <tr>
                                     <td class="align-middle">
                                         <span>{{ keyv | safe }}</span>
                                     </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="col-lg-1">
+                </div>
+            </div>
+            <!--FUTURE RICH-->
+            <div class="Space-100"></div>
+            <div class="row">
+                <!--div class="col-lg-1">
+            </div>
+            <div class="col-lg-10">
+                <div class="CyanSection_text1 text-white">
+                    {{ data.futureRich | safe }}
+                </div>
             </div>
             <div class="col-lg-1">
-            </div>
-        </div>
-    </div>
+            </div-->
 
-    <!--DegreePin-->
-    <div class="Space-100"></div>
-    {% include 'snip/centralcirc_snip.html' with cc_backcolor="#FFFFFF" cc_fontcolor="#121212" cc_id='DegreePin' cc_big1=proggeneral.DegreeBanner cc_line1=proggeneral.DegreeBanner_FirstLine cc_line2=proggeneral.DegreeBanner_SecondLine%}
-    <div class="Space-50"></div>
-
-    <div class="container">
-    <div class="row">
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-3 BordeRightWhite text-white">
-            <!--TITLE MINI-->
-            <div class="tempProgram_Bachelor">{{ data.groupBachelor | safe }}</div>
-            <div class="tempProgram_TitleProgram">{{ data.title | safe }}</div>
-            <div class="tempProgram_TitleAproval">{{ data.titleClarification | safe }}</div>
-            <div class="Space-50"></div>
-            <!--BUTTON TALK TO ADMISSION-->
-            {% include "snip/button_talk_snip.html" with button_coloricon='white' %}
-            <div class="Space-25"></div>
-            <div class="row">
-                <!--BUTTON GET LEAFT-->
-                {% if data.leafletHas %}
-                <div class="col-lg-6">
-                    {% include "snip/button_getleaf_snip.html" with button_coloricon='white'%}
+                <div class="col-lg-1">
                 </div>
-                {% endif %}
-                <!--BUTTON SCHOLAR-->
-                <div class="col-lg-6">
-                    {% include "snip/button_scholar_snip.html" with button_coloricon='white'%}
-                </div>
-            </div>
-            <div class="Space-50"></div>
-        </div>
-        <div class="col-lg-7">
-            <!--YEAR, TUITION-->
-            <!--DESCRIPTION-->
-            {% for degblock in degree.blocks %}
-                    {% if degblock.type == "text" %}
-                        <div class="row">
-                            <div class="temp_Description2 text-white ">
-                             {{ degblock.content | safe }}
+                <div class="col-lg-3 BordeRightWhite text-white">
+                    <!--TITLE MINI-->
+                    <div class="tempProgram_Bachelor">{{ data.groupBachelor | safe }}</div>
+                    <div class="tempProgram_TitleProgram">{{ data.title | safe }}</div>
+                    <div class="tempProgram_TitleAproval">{{ data.titleClarification | safe }}</div>
+                    <div class="Space-50"></div>
+                    <!--BUTTON TALK TO ADMISSION-->
+                    {% include "snip/button_talk_snip.html" with button_coloricon='white' %}
+                    <div class="Space-25"></div>
+                    <div class="row">
+                        <!--BUTTON GET LEAFT-->
+                        {% if data.leafletHas %}
+                            <div class="col-lg-6">
+                                {% include "snip/button_getleaf_snip.html" with button_coloricon='white' %}
                             </div>
+                        {% endif %}
+                        <!--BUTTON SCHOLAR-->
+                        <div class="col-lg-6">
+                            {% include "snip/button_scholar_snip.html" with button_coloricon='white' %}
                         </div>
-                    {% elif degblock.type == "white_detail" %}
-                        <div class="d-block p-lg-3 BackgroundWhite pb-lg-5 mt-lg-5">
-                            {{ degblock.content | safe }}
+                    </div>
+                    <div class="Space-50"></div>
+                </div>
+                <div class="col-lg-7">
+
+                    <div class="temp_Description2 text-white ">
+                        {{ data.futureRich | safe }}
+                    </div>
+
+                </div>
+                <div class="col-lg-1">
+                </div>
+            </div>
+        </div>
+
+        <!--DegreePin-->
+        <div class="Space-100"></div>
+        {% include 'snip/centralcirc_snip.html' with cc_backcolor="#FFFFFF" cc_fontcolor="#121212" cc_id='DegreePin' cc_big1=proggeneral.DegreeBanner cc_line1=proggeneral.DegreeBanner_FirstLine cc_line2=proggeneral.DegreeBanner_SecondLine %}
+        <div class="Space-50"></div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-1">
+                </div>
+                <div class="col-lg-3 BordeRightWhite text-white">
+                    <!--TITLE MINI-->
+                    <div class="tempProgram_Bachelor">{{ data.groupBachelor | safe }}</div>
+                    <div class="tempProgram_TitleProgram">{{ data.title | safe }}</div>
+                    <div class="tempProgram_TitleAproval">{{ data.titleClarification | safe }}</div>
+                    <div class="Space-50"></div>
+                    <!--BUTTON TALK TO ADMISSION-->
+                    {% include "snip/button_talk_snip.html" with button_coloricon='white' %}
+                    <div class="Space-25"></div>
+                    <div class="row">
+                        <!--BUTTON GET LEAFT-->
+                        {% if data.leafletHas %}
+                            <div class="col-lg-6">
+                                {% include "snip/button_getleaf_snip.html" with button_coloricon='white' %}
+                            </div>
+                        {% endif %}
+                        <!--BUTTON SCHOLAR-->
+                        <div class="col-lg-6">
+                            {% include "snip/button_scholar_snip.html" with button_coloricon='white' %}
                         </div>
-                    {% endif %}
-            {% endfor %}
+                    </div>
+                    <div class="Space-50"></div>
+                </div>
+                <div class="col-lg-7">
+                    <!--YEAR, TUITION-->
+                    <!--DESCRIPTION-->
+                    {% for degblock in degree.blocks %}
+                        {% if degblock.type == "text" %}
+                            <div class="row">
+                                <div class="temp_Description2 text-white ">
+                                    {{ degblock.content | safe }}
+                                </div>
+                            </div>
+                        {% elif degblock.type == "white_detail" %}
+                            <div class="d-block p-lg-3 BackgroundWhite pb-lg-5 mt-lg-5">
+                                {{ degblock.content | safe }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
 
 
+                </div>
+                <div class="col-lg-1">
+                </div>
+            </div>
         </div>
-        <div class="col-lg-1">
-        </div>
+        <div class="Space-100"></div>
+        {% include 'snip/minibannercirc_snip.html' %}
+        <div class="Space-200"></div>
+
+        {% include 'snip/blog_snip.html' with bb_contextitle=data.title %}
+
+        <div class="Space-200"></div>
+
+        {% include 'snip/footer_snip.html' %}
+        {% include 'snip/topnavstick_snip.html' %}
     </div>
-    </div>
-    <div class="Space-100"></div>
-    {% include 'snip/minibannercirc_snip.html' %}
-    <div class="Space-200"></div>
+    <script>
 
-    {% include 'snip/blog_snip.html' with bb_contextitle=data.title %}
-
-    <div class="Space-200"></div>
-
-    {% include 'snip/footer_snip.html' %}
-    {% include 'snip/topnavstick_snip.html' %}
-    </div>
-<script>
-
-    function ScriptContent() {
+        function ScriptContent() {
 
 
+            $(".TalkAdmission_holder").hover(function () {
+                $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active");
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            })
+            $(".SidButtonMini_holder").hover(function () {
+                $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
+                $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
+            }, function () {
+                $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
+                $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
+            })
 
-        $(".TalkAdmission_holder").hover(function () {
-            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active");
-            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
-        }, function () {
-            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active");
-            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
-        })
-        $(".SidButtonMini_holder").hover(function () {
-            $(this).find(".MoreButton_Over").addClass("MoreButton_Over_Active_40");
-            $(this).find('.BarraAnim_Idle').addClass('BarraAnim_Active');
-        }, function () {
-            $(this).find(".MoreButton_Over").removeClass("MoreButton_Over_Active_40");
-            $(this).find('.BarraAnim_Idle').removeClass('BarraAnim_Active');
-        })
+            $('.CyanSection_CirculoMiniBlanco').textfill({changeLineHeight: true});
 
-        $('.CyanSection_CirculoMiniBlanco').textfill({changeLineHeight:true});
-
-        var controller = new ScrollMagic.Controller({loglevel: 3});
-        var YourFuture = new ScrollMagic.Scene({triggerElement:"#YourFuture", triggerHook: "0.3", duration: 500, loglevel: 3})
-										.setPin("#YourFuture")
-                                        .setTween("body", {backgroundColor: "#084b85"})
-										.addTo(controller);
-
-
-        var DegreePin = new ScrollMagic.Scene({triggerElement:"#DegreePin", triggerHook: "0.3", duration: 500, loglevel: 3})
-										.setPin("#DegreePin")
-                                        .setTween("body", {backgroundColor: "#C7C9BF"})
-										.addTo(controller);
+            var controller = new ScrollMagic.Controller({loglevel: 3});
+            var YourFuture = new ScrollMagic.Scene({
+                triggerElement: "#YourFuture",
+                triggerHook: "0.3",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#YourFuture")
+                .setTween("body", {backgroundColor: "#084b85"})
+                .addTo(controller);
 
 
-        if($("#TopMenuMini").length) {
-                    var TopMenuMiniScroll = new ScrollMagic.Scene({
-                        triggerElement: "#HeroBannerApply",
-                        triggerHook: 0,
-                        duration: 0
-                    })
-                        .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
-                        .addTo(controller);
-                }
+            var DegreePin = new ScrollMagic.Scene({
+                triggerElement: "#DegreePin",
+                triggerHook: "0.3",
+                duration: 500,
+                loglevel: 3
+            })
+                .setPin("#DegreePin")
+                .setTween("body", {backgroundColor: "#C7C9BF"})
+                .addTo(controller);
 
-        HeroVideoBackEnable();
-        TopBannerActivation();
-        BannerCircActivation();
-        BlogEnabled(controller);
-        FooterEnable();
-        {% if not viewintroanim %}
-            PreloadOut()
-        {% endif %}
-    }
-</script>
+
+            if ($("#TopMenuMini").length) {
+                var TopMenuMiniScroll = new ScrollMagic.Scene({
+                    triggerElement: "#HeroBannerApply",
+                    triggerHook: 0,
+                    duration: 0
+                })
+                    .setTween("#TopMenuMini", 0.1, {opacity: 1, ease: Power0.easeNone})
+                    .addTo(controller);
+            }
+
+            HeroVideoBackEnable();
+            TopBannerActivation();
+            BannerCircActivation();
+            BlogEnabled(controller);
+            FooterEnable();
+            {% if not viewintroanim %}
+                PreloadOut()
+            {% endif %}
+        }
+    </script>
 
 {% endblock content %}
