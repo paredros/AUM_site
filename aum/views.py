@@ -139,7 +139,14 @@ def pages(request, page_id):
 
 
     isHome = False;
-    #if page_id=='home':
+    forcevideo=False
+
+    if page_id == 'home':
+        forcevideo = request.session.get('forcevideo', False)
+        tforce = request.GET.get('forcevideo')
+        if tforce is not None:
+            forcevideo = tforce
+            request.session['forcevideo'] = forcevideo
     #    isHome = True
 
     navdata = NavSetting.objects.first()
@@ -225,7 +232,8 @@ def pages(request, page_id):
                                                  'formnewsletter':formnewsletter,
                                                  'viewintroanim':False,
                                                  'isHome':isHome,
-                                                 'data':data
+                                                 'data':data,
+                                                 'forcevideo':forcevideo
                                                  })
 
 def professors(request, prof_id):
