@@ -214,28 +214,28 @@ usefontrich=si usa tipo que reacciona al bold
             <div class="col-lg-10">
                 {% if settingstop.typemodel == 'home' %}
                     <!--div class="font-weight-light TextoInicio fadeIn wow ShowAfterAnim" data-wow-delay="0.5s" style="display: none">{{ settingstop.texttop | safe }}</div-->
-                    {% if isHero %}
-                    <div class="HeroTextStepBox"
-                         style="position: fixed;width: 700px;height: 162px;top: 200px;left: 330px;overflow: hidden">
-                        <div id="HeroTextStep_1" class="HeroTextStep"
-                             style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Step into
-                        </div>
-                    </div>
-                    <div class="HeroTextStepBox"
-                         style="position: fixed;width: 700px;height: 100px;top: 370px;left: 330px;overflow: hidden">
-                        <div id="HeroTextStep_2" class="HeroTextStep"
-                             style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Your
-                            Future
-                        </div>
-                    </div>
-                    <div class="HeroTextStepBox"
-                         style="position: fixed;width: 700px;height: 162px;top: 370px;left: 10px;overflow: hidden">
-                        <div id="HeroTextStep_3" class="HeroTextStep"
-                             style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">go
-                        </div>
-                    </div>
-                    {% else %}
+                    {% if largetext == 'True' %}
                         <div class="font-weight-light TextoInicio fadeIn wow">{{ settingstop.texttop | safe }}</div>
+                    {% else %}
+                        <div class="HeroTextStepBox"
+                             style="position: fixed;width: 700px;height: 162px;top: 200px;left: 330px;overflow: hidden">
+                            <div id="HeroTextStep_1" class="HeroTextStep"
+                                 style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Step into
+                            </div>
+                        </div>
+                        <div class="HeroTextStepBox"
+                             style="position: fixed;width: 700px;height: 100px;top: 370px;left: 330px;overflow: hidden">
+                            <div id="HeroTextStep_2" class="HeroTextStep"
+                                 style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">Your
+                                Future
+                            </div>
+                        </div>
+                        <div class="HeroTextStepBox"
+                             style="position: fixed;width: 700px;height: 162px;top: 370px;left: 10px;overflow: hidden">
+                            <div id="HeroTextStep_3" class="HeroTextStep"
+                                 style="font-size: 120px;position: absolute;top: 200px;left:10px;font-weight: 900">go
+                            </div>
+                        </div>
                     {% endif %}
                 {% elif settingstop.typemodel == 'program' %}
                     <div class="row HeroProgramSpace1">
@@ -457,6 +457,9 @@ usefontrich=si usa tipo que reacciona al bold
                     MoveRandomHolders();
                 {% endif %}
             {% endif %}
+            if($('#HeroTextStep_1').length){
+                HeroHomeStepAnim()
+            }
         }
 
         function StartHeroHomAnim() {
@@ -507,4 +510,5 @@ usefontrich=si usa tipo que reacciona al bold
             };
             window.addEventListener('scroll', scroller, false);
         }
+
     </script>

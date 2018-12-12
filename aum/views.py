@@ -149,6 +149,14 @@ def pages(request, page_id):
             request.session['forcevideo'] = forcevideo
     #    isHome = True
 
+    largetext=False
+    if page_id == 'home':
+        largetext = request.session.get('largetext', False)
+        tlarge = request.GET.get('largetext')
+        if tlarge is not None:
+            largetext = tlarge
+            request.session['largetext']=largetext
+
     navdata = NavSetting.objects.first()
     topnav = json.loads(navdata.topNavBar)
     footernav = json.loads(navdata.footerNav)
@@ -233,7 +241,8 @@ def pages(request, page_id):
                                                  'viewintroanim':False,
                                                  'isHome':isHome,
                                                  'data':data,
-                                                 'forcevideo':forcevideo
+                                                 'forcevideo':forcevideo,
+                                                 'largetext':largetext
                                                  })
 
 def professors(request, prof_id):
